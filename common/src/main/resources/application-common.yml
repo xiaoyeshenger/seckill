@@ -1,0 +1,91 @@
+# 将所有数字转为 String 类型返回，避免前端数据精度丢失的问题
+jackson:
+  generator:
+    write-numbers-as-strings: true
+
+#请求头
+server:
+  max-http-header-size: 102400
+  tomcat:
+    # basedir: E:/staticResource/upload_temp
+    basedir: /data/staticResource/upload_temp
+
+mybatis:
+  configuration:
+    #自动将数据库带下划线的表字段值映射到Java类的驼峰字段上
+    map-underscore-to-camel-case: true
+  mapper-locations: classpath*:mybatis-mapper/*.xml
+  type-aliases-package: com.jsxa.vapp.*.po
+
+logging:
+  config: classpath:logback-boot.xml
+  #level:
+    #org.springframework.data.mongodb.core.MongoTemplate: DEBUG
+
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  #数据库
+  #datasource:
+    #type: com.alibaba.druid.pool.DruidDataSource
+    #接口加密key
+  encrypt:
+    key: www.scgsis.com
+  #文件上传大小
+  servlet:
+    multipart:
+      enabled: true
+      maxFileSize: 50MB
+      maxRequestSize: 200MB
+  http:
+    multipart:
+      enabled: true
+
+  # 资源信息
+  messages:
+    # 国际化资源文件路径
+    basename: i18n/messages
+
+#feigin支持httpclient
+feign:
+  httpclient:
+    enabled: true
+
+#关闭请求超时重试
+ribbon:
+  ReadTimeout: 30000   #负载均衡超时时间，默认值5000
+  ConnectTimeout: 30000 #ribbon请求连接的超时时间，默认值2000
+  MaxAutoRetries: 0
+  MaxAutoRetriesNextServer: 0
+
+#关掉mq的健康检查，防止某些没有用到mq的服务启动报错，个别服务如需mq监控，单独开启
+management:
+  health:
+    rabbit:
+      enabled: false
+
+sys:
+  file:
+    uploadPrefix: E:/staticResource/
+    accessPrefix: http://192.168.1.200:750/api/sr/ic/
+  jpush:
+    masterSecret: 3d6791b2dd9851a576712d49
+    appkey: 9e37ecd169dc02d2074fb737
+    smsTplId: 155844
+  pwd:
+    salt: js2022hgfedcba
+
+
+threadPoolConfig:
+  corePool:
+    size: 8
+  maxPool:
+    size: 16
+  queueCapacity:
+    size: 3600
+  keepAlive:
+    Seconds: 300
+
+mq:
+  broker:
+    url: http://192.168.2.243:8088

@@ -1,0 +1,76 @@
+2024-03-01 15:03:20,018 INFO (NacosPropertySourceBuilder.java:87)- Loading nacos data, dataId: 'redis.yml', group: 'common'
+2024-03-01 15:03:20,041 INFO (NacosPropertySourceBuilder.java:87)- Loading nacos data, dataId: 'mongo.yml', group: 'common'
+2024-03-01 15:03:20,046 INFO (NacosPropertySourceBuilder.java:87)- Loading nacos data, dataId: 'jwt.yml', group: 'common'
+2024-03-01 15:03:20,053 INFO (NacosPropertySourceBuilder.java:87)- Loading nacos data, dataId: 'minio.yml', group: 'common'
+2024-03-01 15:03:20,071 INFO (NacosPropertySourceBuilder.java:87)- Loading nacos data, dataId: 'seata.yml', group: 'common'
+2024-03-01 15:03:20,080 INFO (NacosPropertySourceBuilder.java:87)- Loading nacos data, dataId: 'inventory-service.yml', group: 'inventory-service'
+2024-03-01 15:03:20,098 INFO (PropertySourceBootstrapConfiguration.java:105)- Located property source: [BootstrapPropertySource {name='bootstrapProperties-inventory-service-dev.yml'}, BootstrapPropertySource {name='bootstrapProperties-inventory-service-common.yml'}, BootstrapPropertySource {name='bootstrapProperties-inventory-service.yml'}, BootstrapPropertySource {name='bootstrapProperties-seata.yml'}, BootstrapPropertySource {name='bootstrapProperties-minio.yml'}, BootstrapPropertySource {name='bootstrapProperties-jwt.yml'}, BootstrapPropertySource {name='bootstrapProperties-mongo.yml'}, BootstrapPropertySource {name='bootstrapProperties-redis.yml'}]
+2024-03-01 15:03:24,918 INFO (SpringApplication.java:655)- The following profiles are active: common,dev
+2024-03-01 15:03:26,502 WARN (EndpointId.java:155)- Endpoint ID 'nacos-config' contains invalid characters, please migrate to a valid format.
+2024-03-01 15:03:26,507 WARN (EndpointId.java:155)- Endpoint ID 'nacos-discovery' contains invalid characters, please migrate to a valid format.
+2024-03-01 15:03:27,048 INFO (RepositoryConfigurationDelegate.java:249)- Multiple Spring Data modules found, entering strict repository configuration mode!
+2024-03-01 15:03:27,049 INFO (RepositoryConfigurationDelegate.java:127)- Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-03-01 15:03:27,121 INFO (RepositoryConfigurationDelegate.java:187)- Finished Spring Data repository scanning in 60ms. Found 0 JPA repository interfaces.
+2024-03-01 15:03:27,129 INFO (RepositoryConfigurationDelegate.java:249)- Multiple Spring Data modules found, entering strict repository configuration mode!
+2024-03-01 15:03:27,129 INFO (RepositoryConfigurationDelegate.java:127)- Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2024-03-01 15:03:27,154 INFO (RepositoryConfigurationDelegate.java:187)- Finished Spring Data repository scanning in 26ms. Found 0 MongoDB repository interfaces.
+2024-03-01 15:03:27,176 INFO (RepositoryConfigurationDelegate.java:249)- Multiple Spring Data modules found, entering strict repository configuration mode!
+2024-03-01 15:03:27,178 INFO (RepositoryConfigurationDelegate.java:127)- Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2024-03-01 15:03:27,213 INFO (RepositoryConfigurationDelegate.java:187)- Finished Spring Data repository scanning in 26ms. Found 0 Redis repository interfaces.
+2024-03-01 15:03:27,382 WARN (EndpointId.java:155)- Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2024-03-01 15:03:27,564 INFO (GenericScope.java:295)- BeanFactory id=f972fdaf-b694-3e66-a62f-a68fb1160504
+2024-03-01 15:03:27,797 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'spring.cloud.alibaba.seata-com.alibaba.cloud.seata.SeataProperties' of type [com.alibaba.cloud.seata.SeataProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-03-01 15:03:27,797 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'com.alibaba.cloud.seata.GlobalTransactionAutoConfiguration' of type [com.alibaba.cloud.seata.GlobalTransactionAutoConfiguration$$EnhancerBySpringCGLIB$$fc118ac0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-03-01 15:03:27,874 WARN (FileConfiguration.java:204)- Could not found property config.type, try to use default value instead.
+2024-03-01 15:03:27,878 WARN (AbstractApplicationContext.java:558)- Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'globalTransactionScanner' defined in class path resource [com/alibaba/cloud/seata/GlobalTransactionAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [io.seata.spring.annotation.GlobalTransactionScanner]: Factory method 'globalTransactionScanner' threw exception; nested exception is io.seata.common.exception.NotSupportYetException: not support register type: null
+2024-03-01 15:03:27,896 INFO (ConditionEvaluationReportLoggingListener.java:136)- 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2024-03-01 15:03:27,916 ERROR (SpringApplication.java:826)- Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'globalTransactionScanner' defined in class path resource [com/alibaba/cloud/seata/GlobalTransactionAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [io.seata.spring.annotation.GlobalTransactionScanner]: Factory method 'globalTransactionScanner' threw exception; nested exception is io.seata.common.exception.NotSupportYetException: not support register type: null
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:656)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:484)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1338)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1177)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:557)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:517)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:321)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:207)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.registerBeanPostProcessors(PostProcessorRegistrationDelegate.java:228)
+	at org.springframework.context.support.AbstractApplicationContext.registerBeanPostProcessors(AbstractApplicationContext.java:722)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:535)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:141)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:747)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1215)
+	at com.jsxa.vapp.InventoryApplication.main(InventoryApplication.java:19)
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [io.seata.spring.annotation.GlobalTransactionScanner]: Factory method 'globalTransactionScanner' threw exception; nested exception is io.seata.common.exception.NotSupportYetException: not support register type: null
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:185)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:651)
+	... 19 common frames omitted
+Caused by: io.seata.common.exception.NotSupportYetException: not support register type: null
+	at io.seata.config.ConfigurationFactory.buildConfiguration(ConfigurationFactory.java:80)
+	at io.seata.config.ConfigurationFactory.getInstance(ConfigurationFactory.java:65)
+	at io.seata.spring.annotation.GlobalTransactionScanner.<init>(GlobalTransactionScanner.java:81)
+	at io.seata.spring.annotation.GlobalTransactionScanner.<init>(GlobalTransactionScanner.java:124)
+	at io.seata.spring.annotation.GlobalTransactionScanner.<init>(GlobalTransactionScanner.java:113)
+	at com.alibaba.cloud.seata.GlobalTransactionAutoConfiguration.globalTransactionScanner(GlobalTransactionAutoConfiguration.java:58)
+	at com.alibaba.cloud.seata.GlobalTransactionAutoConfiguration$$EnhancerBySpringCGLIB$$fc118ac0.CGLIB$globalTransactionScanner$0(<generated>)
+	at com.alibaba.cloud.seata.GlobalTransactionAutoConfiguration$$EnhancerBySpringCGLIB$$fc118ac0$$FastClassBySpringCGLIB$$283933d6.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:244)
+	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:331)
+	at com.alibaba.cloud.seata.GlobalTransactionAutoConfiguration$$EnhancerBySpringCGLIB$$fc118ac0.globalTransactionScanner(<generated>)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:154)
+	... 20 common frames omitted
+Caused by: java.lang.IllegalArgumentException: illegal type:null
+	at io.seata.config.ConfigType.getType(ConfigType.java:62)
+	at io.seata.config.ConfigurationFactory.buildConfiguration(ConfigurationFactory.java:78)
+	... 35 common frames omitted

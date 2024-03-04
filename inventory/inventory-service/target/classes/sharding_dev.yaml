@@ -1,0 +1,68 @@
+props:
+  sql-show: true
+  sql-simple: true
+databaseName: database_discovery_db
+dataSources:
+  ds_0:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    dataSourceClassName: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:mysql://192.168.2.241:3331/inventory?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai
+    username: root
+    password: jskjmy666999
+    connectionTimeoutMilliseconds: 3000
+    idleTimeoutMilliseconds: 60000
+    maxLifetimeMilliseconds: 1800000
+    maxPoolSize: 50
+    minPoolSize: 1
+  ds_1:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    dataSourceClassName: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:mysql://192.168.2.241:3332/inventory?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai
+    username: root
+    password: jskjmy666999
+    connectionTimeoutMilliseconds: 3000
+    idleTimeoutMilliseconds: 60000
+    maxLifetimeMilliseconds: 1800000
+    maxPoolSize: 50
+    minPoolSize: 1
+  ds_2:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    dataSourceClassName: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:mysql://192.168.2.241:3333/inventory?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai
+    username: root
+    password: jskjmy666999
+    connectionTimeoutMilliseconds: 3000
+    idleTimeoutMilliseconds: 60000
+    maxLifetimeMilliseconds: 1800000
+    maxPoolSize: 50
+    minPoolSize: 1
+rules:
+  - !READWRITE_SPLITTING
+    dataSources:
+      replica_ds:
+        type: Dynamic
+        loadBalancerName: my_load_Balancer
+        props:
+          autoAwareDataSourceName: readwrite_ds
+          #writeDataSourceQueryEnabled: true
+    loadBalancers:
+      my_load_Balancer:
+        type: ROUND_ROBIN
+  - !DB_DISCOVERY
+    dataSources:
+      readwrite_ds:
+        dataSourceNames:
+          - ds_0
+          - ds_1
+          - ds_2
+        discoveryHeartbeatName: mgr_heartbeat
+        discoveryTypeName: mgr
+    discoveryHeartbeats:
+      mgr_heartbeat:
+        props:
+          keep-alive-cron: '0/5 * * * * ?'
+    discoveryTypes:
+      mgr:
+        type: MySQL.MGR
+        props:
+          group-name: 62536350-cfd8-11ee-8613-0242ac1a0004

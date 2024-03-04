@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="codeGen" />
+        <module name="taskCenter-service" />
+        <module name="inventory-service" />
+        <module name="common" />
+        <module name="inventory-api" />
+        <module name="sys-api" />
+        <module name="order-service" />
+        <module name="sys-service" />
+        <module name="order-api" />
+        <module name="taskCenter-api" />
+        <module name="gateway" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="vapp-api" target="1.8" />
+      <module name="vapp-service" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="codeGen" options="-parameters" />
+      <module name="common" options="-parameters" />
+      <module name="gateway" options="-parameters" />
+      <module name="inventory-api" options="-parameters" />
+      <module name="inventory-service" options="-parameters" />
+      <module name="order-api" options="-parameters" />
+      <module name="order-service" options="-parameters" />
+      <module name="sys-api" options="-parameters" />
+      <module name="sys-service" options="-parameters" />
+      <module name="taskCenter-api" options="-parameters" />
+      <module name="taskCenter-service" options="-parameters" />
+      <module name="vapp-api" options="-parameters" />
+      <module name="vapp-service" options="-parameters" />
+    </option>
+  </component>
+</project>

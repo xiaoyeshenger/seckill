@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: gateway
+  profiles:
+    active: dev
+  cloud:
+    nacos:
+      config:
+        server-addr: 192.168.1.5:8848
+        file-extension: yml
+        group: ${spring.application.name}
+        namespace: b2b3bb4b-8af7-4c8b-9545-f8b2382065cc
+        ext‐config[0]:
+          data‐id: redis.yml
+          group: common
+          refresh: true
+      discovery:
+        server-addr: 192.168.1.5:8848
+    #关闭Spring自带的X-Forwarded-Prefix设置
+    gateway:
+      x-forwarded:
+        prefix-enabled: false
+  main:
+    allow-bean-definition-overriding: true

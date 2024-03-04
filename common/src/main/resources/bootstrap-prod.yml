@@ -1,0 +1,13 @@
+spring:
+  cloud:
+    nacos:
+      config:
+        server-addr: nacos:8848
+        file-extension: yml
+        group: ${spring.application.name}
+        namespace: f926330c-77e6-4ff4-8fff-927e4918badd
+        timeout: 60000
+      discovery:
+        server-addr: nacos:8848
+        namespace: f926330c-77e6-4ff4-8fff-927e4918badd
+

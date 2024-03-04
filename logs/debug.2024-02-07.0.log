@@ -1,0 +1,1076 @@
+2024-02-07 11:51:54,687 INFO (NacosPropertySourceBuilder.java:87)- Loading nacos data, dataId: 'redis.yml', group: 'common'
+2024-02-07 11:51:54,715 INFO (NacosPropertySourceBuilder.java:87)- Loading nacos data, dataId: 'mongo.yml', group: 'common'
+2024-02-07 11:51:54,722 INFO (NacosPropertySourceBuilder.java:87)- Loading nacos data, dataId: 'jwt.yml', group: 'common'
+2024-02-07 11:51:54,730 INFO (NacosPropertySourceBuilder.java:87)- Loading nacos data, dataId: 'minio.yml', group: 'common'
+2024-02-07 11:51:54,735 INFO (NacosPropertySourceBuilder.java:87)- Loading nacos data, dataId: 'inventory-service.yml', group: 'inventory-service'
+2024-02-07 11:51:54,747 INFO (PropertySourceBootstrapConfiguration.java:105)- Located property source: [BootstrapPropertySource {name='bootstrapProperties-inventory-service-dev.yml'}, BootstrapPropertySource {name='bootstrapProperties-inventory-service-common.yml'}, BootstrapPropertySource {name='bootstrapProperties-inventory-service.yml'}, BootstrapPropertySource {name='bootstrapProperties-minio.yml'}, BootstrapPropertySource {name='bootstrapProperties-jwt.yml'}, BootstrapPropertySource {name='bootstrapProperties-mongo.yml'}, BootstrapPropertySource {name='bootstrapProperties-redis.yml'}]
+2024-02-07 11:51:59,275 INFO (SpringApplication.java:655)- The following profiles are active: common,dev
+2024-02-07 11:52:00,437 WARN (EndpointId.java:155)- Endpoint ID 'nacos-config' contains invalid characters, please migrate to a valid format.
+2024-02-07 11:52:00,442 WARN (EndpointId.java:155)- Endpoint ID 'nacos-discovery' contains invalid characters, please migrate to a valid format.
+2024-02-07 11:52:00,856 INFO (RepositoryConfigurationDelegate.java:249)- Multiple Spring Data modules found, entering strict repository configuration mode!
+2024-02-07 11:52:00,856 INFO (RepositoryConfigurationDelegate.java:127)- Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-02-07 11:52:00,901 INFO (RepositoryConfigurationDelegate.java:187)- Finished Spring Data repository scanning in 36ms. Found 0 JPA repository interfaces.
+2024-02-07 11:52:00,908 INFO (RepositoryConfigurationDelegate.java:249)- Multiple Spring Data modules found, entering strict repository configuration mode!
+2024-02-07 11:52:00,908 INFO (RepositoryConfigurationDelegate.java:127)- Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2024-02-07 11:52:00,928 INFO (RepositoryConfigurationDelegate.java:187)- Finished Spring Data repository scanning in 19ms. Found 0 MongoDB repository interfaces.
+2024-02-07 11:52:00,938 INFO (RepositoryConfigurationDelegate.java:249)- Multiple Spring Data modules found, entering strict repository configuration mode!
+2024-02-07 11:52:00,939 INFO (RepositoryConfigurationDelegate.java:127)- Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2024-02-07 11:52:00,965 INFO (RepositoryConfigurationDelegate.java:187)- Finished Spring Data repository scanning in 18ms. Found 0 Redis repository interfaces.
+2024-02-07 11:52:01,083 WARN (EndpointId.java:155)- Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2024-02-07 11:52:01,233 INFO (GenericScope.java:295)- BeanFactory id=a6d51825-868a-3527-a619-8ef8f3f5cf95
+2024-02-07 11:52:01,630 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'shiroConfig' of type [com.jsxa.vapp.common.shiro.ShiroConfig$$EnhancerBySpringCGLIB$$c3741717] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 11:52:01,706 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'jwtTokenUtil' of type [com.jsxa.vapp.common.utils.JwtTokenUtil] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 11:52:01,774 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'mybatis-org.mybatis.spring.boot.autoconfigure.MybatisProperties' of type [org.mybatis.spring.boot.autoconfigure.MybatisProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 11:52:01,789 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration' of type [org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration$$EnhancerBySpringCGLIB$$561ebd1b] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 11:52:01,794 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Generic' of type [org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Generic] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 11:52:01,807 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'spring.datasource-org.springframework.boot.autoconfigure.jdbc.DataSourceProperties' of type [org.springframework.boot.autoconfigure.jdbc.DataSourceProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 11:52:01,852 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'dataSource' of type [com.alibaba.druid.pool.DruidDataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 11:52:01,920 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'org.springframework.boot.autoconfigure.jdbc.DataSourceInitializerInvoker' of type [org.springframework.boot.autoconfigure.jdbc.DataSourceInitializerInvoker] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 11:52:01,937 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'sqlSessionFactory' of type [org.apache.ibatis.session.defaults.DefaultSqlSessionFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 11:52:01,947 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'sqlSessionTemplate' of type [org.mybatis.spring.SqlSessionTemplate] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 11:52:01,981 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'userMapper' of type [org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 11:52:01,984 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'userMapper' of type [com.sun.proxy.$Proxy140] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 11:52:01,995 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'userRoleMapper' of type [org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 11:52:01,996 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'userRoleMapper' of type [com.sun.proxy.$Proxy141] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 11:52:02,005 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'roleMapper' of type [org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 11:52:02,006 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'roleMapper' of type [com.sun.proxy.$Proxy142] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 11:52:02,017 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'permissionMapper' of type [org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 11:52:02,019 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'permissionMapper' of type [com.sun.proxy.$Proxy143] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 11:52:02,028 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'rolePermissionMapper' of type [org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 11:52:02,029 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'rolePermissionMapper' of type [com.sun.proxy.$Proxy144] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 11:52:02,032 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'shiroRealm' of type [com.jsxa.vapp.common.shiro.ShiroRealm] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 11:52:02,042 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'securityManager' of type [org.apache.shiro.web.mgt.DefaultWebSecurityManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 11:52:02,076 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'authorizationAttributeSourceAdvisor' of type [org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 11:52:02,163 INFO (ExecutorConfigurationSupport.java:181)- Initializing ExecutorService 'executor'
+2024-02-07 11:52:02,508 INFO (TomcatWebServer.java:92)- Tomcat initialized with port(s): 852 (http)
+2024-02-07 11:52:02,520 INFO (DirectJDKLog.java:173)- Initializing ProtocolHandler ["http-nio-852"]
+2024-02-07 11:52:02,520 INFO (DirectJDKLog.java:173)- Starting service [Tomcat]
+2024-02-07 11:52:02,521 INFO (DirectJDKLog.java:173)- Starting Servlet engine: [Apache Tomcat/9.0.31]
+2024-02-07 11:52:02,778 INFO (DirectJDKLog.java:173)- Initializing Spring embedded WebApplicationContext
+2024-02-07 11:52:02,778 INFO (ServletWebServerApplicationContext.java:284)- Root WebApplicationContext: initialization completed in 3487 ms
+2024-02-07 11:52:03,685 INFO (Version.java:41)- Redisson 3.12.5
+2024-02-07 11:52:04,673 INFO (ConnectionPool.java:167)- 1 connections initialized for /192.168.2.241:6379
+2024-02-07 11:52:04,675 INFO (ConnectionPool.java:167)- 24 connections initialized for /192.168.2.241:6379
+2024-02-07 11:52:05,079 INFO (SLF4JLogger.java:71)- Cluster created with settings {hosts=[192.168.2.241:27017], mode=MULTIPLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2024-02-07 11:52:05,079 INFO (SLF4JLogger.java:71)- Adding discovered server 192.168.2.241:27017 to client view of cluster
+2024-02-07 11:52:05,527 INFO (SLF4JLogger.java:71)- Opened connection [connectionId{localValue:1, serverValue:19}] to 192.168.2.241:27017
+2024-02-07 11:52:05,532 INFO (SLF4JLogger.java:71)- Monitor thread successfully connected to server with description ServerDescription{address=192.168.2.241:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[5, 0, 5]}, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=3349000}
+2024-02-07 11:52:05,534 INFO (SLF4JLogger.java:71)- Discovered cluster type of STANDALONE
+2024-02-07 11:52:05,671 INFO (InitUtils.java:56)- initializer namespace from System Property :null
+2024-02-07 11:52:05,672 INFO (InitUtils.java:65)- initializer namespace from System Environment :null
+2024-02-07 11:52:05,672 INFO (InitUtils.java:75)- initializer namespace from System Property :null
+2024-02-07 11:52:05,941 ERROR (DruidDataSource.java:1070)- testWhileIdle is true, validationQuery not set
+2024-02-07 11:52:05,948 INFO (DruidDataSource.java:930)- {dataSource-1} inited
+2024-02-07 11:52:05,961 ERROR (DruidDataSource.java:2502)- create connection Error
+java.lang.NoSuchMethodError: org.apache.shardingsphere.infra.util.yaml.constructor.ShardingSphereYamlConstructor$1.setCodePointLimit(I)V
+	at org.apache.shardingsphere.infra.util.yaml.constructor.ShardingSphereYamlConstructor$1.<init>(ShardingSphereYamlConstructor.java:45)
+	at org.apache.shardingsphere.infra.util.yaml.constructor.ShardingSphereYamlConstructor.<init>(ShardingSphereYamlConstructor.java:42)
+	at org.apache.shardingsphere.infra.util.yaml.YamlEngine.unmarshal(YamlEngine.java:70)
+	at org.apache.shardingsphere.driver.api.yaml.YamlShardingSphereDataSourceFactory.createDataSource(YamlShardingSphereDataSourceFactory.java:94)
+	at org.apache.shardingsphere.driver.jdbc.core.driver.DriverDataSourceCache.createDataSource(DriverDataSourceCache.java:51)
+	at java.base/java.util.concurrent.ConcurrentHashMap.computeIfAbsent(ConcurrentHashMap.java:1705)
+	at org.apache.shardingsphere.driver.jdbc.core.driver.DriverDataSourceCache.get(DriverDataSourceCache.java:45)
+	at org.apache.shardingsphere.driver.ShardingSphereDriver.connect(ShardingSphereDriver.java:51)
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1558)
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1623)
+	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:2468)
+2024-02-07 11:54:15,427 INFO (NacosPropertySourceBuilder.java:87)- Loading nacos data, dataId: 'redis.yml', group: 'common'
+2024-02-07 11:54:15,437 INFO (NacosPropertySourceBuilder.java:87)- Loading nacos data, dataId: 'mongo.yml', group: 'common'
+2024-02-07 11:54:15,453 INFO (NacosPropertySourceBuilder.java:87)- Loading nacos data, dataId: 'jwt.yml', group: 'common'
+2024-02-07 11:54:15,457 INFO (NacosPropertySourceBuilder.java:87)- Loading nacos data, dataId: 'minio.yml', group: 'common'
+2024-02-07 11:54:15,462 INFO (NacosPropertySourceBuilder.java:87)- Loading nacos data, dataId: 'inventory-service.yml', group: 'inventory-service'
+2024-02-07 11:54:15,471 INFO (PropertySourceBootstrapConfiguration.java:105)- Located property source: [BootstrapPropertySource {name='bootstrapProperties-inventory-service-dev.yml'}, BootstrapPropertySource {name='bootstrapProperties-inventory-service-common.yml'}, BootstrapPropertySource {name='bootstrapProperties-inventory-service.yml'}, BootstrapPropertySource {name='bootstrapProperties-minio.yml'}, BootstrapPropertySource {name='bootstrapProperties-jwt.yml'}, BootstrapPropertySource {name='bootstrapProperties-mongo.yml'}, BootstrapPropertySource {name='bootstrapProperties-redis.yml'}]
+2024-02-07 11:54:20,344 INFO (SpringApplication.java:655)- The following profiles are active: common,dev
+2024-02-07 11:54:21,591 WARN (EndpointId.java:155)- Endpoint ID 'nacos-config' contains invalid characters, please migrate to a valid format.
+2024-02-07 11:54:21,598 WARN (EndpointId.java:155)- Endpoint ID 'nacos-discovery' contains invalid characters, please migrate to a valid format.
+2024-02-07 11:54:22,002 INFO (RepositoryConfigurationDelegate.java:249)- Multiple Spring Data modules found, entering strict repository configuration mode!
+2024-02-07 11:54:22,002 INFO (RepositoryConfigurationDelegate.java:127)- Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-02-07 11:54:22,050 INFO (RepositoryConfigurationDelegate.java:187)- Finished Spring Data repository scanning in 39ms. Found 0 JPA repository interfaces.
+2024-02-07 11:54:22,056 INFO (RepositoryConfigurationDelegate.java:249)- Multiple Spring Data modules found, entering strict repository configuration mode!
+2024-02-07 11:54:22,057 INFO (RepositoryConfigurationDelegate.java:127)- Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2024-02-07 11:54:22,076 INFO (RepositoryConfigurationDelegate.java:187)- Finished Spring Data repository scanning in 18ms. Found 0 MongoDB repository interfaces.
+2024-02-07 11:54:22,087 INFO (RepositoryConfigurationDelegate.java:249)- Multiple Spring Data modules found, entering strict repository configuration mode!
+2024-02-07 11:54:22,089 INFO (RepositoryConfigurationDelegate.java:127)- Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2024-02-07 11:54:22,117 INFO (RepositoryConfigurationDelegate.java:187)- Finished Spring Data repository scanning in 20ms. Found 0 Redis repository interfaces.
+2024-02-07 11:54:22,237 WARN (EndpointId.java:155)- Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2024-02-07 11:54:22,380 INFO (GenericScope.java:295)- BeanFactory id=a6d51825-868a-3527-a619-8ef8f3f5cf95
+2024-02-07 11:54:22,776 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'shiroConfig' of type [com.jsxa.vapp.common.shiro.ShiroConfig$$EnhancerBySpringCGLIB$$fb809e7b] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 11:54:22,851 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'jwtTokenUtil' of type [com.jsxa.vapp.common.utils.JwtTokenUtil] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 11:54:22,925 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'mybatis-org.mybatis.spring.boot.autoconfigure.MybatisProperties' of type [org.mybatis.spring.boot.autoconfigure.MybatisProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 11:54:22,940 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration' of type [org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration$$EnhancerBySpringCGLIB$$8e2b447f] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 11:54:22,944 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Generic' of type [org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Generic] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 11:54:22,957 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'spring.datasource-org.springframework.boot.autoconfigure.jdbc.DataSourceProperties' of type [org.springframework.boot.autoconfigure.jdbc.DataSourceProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 11:54:23,009 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'dataSource' of type [com.alibaba.druid.pool.DruidDataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 11:54:23,075 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'org.springframework.boot.autoconfigure.jdbc.DataSourceInitializerInvoker' of type [org.springframework.boot.autoconfigure.jdbc.DataSourceInitializerInvoker] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 11:54:23,087 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'sqlSessionFactory' of type [org.apache.ibatis.session.defaults.DefaultSqlSessionFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 11:54:23,098 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'sqlSessionTemplate' of type [org.mybatis.spring.SqlSessionTemplate] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 11:54:23,128 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'userMapper' of type [org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 11:54:23,131 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'userMapper' of type [com.sun.proxy.$Proxy140] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 11:54:23,142 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'userRoleMapper' of type [org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 11:54:23,143 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'userRoleMapper' of type [com.sun.proxy.$Proxy141] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 11:54:23,155 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'roleMapper' of type [org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 11:54:23,157 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'roleMapper' of type [com.sun.proxy.$Proxy142] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 11:54:23,167 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'permissionMapper' of type [org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 11:54:23,169 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'permissionMapper' of type [com.sun.proxy.$Proxy143] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 11:54:23,177 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'rolePermissionMapper' of type [org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 11:54:23,179 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'rolePermissionMapper' of type [com.sun.proxy.$Proxy144] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 11:54:23,182 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'shiroRealm' of type [com.jsxa.vapp.common.shiro.ShiroRealm] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 11:54:23,192 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'securityManager' of type [org.apache.shiro.web.mgt.DefaultWebSecurityManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 11:54:23,222 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'authorizationAttributeSourceAdvisor' of type [org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 11:54:23,295 INFO (ExecutorConfigurationSupport.java:181)- Initializing ExecutorService 'executor'
+2024-02-07 11:54:23,649 INFO (TomcatWebServer.java:92)- Tomcat initialized with port(s): 852 (http)
+2024-02-07 11:54:23,660 INFO (DirectJDKLog.java:173)- Initializing ProtocolHandler ["http-nio-852"]
+2024-02-07 11:54:23,661 INFO (DirectJDKLog.java:173)- Starting service [Tomcat]
+2024-02-07 11:54:23,662 INFO (DirectJDKLog.java:173)- Starting Servlet engine: [Apache Tomcat/9.0.31]
+2024-02-07 11:54:23,920 INFO (DirectJDKLog.java:173)- Initializing Spring embedded WebApplicationContext
+2024-02-07 11:54:23,920 INFO (ServletWebServerApplicationContext.java:284)- Root WebApplicationContext: initialization completed in 3558 ms
+2024-02-07 11:54:24,848 INFO (Version.java:41)- Redisson 3.12.5
+2024-02-07 11:54:25,857 INFO (ConnectionPool.java:167)- 1 connections initialized for /192.168.2.241:6379
+2024-02-07 11:54:25,858 INFO (ConnectionPool.java:167)- 24 connections initialized for /192.168.2.241:6379
+2024-02-07 11:54:26,294 INFO (SLF4JLogger.java:71)- Cluster created with settings {hosts=[192.168.2.241:27017], mode=MULTIPLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2024-02-07 11:54:26,295 INFO (SLF4JLogger.java:71)- Adding discovered server 192.168.2.241:27017 to client view of cluster
+2024-02-07 11:54:26,357 INFO (SLF4JLogger.java:71)- Opened connection [connectionId{localValue:1, serverValue:20}] to 192.168.2.241:27017
+2024-02-07 11:54:26,362 INFO (SLF4JLogger.java:71)- Monitor thread successfully connected to server with description ServerDescription{address=192.168.2.241:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[5, 0, 5]}, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=3480100}
+2024-02-07 11:54:26,364 INFO (SLF4JLogger.java:71)- Discovered cluster type of STANDALONE
+2024-02-07 11:54:26,869 INFO (InitUtils.java:56)- initializer namespace from System Property :null
+2024-02-07 11:54:26,870 INFO (InitUtils.java:65)- initializer namespace from System Environment :null
+2024-02-07 11:54:26,870 INFO (InitUtils.java:75)- initializer namespace from System Property :null
+2024-02-07 11:54:27,128 ERROR (DruidDataSource.java:1070)- testWhileIdle is true, validationQuery not set
+2024-02-07 11:54:27,135 INFO (DruidDataSource.java:930)- {dataSource-1} inited
+2024-02-07 11:54:27,148 ERROR (DruidDataSource.java:2502)- create connection Error
+java.lang.NoSuchMethodError: org.apache.shardingsphere.infra.util.yaml.constructor.ShardingSphereYamlConstructor$1.setCodePointLimit(I)V
+	at org.apache.shardingsphere.infra.util.yaml.constructor.ShardingSphereYamlConstructor$1.<init>(ShardingSphereYamlConstructor.java:45)
+	at org.apache.shardingsphere.infra.util.yaml.constructor.ShardingSphereYamlConstructor.<init>(ShardingSphereYamlConstructor.java:42)
+	at org.apache.shardingsphere.infra.util.yaml.YamlEngine.unmarshal(YamlEngine.java:70)
+	at org.apache.shardingsphere.driver.api.yaml.YamlShardingSphereDataSourceFactory.createDataSource(YamlShardingSphereDataSourceFactory.java:94)
+	at org.apache.shardingsphere.driver.jdbc.core.driver.DriverDataSourceCache.createDataSource(DriverDataSourceCache.java:51)
+	at java.base/java.util.concurrent.ConcurrentHashMap.computeIfAbsent(ConcurrentHashMap.java:1705)
+	at org.apache.shardingsphere.driver.jdbc.core.driver.DriverDataSourceCache.get(DriverDataSourceCache.java:45)
+	at org.apache.shardingsphere.driver.ShardingSphereDriver.connect(ShardingSphereDriver.java:51)
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1558)
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1623)
+	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:2468)
+2024-02-07 11:56:29,210 INFO (NacosPropertySourceBuilder.java:87)- Loading nacos data, dataId: 'redis.yml', group: 'common'
+2024-02-07 11:56:29,221 INFO (NacosPropertySourceBuilder.java:87)- Loading nacos data, dataId: 'mongo.yml', group: 'common'
+2024-02-07 11:56:29,226 INFO (NacosPropertySourceBuilder.java:87)- Loading nacos data, dataId: 'jwt.yml', group: 'common'
+2024-02-07 11:56:29,231 INFO (NacosPropertySourceBuilder.java:87)- Loading nacos data, dataId: 'minio.yml', group: 'common'
+2024-02-07 11:56:29,236 INFO (NacosPropertySourceBuilder.java:87)- Loading nacos data, dataId: 'inventory-service.yml', group: 'inventory-service'
+2024-02-07 11:56:29,246 INFO (PropertySourceBootstrapConfiguration.java:105)- Located property source: [BootstrapPropertySource {name='bootstrapProperties-inventory-service-dev.yml'}, BootstrapPropertySource {name='bootstrapProperties-inventory-service-common.yml'}, BootstrapPropertySource {name='bootstrapProperties-inventory-service.yml'}, BootstrapPropertySource {name='bootstrapProperties-minio.yml'}, BootstrapPropertySource {name='bootstrapProperties-jwt.yml'}, BootstrapPropertySource {name='bootstrapProperties-mongo.yml'}, BootstrapPropertySource {name='bootstrapProperties-redis.yml'}]
+2024-02-07 11:56:34,117 INFO (SpringApplication.java:655)- The following profiles are active: common,dev
+2024-02-07 11:56:35,335 WARN (EndpointId.java:155)- Endpoint ID 'nacos-config' contains invalid characters, please migrate to a valid format.
+2024-02-07 11:56:35,343 WARN (EndpointId.java:155)- Endpoint ID 'nacos-discovery' contains invalid characters, please migrate to a valid format.
+2024-02-07 11:56:35,765 INFO (RepositoryConfigurationDelegate.java:249)- Multiple Spring Data modules found, entering strict repository configuration mode!
+2024-02-07 11:56:35,765 INFO (RepositoryConfigurationDelegate.java:127)- Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-02-07 11:56:35,811 INFO (RepositoryConfigurationDelegate.java:187)- Finished Spring Data repository scanning in 36ms. Found 0 JPA repository interfaces.
+2024-02-07 11:56:35,818 INFO (RepositoryConfigurationDelegate.java:249)- Multiple Spring Data modules found, entering strict repository configuration mode!
+2024-02-07 11:56:35,818 INFO (RepositoryConfigurationDelegate.java:127)- Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2024-02-07 11:56:35,842 INFO (RepositoryConfigurationDelegate.java:187)- Finished Spring Data repository scanning in 23ms. Found 0 MongoDB repository interfaces.
+2024-02-07 11:56:35,853 INFO (RepositoryConfigurationDelegate.java:249)- Multiple Spring Data modules found, entering strict repository configuration mode!
+2024-02-07 11:56:35,854 INFO (RepositoryConfigurationDelegate.java:127)- Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2024-02-07 11:56:35,880 INFO (RepositoryConfigurationDelegate.java:187)- Finished Spring Data repository scanning in 18ms. Found 0 Redis repository interfaces.
+2024-02-07 11:56:35,998 WARN (EndpointId.java:155)- Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2024-02-07 11:56:36,142 INFO (GenericScope.java:295)- BeanFactory id=f4b77177-9bc8-3a8a-b3a7-bdd6408b9063
+2024-02-07 11:56:36,552 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'shiroConfig' of type [com.jsxa.vapp.common.shiro.ShiroConfig$$EnhancerBySpringCGLIB$$fdd07df0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 11:56:36,624 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'jwtTokenUtil' of type [com.jsxa.vapp.common.utils.JwtTokenUtil] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 11:56:36,691 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'mybatis-org.mybatis.spring.boot.autoconfigure.MybatisProperties' of type [org.mybatis.spring.boot.autoconfigure.MybatisProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 11:56:36,706 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration' of type [org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration$$EnhancerBySpringCGLIB$$907b23f4] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 11:56:36,711 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Hikari' of type [org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Hikari] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 11:56:36,720 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'spring.datasource-org.springframework.boot.autoconfigure.jdbc.DataSourceProperties' of type [org.springframework.boot.autoconfigure.jdbc.DataSourceProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 11:56:36,747 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'dataSource' of type [com.zaxxer.hikari.HikariDataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 11:56:36,767 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'org.springframework.boot.autoconfigure.jdbc.DataSourceInitializerInvoker' of type [org.springframework.boot.autoconfigure.jdbc.DataSourceInitializerInvoker] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 11:56:36,778 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'sqlSessionFactory' of type [org.apache.ibatis.session.defaults.DefaultSqlSessionFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 11:56:36,788 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'sqlSessionTemplate' of type [org.mybatis.spring.SqlSessionTemplate] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 11:56:36,831 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'userMapper' of type [org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 11:56:36,835 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'userMapper' of type [com.sun.proxy.$Proxy140] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 11:56:36,849 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'userRoleMapper' of type [org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 11:56:36,850 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'userRoleMapper' of type [com.sun.proxy.$Proxy141] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 11:56:36,862 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'roleMapper' of type [org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 11:56:36,864 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'roleMapper' of type [com.sun.proxy.$Proxy142] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 11:56:36,875 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'permissionMapper' of type [org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 11:56:36,876 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'permissionMapper' of type [com.sun.proxy.$Proxy143] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 11:56:36,885 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'rolePermissionMapper' of type [org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 11:56:36,887 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'rolePermissionMapper' of type [com.sun.proxy.$Proxy144] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 11:56:36,890 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'shiroRealm' of type [com.jsxa.vapp.common.shiro.ShiroRealm] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 11:56:36,899 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'securityManager' of type [org.apache.shiro.web.mgt.DefaultWebSecurityManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 11:56:36,922 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'authorizationAttributeSourceAdvisor' of type [org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 11:56:36,991 INFO (ExecutorConfigurationSupport.java:181)- Initializing ExecutorService 'executor'
+2024-02-07 11:56:37,368 INFO (TomcatWebServer.java:92)- Tomcat initialized with port(s): 852 (http)
+2024-02-07 11:56:37,380 INFO (DirectJDKLog.java:173)- Initializing ProtocolHandler ["http-nio-852"]
+2024-02-07 11:56:37,380 INFO (DirectJDKLog.java:173)- Starting service [Tomcat]
+2024-02-07 11:56:37,380 INFO (DirectJDKLog.java:173)- Starting Servlet engine: [Apache Tomcat/9.0.31]
+2024-02-07 11:56:37,647 INFO (DirectJDKLog.java:173)- Initializing Spring embedded WebApplicationContext
+2024-02-07 11:56:37,647 INFO (ServletWebServerApplicationContext.java:284)- Root WebApplicationContext: initialization completed in 3513 ms
+2024-02-07 11:56:38,568 INFO (Version.java:41)- Redisson 3.12.5
+2024-02-07 11:56:39,567 INFO (ConnectionPool.java:167)- 1 connections initialized for /192.168.2.241:6379
+2024-02-07 11:56:39,570 INFO (ConnectionPool.java:167)- 24 connections initialized for /192.168.2.241:6379
+2024-02-07 11:56:39,972 INFO (SLF4JLogger.java:71)- Cluster created with settings {hosts=[192.168.2.241:27017], mode=MULTIPLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2024-02-07 11:56:39,973 INFO (SLF4JLogger.java:71)- Adding discovered server 192.168.2.241:27017 to client view of cluster
+2024-02-07 11:56:40,032 INFO (SLF4JLogger.java:71)- Opened connection [connectionId{localValue:1, serverValue:21}] to 192.168.2.241:27017
+2024-02-07 11:56:40,038 INFO (SLF4JLogger.java:71)- Monitor thread successfully connected to server with description ServerDescription{address=192.168.2.241:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[5, 0, 5]}, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=3867800}
+2024-02-07 11:56:40,040 INFO (SLF4JLogger.java:71)- Discovered cluster type of STANDALONE
+2024-02-07 11:56:40,533 INFO (InitUtils.java:56)- initializer namespace from System Property :null
+2024-02-07 11:56:40,533 INFO (InitUtils.java:65)- initializer namespace from System Environment :null
+2024-02-07 11:56:40,534 INFO (InitUtils.java:75)- initializer namespace from System Property :null
+2024-02-07 11:56:40,774 INFO (HikariDataSource.java:110)- HikariPool-1 - Starting...
+2024-02-07 11:56:40,812 WARN (AbstractApplicationContext.java:558)- Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean]: Factory method 'entityManagerFactory' threw exception; nested exception is java.lang.NoSuchMethodError: org.apache.shardingsphere.infra.util.yaml.constructor.ShardingSphereYamlConstructor$1.setCodePointLimit(I)V
+2024-02-07 11:56:40,866 INFO (ExecutorConfigurationSupport.java:218)- Shutting down ExecutorService 'executor'
+2024-02-07 11:56:40,867 INFO (DirectJDKLog.java:173)- Stopping service [Tomcat]
+2024-02-07 11:56:40,872 WARN (DirectJDKLog.java:173)- The web application [ROOT] appears to have started a thread named [Thread-8] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@11.0.20/sun.net.dns.ResolverConfigurationImpl.notifyAddrChange0(Native Method)
+ java.base@11.0.20/sun.net.dns.ResolverConfigurationImpl$AddressChangeListener.run(ResolverConfigurationImpl.java:144)
+2024-02-07 11:56:40,873 WARN (DirectJDKLog.java:173)- The web application [ROOT] appears to have started a thread named [com.alibaba.nacos.naming.client.listener] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@11.0.20/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@11.0.20/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:234)
+ java.base@11.0.20/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2123)
+ java.base@11.0.20/java.util.concurrent.LinkedBlockingQueue.poll(LinkedBlockingQueue.java:458)
+ app//com.alibaba.nacos.client.naming.core.EventDispatcher$Notifier.run(EventDispatcher.java:114)
+ java.base@11.0.20/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+ java.base@11.0.20/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+ java.base@11.0.20/java.lang.Thread.run(Thread.java:834)
+2024-02-07 11:56:40,874 WARN (DirectJDKLog.java:173)- The web application [ROOT] appears to have started a thread named [com.alibaba.nacos.naming.failover] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@11.0.20/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@11.0.20/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:234)
+ java.base@11.0.20/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2123)
+ java.base@11.0.20/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base@11.0.20/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@11.0.20/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1054)
+ java.base@11.0.20/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1114)
+ java.base@11.0.20/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+ java.base@11.0.20/java.lang.Thread.run(Thread.java:834)
+2024-02-07 11:56:40,875 WARN (DirectJDKLog.java:173)- The web application [ROOT] appears to have started a thread named [com.alibaba.nacos.naming.push.receiver] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@11.0.20/java.net.DualStackPlainDatagramSocketImpl.socketReceiveOrPeekData(Native Method)
+ java.base@11.0.20/java.net.DualStackPlainDatagramSocketImpl.receive0(DualStackPlainDatagramSocketImpl.java:124)
+ java.base@11.0.20/java.net.AbstractPlainDatagramSocketImpl.receive(AbstractPlainDatagramSocketImpl.java:200)
+ java.base@11.0.20/java.net.DatagramSocket.receive(DatagramSocket.java:814)
+ app//com.alibaba.nacos.client.naming.core.PushReceiver.run(PushReceiver.java:73)
+ java.base@11.0.20/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+ java.base@11.0.20/java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:264)
+ java.base@11.0.20/java.util.concurrent.FutureTask.run(FutureTask.java)
+ java.base@11.0.20/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+ java.base@11.0.20/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+ java.base@11.0.20/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+ java.base@11.0.20/java.lang.Thread.run(Thread.java:834)
+2024-02-07 11:56:40,887 INFO (ConditionEvaluationReportLoggingListener.java:136)- 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2024-02-07 11:56:40,896 ERROR (LoggingFailureAnalysisReporter.java:40)- 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+An attempt was made to call a method that does not exist. The attempt was made from the following location:
+
+    org.apache.shardingsphere.infra.util.yaml.constructor.ShardingSphereYamlConstructor$1.<init>(ShardingSphereYamlConstructor.java:45)
+
+The following method did not exist:
+
+    org.apache.shardingsphere.infra.util.yaml.constructor.ShardingSphereYamlConstructor$1.setCodePointLimit(I)V
+
+The method's class, org.apache.shardingsphere.infra.util.yaml.constructor.ShardingSphereYamlConstructor$1, is available from the following locations:
+
+    jar:file:/C:/Users/Administrator/.m2/repository/org/apache/shardingsphere/shardingsphere-infra-util/5.3.2/shardingsphere-infra-util-5.3.2.jar!/org/apache/shardingsphere/infra/util/yaml/constructor/ShardingSphereYamlConstructor$1.class
+
+It was loaded from the following location:
+
+    file:/C:/Users/Administrator/.m2/repository/org/apache/shardingsphere/shardingsphere-infra-util/5.3.2/shardingsphere-infra-util-5.3.2.jar
+
+
+Action:
+
+Correct the classpath of your application so that it contains a single, compatible version of org.apache.shardingsphere.infra.util.yaml.constructor.ShardingSphereYamlConstructor$1
+
+2024-02-07 11:59:57,374 INFO (NacosPropertySourceBuilder.java:87)- Loading nacos data, dataId: 'redis.yml', group: 'common'
+2024-02-07 11:59:57,383 INFO (NacosPropertySourceBuilder.java:87)- Loading nacos data, dataId: 'mongo.yml', group: 'common'
+2024-02-07 11:59:57,388 INFO (NacosPropertySourceBuilder.java:87)- Loading nacos data, dataId: 'jwt.yml', group: 'common'
+2024-02-07 11:59:57,392 INFO (NacosPropertySourceBuilder.java:87)- Loading nacos data, dataId: 'minio.yml', group: 'common'
+2024-02-07 11:59:57,396 INFO (NacosPropertySourceBuilder.java:87)- Loading nacos data, dataId: 'inventory-service.yml', group: 'inventory-service'
+2024-02-07 11:59:57,405 INFO (PropertySourceBootstrapConfiguration.java:105)- Located property source: [BootstrapPropertySource {name='bootstrapProperties-inventory-service-dev.yml'}, BootstrapPropertySource {name='bootstrapProperties-inventory-service-common.yml'}, BootstrapPropertySource {name='bootstrapProperties-inventory-service.yml'}, BootstrapPropertySource {name='bootstrapProperties-minio.yml'}, BootstrapPropertySource {name='bootstrapProperties-jwt.yml'}, BootstrapPropertySource {name='bootstrapProperties-mongo.yml'}, BootstrapPropertySource {name='bootstrapProperties-redis.yml'}]
+2024-02-07 12:00:02,306 INFO (SpringApplication.java:655)- The following profiles are active: common,dev
+2024-02-07 12:00:03,450 WARN (EndpointId.java:155)- Endpoint ID 'nacos-config' contains invalid characters, please migrate to a valid format.
+2024-02-07 12:00:03,455 WARN (EndpointId.java:155)- Endpoint ID 'nacos-discovery' contains invalid characters, please migrate to a valid format.
+2024-02-07 12:00:03,840 INFO (RepositoryConfigurationDelegate.java:249)- Multiple Spring Data modules found, entering strict repository configuration mode!
+2024-02-07 12:00:03,841 INFO (RepositoryConfigurationDelegate.java:127)- Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-02-07 12:00:03,886 INFO (RepositoryConfigurationDelegate.java:187)- Finished Spring Data repository scanning in 36ms. Found 0 JPA repository interfaces.
+2024-02-07 12:00:03,892 INFO (RepositoryConfigurationDelegate.java:249)- Multiple Spring Data modules found, entering strict repository configuration mode!
+2024-02-07 12:00:03,892 INFO (RepositoryConfigurationDelegate.java:127)- Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2024-02-07 12:00:03,912 INFO (RepositoryConfigurationDelegate.java:187)- Finished Spring Data repository scanning in 18ms. Found 0 MongoDB repository interfaces.
+2024-02-07 12:00:03,921 INFO (RepositoryConfigurationDelegate.java:249)- Multiple Spring Data modules found, entering strict repository configuration mode!
+2024-02-07 12:00:03,922 INFO (RepositoryConfigurationDelegate.java:127)- Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2024-02-07 12:00:03,948 INFO (RepositoryConfigurationDelegate.java:187)- Finished Spring Data repository scanning in 18ms. Found 0 Redis repository interfaces.
+2024-02-07 12:00:04,079 WARN (EndpointId.java:155)- Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2024-02-07 12:00:04,229 INFO (GenericScope.java:295)- BeanFactory id=f4b77177-9bc8-3a8a-b3a7-bdd6408b9063
+2024-02-07 12:00:04,629 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'shiroConfig' of type [com.jsxa.vapp.common.shiro.ShiroConfig$$EnhancerBySpringCGLIB$$ff15b7c2] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 12:00:04,701 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'jwtTokenUtil' of type [com.jsxa.vapp.common.utils.JwtTokenUtil] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 12:00:04,768 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'mybatis-org.mybatis.spring.boot.autoconfigure.MybatisProperties' of type [org.mybatis.spring.boot.autoconfigure.MybatisProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 12:00:04,783 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration' of type [org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration$$EnhancerBySpringCGLIB$$91c05dc6] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 12:00:04,787 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Hikari' of type [org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Hikari] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 12:00:04,795 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'spring.datasource-org.springframework.boot.autoconfigure.jdbc.DataSourceProperties' of type [org.springframework.boot.autoconfigure.jdbc.DataSourceProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 12:00:04,818 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'dataSource' of type [com.zaxxer.hikari.HikariDataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 12:00:04,837 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'org.springframework.boot.autoconfigure.jdbc.DataSourceInitializerInvoker' of type [org.springframework.boot.autoconfigure.jdbc.DataSourceInitializerInvoker] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 12:00:04,852 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'sqlSessionFactory' of type [org.apache.ibatis.session.defaults.DefaultSqlSessionFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 12:00:04,863 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'sqlSessionTemplate' of type [org.mybatis.spring.SqlSessionTemplate] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 12:00:04,908 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'userMapper' of type [org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 12:00:04,911 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'userMapper' of type [com.sun.proxy.$Proxy140] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 12:00:04,925 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'userRoleMapper' of type [org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 12:00:04,927 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'userRoleMapper' of type [com.sun.proxy.$Proxy141] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 12:00:04,938 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'roleMapper' of type [org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 12:00:04,939 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'roleMapper' of type [com.sun.proxy.$Proxy142] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 12:00:04,951 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'permissionMapper' of type [org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 12:00:04,952 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'permissionMapper' of type [com.sun.proxy.$Proxy143] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 12:00:04,963 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'rolePermissionMapper' of type [org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 12:00:04,965 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'rolePermissionMapper' of type [com.sun.proxy.$Proxy144] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 12:00:04,967 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'shiroRealm' of type [com.jsxa.vapp.common.shiro.ShiroRealm] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 12:00:04,978 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'securityManager' of type [org.apache.shiro.web.mgt.DefaultWebSecurityManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 12:00:05,002 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'authorizationAttributeSourceAdvisor' of type [org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 12:00:05,083 INFO (ExecutorConfigurationSupport.java:181)- Initializing ExecutorService 'executor'
+2024-02-07 12:00:05,437 INFO (TomcatWebServer.java:92)- Tomcat initialized with port(s): 852 (http)
+2024-02-07 12:00:05,449 INFO (DirectJDKLog.java:173)- Initializing ProtocolHandler ["http-nio-852"]
+2024-02-07 12:00:05,450 INFO (DirectJDKLog.java:173)- Starting service [Tomcat]
+2024-02-07 12:00:05,451 INFO (DirectJDKLog.java:173)- Starting Servlet engine: [Apache Tomcat/9.0.31]
+2024-02-07 12:00:05,713 INFO (DirectJDKLog.java:173)- Initializing Spring embedded WebApplicationContext
+2024-02-07 12:00:05,713 INFO (ServletWebServerApplicationContext.java:284)- Root WebApplicationContext: initialization completed in 3391 ms
+2024-02-07 12:00:06,647 INFO (Version.java:41)- Redisson 3.12.5
+2024-02-07 12:00:07,632 INFO (ConnectionPool.java:167)- 24 connections initialized for /192.168.2.241:6379
+2024-02-07 12:00:07,632 INFO (ConnectionPool.java:167)- 1 connections initialized for /192.168.2.241:6379
+2024-02-07 12:00:08,050 INFO (SLF4JLogger.java:71)- Cluster created with settings {hosts=[192.168.2.241:27017], mode=MULTIPLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2024-02-07 12:00:08,050 INFO (SLF4JLogger.java:71)- Adding discovered server 192.168.2.241:27017 to client view of cluster
+2024-02-07 12:00:08,109 INFO (SLF4JLogger.java:71)- Opened connection [connectionId{localValue:1, serverValue:22}] to 192.168.2.241:27017
+2024-02-07 12:00:08,115 INFO (SLF4JLogger.java:71)- Monitor thread successfully connected to server with description ServerDescription{address=192.168.2.241:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[5, 0, 5]}, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=3329900}
+2024-02-07 12:00:08,116 INFO (SLF4JLogger.java:71)- Discovered cluster type of STANDALONE
+2024-02-07 12:00:08,626 INFO (InitUtils.java:56)- initializer namespace from System Property :null
+2024-02-07 12:00:08,626 INFO (InitUtils.java:65)- initializer namespace from System Environment :null
+2024-02-07 12:00:08,627 INFO (InitUtils.java:75)- initializer namespace from System Property :null
+2024-02-07 12:00:08,913 INFO (HikariDataSource.java:110)- HikariPool-1 - Starting...
+2024-02-07 12:00:08,953 WARN (AbstractApplicationContext.java:558)- Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean]: Factory method 'entityManagerFactory' threw exception; nested exception is java.lang.NoSuchMethodError: org.apache.shardingsphere.infra.util.yaml.constructor.ShardingSphereYamlConstructor$1.setCodePointLimit(I)V
+2024-02-07 12:00:09,000 INFO (ExecutorConfigurationSupport.java:218)- Shutting down ExecutorService 'executor'
+2024-02-07 12:00:09,001 INFO (DirectJDKLog.java:173)- Stopping service [Tomcat]
+2024-02-07 12:00:09,006 WARN (DirectJDKLog.java:173)- The web application [ROOT] appears to have started a thread named [Thread-8] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@11.0.20/sun.net.dns.ResolverConfigurationImpl.notifyAddrChange0(Native Method)
+ java.base@11.0.20/sun.net.dns.ResolverConfigurationImpl$AddressChangeListener.run(ResolverConfigurationImpl.java:144)
+2024-02-07 12:00:09,006 WARN (DirectJDKLog.java:173)- The web application [ROOT] appears to have started a thread named [com.alibaba.nacos.naming.client.listener] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@11.0.20/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@11.0.20/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:234)
+ java.base@11.0.20/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2123)
+ java.base@11.0.20/java.util.concurrent.LinkedBlockingQueue.poll(LinkedBlockingQueue.java:458)
+ app//com.alibaba.nacos.client.naming.core.EventDispatcher$Notifier.run(EventDispatcher.java:114)
+ java.base@11.0.20/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+ java.base@11.0.20/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+ java.base@11.0.20/java.lang.Thread.run(Thread.java:834)
+2024-02-07 12:00:09,006 WARN (DirectJDKLog.java:173)- The web application [ROOT] appears to have started a thread named [com.alibaba.nacos.naming.failover] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@11.0.20/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@11.0.20/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:234)
+ java.base@11.0.20/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2123)
+ java.base@11.0.20/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base@11.0.20/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@11.0.20/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1054)
+ java.base@11.0.20/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1114)
+ java.base@11.0.20/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+ java.base@11.0.20/java.lang.Thread.run(Thread.java:834)
+2024-02-07 12:00:09,007 WARN (DirectJDKLog.java:173)- The web application [ROOT] appears to have started a thread named [com.alibaba.nacos.naming.push.receiver] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@11.0.20/java.net.DualStackPlainDatagramSocketImpl.socketReceiveOrPeekData(Native Method)
+ java.base@11.0.20/java.net.DualStackPlainDatagramSocketImpl.receive0(DualStackPlainDatagramSocketImpl.java:124)
+ java.base@11.0.20/java.net.AbstractPlainDatagramSocketImpl.receive(AbstractPlainDatagramSocketImpl.java:200)
+ java.base@11.0.20/java.net.DatagramSocket.receive(DatagramSocket.java:814)
+ app//com.alibaba.nacos.client.naming.core.PushReceiver.run(PushReceiver.java:73)
+ java.base@11.0.20/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+ java.base@11.0.20/java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:264)
+ java.base@11.0.20/java.util.concurrent.FutureTask.run(FutureTask.java)
+ java.base@11.0.20/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+ java.base@11.0.20/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+ java.base@11.0.20/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+ java.base@11.0.20/java.lang.Thread.run(Thread.java:834)
+2024-02-07 12:00:09,023 INFO (ConditionEvaluationReportLoggingListener.java:136)- 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2024-02-07 12:00:09,034 ERROR (LoggingFailureAnalysisReporter.java:40)- 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+An attempt was made to call a method that does not exist. The attempt was made from the following location:
+
+    org.apache.shardingsphere.infra.util.yaml.constructor.ShardingSphereYamlConstructor$1.<init>(ShardingSphereYamlConstructor.java:45)
+
+The following method did not exist:
+
+    org.apache.shardingsphere.infra.util.yaml.constructor.ShardingSphereYamlConstructor$1.setCodePointLimit(I)V
+
+The method's class, org.apache.shardingsphere.infra.util.yaml.constructor.ShardingSphereYamlConstructor$1, is available from the following locations:
+
+    jar:file:/C:/Users/Administrator/.m2/repository/org/apache/shardingsphere/shardingsphere-infra-util/5.3.2/shardingsphere-infra-util-5.3.2.jar!/org/apache/shardingsphere/infra/util/yaml/constructor/ShardingSphereYamlConstructor$1.class
+
+It was loaded from the following location:
+
+    file:/C:/Users/Administrator/.m2/repository/org/apache/shardingsphere/shardingsphere-infra-util/5.3.2/shardingsphere-infra-util-5.3.2.jar
+
+
+Action:
+
+Correct the classpath of your application so that it contains a single, compatible version of org.apache.shardingsphere.infra.util.yaml.constructor.ShardingSphereYamlConstructor$1
+
+2024-02-07 12:24:18,066 INFO (NacosPropertySourceBuilder.java:87)- Loading nacos data, dataId: 'redis.yml', group: 'common'
+2024-02-07 12:24:18,075 INFO (NacosPropertySourceBuilder.java:87)- Loading nacos data, dataId: 'mongo.yml', group: 'common'
+2024-02-07 12:24:18,079 INFO (NacosPropertySourceBuilder.java:87)- Loading nacos data, dataId: 'jwt.yml', group: 'common'
+2024-02-07 12:24:18,083 INFO (NacosPropertySourceBuilder.java:87)- Loading nacos data, dataId: 'minio.yml', group: 'common'
+2024-02-07 12:24:18,088 INFO (NacosPropertySourceBuilder.java:87)- Loading nacos data, dataId: 'inventory-service.yml', group: 'inventory-service'
+2024-02-07 12:24:18,097 INFO (PropertySourceBootstrapConfiguration.java:105)- Located property source: [BootstrapPropertySource {name='bootstrapProperties-inventory-service-dev.yml'}, BootstrapPropertySource {name='bootstrapProperties-inventory-service-common.yml'}, BootstrapPropertySource {name='bootstrapProperties-inventory-service.yml'}, BootstrapPropertySource {name='bootstrapProperties-minio.yml'}, BootstrapPropertySource {name='bootstrapProperties-jwt.yml'}, BootstrapPropertySource {name='bootstrapProperties-mongo.yml'}, BootstrapPropertySource {name='bootstrapProperties-redis.yml'}]
+2024-02-07 12:24:22,979 INFO (SpringApplication.java:655)- The following profiles are active: common,dev
+2024-02-07 12:24:24,238 WARN (EndpointId.java:155)- Endpoint ID 'nacos-config' contains invalid characters, please migrate to a valid format.
+2024-02-07 12:24:24,244 WARN (EndpointId.java:155)- Endpoint ID 'nacos-discovery' contains invalid characters, please migrate to a valid format.
+2024-02-07 12:24:24,655 INFO (RepositoryConfigurationDelegate.java:249)- Multiple Spring Data modules found, entering strict repository configuration mode!
+2024-02-07 12:24:24,656 INFO (RepositoryConfigurationDelegate.java:127)- Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-02-07 12:24:24,711 INFO (RepositoryConfigurationDelegate.java:187)- Finished Spring Data repository scanning in 46ms. Found 0 JPA repository interfaces.
+2024-02-07 12:24:24,721 INFO (RepositoryConfigurationDelegate.java:249)- Multiple Spring Data modules found, entering strict repository configuration mode!
+2024-02-07 12:24:24,721 INFO (RepositoryConfigurationDelegate.java:127)- Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2024-02-07 12:24:24,744 INFO (RepositoryConfigurationDelegate.java:187)- Finished Spring Data repository scanning in 22ms. Found 0 MongoDB repository interfaces.
+2024-02-07 12:24:24,759 INFO (RepositoryConfigurationDelegate.java:249)- Multiple Spring Data modules found, entering strict repository configuration mode!
+2024-02-07 12:24:24,761 INFO (RepositoryConfigurationDelegate.java:127)- Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2024-02-07 12:24:24,794 INFO (RepositoryConfigurationDelegate.java:187)- Finished Spring Data repository scanning in 23ms. Found 0 Redis repository interfaces.
+2024-02-07 12:24:24,934 WARN (EndpointId.java:155)- Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2024-02-07 12:24:25,069 INFO (GenericScope.java:295)- BeanFactory id=f4b77177-9bc8-3a8a-b3a7-bdd6408b9063
+2024-02-07 12:24:25,571 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'shiroConfig' of type [com.jsxa.vapp.common.shiro.ShiroConfig$$EnhancerBySpringCGLIB$$bfb46e59] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 12:24:25,674 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'jwtTokenUtil' of type [com.jsxa.vapp.common.utils.JwtTokenUtil] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 12:24:25,767 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'mybatis-org.mybatis.spring.boot.autoconfigure.MybatisProperties' of type [org.mybatis.spring.boot.autoconfigure.MybatisProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 12:24:25,786 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration' of type [org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration$$EnhancerBySpringCGLIB$$525f145d] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 12:24:25,791 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Hikari' of type [org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Hikari] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 12:24:25,801 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'spring.datasource-org.springframework.boot.autoconfigure.jdbc.DataSourceProperties' of type [org.springframework.boot.autoconfigure.jdbc.DataSourceProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 12:24:25,828 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'dataSource' of type [com.zaxxer.hikari.HikariDataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 12:24:25,848 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'org.springframework.boot.autoconfigure.jdbc.DataSourceInitializerInvoker' of type [org.springframework.boot.autoconfigure.jdbc.DataSourceInitializerInvoker] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 12:24:25,860 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'sqlSessionFactory' of type [org.apache.ibatis.session.defaults.DefaultSqlSessionFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 12:24:25,869 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'sqlSessionTemplate' of type [org.mybatis.spring.SqlSessionTemplate] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 12:24:25,903 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'userMapper' of type [org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 12:24:25,907 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'userMapper' of type [com.sun.proxy.$Proxy140] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 12:24:25,920 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'userRoleMapper' of type [org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 12:24:25,922 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'userRoleMapper' of type [com.sun.proxy.$Proxy141] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 12:24:25,934 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'roleMapper' of type [org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 12:24:25,938 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'roleMapper' of type [com.sun.proxy.$Proxy142] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 12:24:25,954 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'permissionMapper' of type [org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 12:24:25,956 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'permissionMapper' of type [com.sun.proxy.$Proxy143] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 12:24:25,967 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'rolePermissionMapper' of type [org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 12:24:25,969 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'rolePermissionMapper' of type [com.sun.proxy.$Proxy144] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 12:24:25,972 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'shiroRealm' of type [com.jsxa.vapp.common.shiro.ShiroRealm] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 12:24:25,987 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'securityManager' of type [org.apache.shiro.web.mgt.DefaultWebSecurityManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 12:24:26,021 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'authorizationAttributeSourceAdvisor' of type [org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 12:24:26,102 INFO (ExecutorConfigurationSupport.java:181)- Initializing ExecutorService 'executor'
+2024-02-07 12:24:26,526 INFO (TomcatWebServer.java:92)- Tomcat initialized with port(s): 852 (http)
+2024-02-07 12:24:26,545 INFO (DirectJDKLog.java:173)- Initializing ProtocolHandler ["http-nio-852"]
+2024-02-07 12:24:26,545 INFO (DirectJDKLog.java:173)- Starting service [Tomcat]
+2024-02-07 12:24:26,545 INFO (DirectJDKLog.java:173)- Starting Servlet engine: [Apache Tomcat/9.0.31]
+2024-02-07 12:24:26,813 INFO (DirectJDKLog.java:173)- Initializing Spring embedded WebApplicationContext
+2024-02-07 12:24:26,813 INFO (ServletWebServerApplicationContext.java:284)- Root WebApplicationContext: initialization completed in 3817 ms
+2024-02-07 12:24:27,800 INFO (Version.java:41)- Redisson 3.12.5
+2024-02-07 12:24:28,946 INFO (ConnectionPool.java:167)- 1 connections initialized for /192.168.2.241:6379
+2024-02-07 12:24:28,947 INFO (ConnectionPool.java:167)- 24 connections initialized for /192.168.2.241:6379
+2024-02-07 12:24:29,370 INFO (SLF4JLogger.java:71)- Cluster created with settings {hosts=[192.168.2.241:27017], mode=MULTIPLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2024-02-07 12:24:29,371 INFO (SLF4JLogger.java:71)- Adding discovered server 192.168.2.241:27017 to client view of cluster
+2024-02-07 12:24:29,440 INFO (SLF4JLogger.java:71)- Opened connection [connectionId{localValue:1, serverValue:23}] to 192.168.2.241:27017
+2024-02-07 12:24:29,447 INFO (SLF4JLogger.java:71)- Monitor thread successfully connected to server with description ServerDescription{address=192.168.2.241:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[5, 0, 5]}, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=4928600}
+2024-02-07 12:24:29,449 INFO (SLF4JLogger.java:71)- Discovered cluster type of STANDALONE
+2024-02-07 12:24:29,985 INFO (InitUtils.java:56)- initializer namespace from System Property :null
+2024-02-07 12:24:29,985 INFO (InitUtils.java:65)- initializer namespace from System Environment :null
+2024-02-07 12:24:29,986 INFO (InitUtils.java:75)- initializer namespace from System Property :null
+2024-02-07 12:24:30,237 INFO (HikariDataSource.java:110)- HikariPool-1 - Starting...
+2024-02-07 12:24:30,274 WARN (AbstractApplicationContext.java:558)- Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean]: Factory method 'entityManagerFactory' threw exception; nested exception is java.lang.NoSuchMethodError: org.apache.shardingsphere.infra.util.yaml.constructor.ShardingSphereYamlConstructor$1.setCodePointLimit(I)V
+2024-02-07 12:24:30,318 INFO (ExecutorConfigurationSupport.java:218)- Shutting down ExecutorService 'executor'
+2024-02-07 12:24:30,319 INFO (DirectJDKLog.java:173)- Stopping service [Tomcat]
+2024-02-07 12:24:30,324 WARN (DirectJDKLog.java:173)- The web application [ROOT] appears to have started a thread named [Thread-8] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@11.0.20/sun.net.dns.ResolverConfigurationImpl.notifyAddrChange0(Native Method)
+ java.base@11.0.20/sun.net.dns.ResolverConfigurationImpl$AddressChangeListener.run(ResolverConfigurationImpl.java:144)
+2024-02-07 12:24:30,325 WARN (DirectJDKLog.java:173)- The web application [ROOT] appears to have started a thread named [com.alibaba.nacos.naming.client.listener] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@11.0.20/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@11.0.20/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:234)
+ java.base@11.0.20/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2123)
+ java.base@11.0.20/java.util.concurrent.LinkedBlockingQueue.poll(LinkedBlockingQueue.java:458)
+ app//com.alibaba.nacos.client.naming.core.EventDispatcher$Notifier.run(EventDispatcher.java:114)
+ java.base@11.0.20/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+ java.base@11.0.20/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+ java.base@11.0.20/java.lang.Thread.run(Thread.java:834)
+2024-02-07 12:24:30,325 WARN (DirectJDKLog.java:173)- The web application [ROOT] appears to have started a thread named [com.alibaba.nacos.naming.failover] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@11.0.20/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@11.0.20/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:234)
+ java.base@11.0.20/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2123)
+ java.base@11.0.20/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base@11.0.20/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@11.0.20/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1054)
+ java.base@11.0.20/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1114)
+ java.base@11.0.20/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+ java.base@11.0.20/java.lang.Thread.run(Thread.java:834)
+2024-02-07 12:24:30,325 WARN (DirectJDKLog.java:173)- The web application [ROOT] appears to have started a thread named [com.alibaba.nacos.naming.push.receiver] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@11.0.20/java.net.DualStackPlainDatagramSocketImpl.socketReceiveOrPeekData(Native Method)
+ java.base@11.0.20/java.net.DualStackPlainDatagramSocketImpl.receive0(DualStackPlainDatagramSocketImpl.java:124)
+ java.base@11.0.20/java.net.AbstractPlainDatagramSocketImpl.receive(AbstractPlainDatagramSocketImpl.java:200)
+ java.base@11.0.20/java.net.DatagramSocket.receive(DatagramSocket.java:814)
+ app//com.alibaba.nacos.client.naming.core.PushReceiver.run(PushReceiver.java:73)
+ java.base@11.0.20/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+ java.base@11.0.20/java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:264)
+ java.base@11.0.20/java.util.concurrent.FutureTask.run(FutureTask.java)
+ java.base@11.0.20/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+ java.base@11.0.20/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+ java.base@11.0.20/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+ java.base@11.0.20/java.lang.Thread.run(Thread.java:834)
+2024-02-07 12:24:30,338 INFO (ConditionEvaluationReportLoggingListener.java:136)- 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2024-02-07 12:24:30,349 ERROR (LoggingFailureAnalysisReporter.java:40)- 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+An attempt was made to call a method that does not exist. The attempt was made from the following location:
+
+    org.apache.shardingsphere.infra.util.yaml.constructor.ShardingSphereYamlConstructor$1.<init>(ShardingSphereYamlConstructor.java:45)
+
+The following method did not exist:
+
+    org.apache.shardingsphere.infra.util.yaml.constructor.ShardingSphereYamlConstructor$1.setCodePointLimit(I)V
+
+The method's class, org.apache.shardingsphere.infra.util.yaml.constructor.ShardingSphereYamlConstructor$1, is available from the following locations:
+
+    jar:file:/C:/Users/Administrator/.m2/repository/org/apache/shardingsphere/shardingsphere-infra-util/5.3.2/shardingsphere-infra-util-5.3.2.jar!/org/apache/shardingsphere/infra/util/yaml/constructor/ShardingSphereYamlConstructor$1.class
+
+It was loaded from the following location:
+
+    file:/C:/Users/Administrator/.m2/repository/org/apache/shardingsphere/shardingsphere-infra-util/5.3.2/shardingsphere-infra-util-5.3.2.jar
+
+
+Action:
+
+Correct the classpath of your application so that it contains a single, compatible version of org.apache.shardingsphere.infra.util.yaml.constructor.ShardingSphereYamlConstructor$1
+
+2024-02-07 14:03:27,474 INFO (NacosPropertySourceBuilder.java:87)- Loading nacos data, dataId: 'redis.yml', group: 'common'
+2024-02-07 14:03:27,483 INFO (NacosPropertySourceBuilder.java:87)- Loading nacos data, dataId: 'mongo.yml', group: 'common'
+2024-02-07 14:03:27,488 INFO (NacosPropertySourceBuilder.java:87)- Loading nacos data, dataId: 'jwt.yml', group: 'common'
+2024-02-07 14:03:27,492 INFO (NacosPropertySourceBuilder.java:87)- Loading nacos data, dataId: 'minio.yml', group: 'common'
+2024-02-07 14:03:27,496 INFO (NacosPropertySourceBuilder.java:87)- Loading nacos data, dataId: 'inventory-service.yml', group: 'inventory-service'
+2024-02-07 14:03:27,505 INFO (PropertySourceBootstrapConfiguration.java:105)- Located property source: [BootstrapPropertySource {name='bootstrapProperties-inventory-service-dev.yml'}, BootstrapPropertySource {name='bootstrapProperties-inventory-service-common.yml'}, BootstrapPropertySource {name='bootstrapProperties-inventory-service.yml'}, BootstrapPropertySource {name='bootstrapProperties-minio.yml'}, BootstrapPropertySource {name='bootstrapProperties-jwt.yml'}, BootstrapPropertySource {name='bootstrapProperties-mongo.yml'}, BootstrapPropertySource {name='bootstrapProperties-redis.yml'}]
+2024-02-07 14:03:32,388 INFO (SpringApplication.java:655)- The following profiles are active: common,dev
+2024-02-07 14:03:33,561 WARN (EndpointId.java:155)- Endpoint ID 'nacos-config' contains invalid characters, please migrate to a valid format.
+2024-02-07 14:03:33,566 WARN (EndpointId.java:155)- Endpoint ID 'nacos-discovery' contains invalid characters, please migrate to a valid format.
+2024-02-07 14:03:33,983 INFO (RepositoryConfigurationDelegate.java:249)- Multiple Spring Data modules found, entering strict repository configuration mode!
+2024-02-07 14:03:33,983 INFO (RepositoryConfigurationDelegate.java:127)- Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-02-07 14:03:34,030 INFO (RepositoryConfigurationDelegate.java:187)- Finished Spring Data repository scanning in 37ms. Found 0 JPA repository interfaces.
+2024-02-07 14:03:34,038 INFO (RepositoryConfigurationDelegate.java:249)- Multiple Spring Data modules found, entering strict repository configuration mode!
+2024-02-07 14:03:34,038 INFO (RepositoryConfigurationDelegate.java:127)- Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2024-02-07 14:03:34,058 INFO (RepositoryConfigurationDelegate.java:187)- Finished Spring Data repository scanning in 19ms. Found 0 MongoDB repository interfaces.
+2024-02-07 14:03:34,069 INFO (RepositoryConfigurationDelegate.java:249)- Multiple Spring Data modules found, entering strict repository configuration mode!
+2024-02-07 14:03:34,070 INFO (RepositoryConfigurationDelegate.java:127)- Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2024-02-07 14:03:34,095 INFO (RepositoryConfigurationDelegate.java:187)- Finished Spring Data repository scanning in 18ms. Found 0 Redis repository interfaces.
+2024-02-07 14:03:34,219 WARN (EndpointId.java:155)- Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2024-02-07 14:03:34,365 INFO (GenericScope.java:295)- BeanFactory id=f4b77177-9bc8-3a8a-b3a7-bdd6408b9063
+2024-02-07 14:03:34,793 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'shiroConfig' of type [com.jsxa.vapp.common.shiro.ShiroConfig$$EnhancerBySpringCGLIB$$e62446a1] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 14:03:34,868 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'jwtTokenUtil' of type [com.jsxa.vapp.common.utils.JwtTokenUtil] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 14:03:34,938 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'mybatis-org.mybatis.spring.boot.autoconfigure.MybatisProperties' of type [org.mybatis.spring.boot.autoconfigure.MybatisProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 14:03:34,953 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration' of type [org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration$$EnhancerBySpringCGLIB$$78ceeca5] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 14:03:34,957 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Hikari' of type [org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Hikari] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 14:03:34,966 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'spring.datasource-org.springframework.boot.autoconfigure.jdbc.DataSourceProperties' of type [org.springframework.boot.autoconfigure.jdbc.DataSourceProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 14:03:34,989 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'dataSource' of type [com.zaxxer.hikari.HikariDataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 14:03:35,010 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'org.springframework.boot.autoconfigure.jdbc.DataSourceInitializerInvoker' of type [org.springframework.boot.autoconfigure.jdbc.DataSourceInitializerInvoker] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 14:03:35,023 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'sqlSessionFactory' of type [org.apache.ibatis.session.defaults.DefaultSqlSessionFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 14:03:35,034 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'sqlSessionTemplate' of type [org.mybatis.spring.SqlSessionTemplate] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 14:03:35,077 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'userMapper' of type [org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 14:03:35,080 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'userMapper' of type [com.sun.proxy.$Proxy140] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 14:03:35,095 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'userRoleMapper' of type [org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 14:03:35,097 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'userRoleMapper' of type [com.sun.proxy.$Proxy141] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 14:03:35,108 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'roleMapper' of type [org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 14:03:35,111 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'roleMapper' of type [com.sun.proxy.$Proxy142] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 14:03:35,122 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'permissionMapper' of type [org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 14:03:35,123 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'permissionMapper' of type [com.sun.proxy.$Proxy143] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 14:03:35,134 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'rolePermissionMapper' of type [org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 14:03:35,135 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'rolePermissionMapper' of type [com.sun.proxy.$Proxy144] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 14:03:35,138 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'shiroRealm' of type [com.jsxa.vapp.common.shiro.ShiroRealm] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 14:03:35,149 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'securityManager' of type [org.apache.shiro.web.mgt.DefaultWebSecurityManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 14:03:35,174 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'authorizationAttributeSourceAdvisor' of type [org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 14:03:35,255 INFO (ExecutorConfigurationSupport.java:181)- Initializing ExecutorService 'executor'
+2024-02-07 14:03:35,618 INFO (TomcatWebServer.java:92)- Tomcat initialized with port(s): 852 (http)
+2024-02-07 14:03:35,631 INFO (DirectJDKLog.java:173)- Initializing ProtocolHandler ["http-nio-852"]
+2024-02-07 14:03:35,631 INFO (DirectJDKLog.java:173)- Starting service [Tomcat]
+2024-02-07 14:03:35,632 INFO (DirectJDKLog.java:173)- Starting Servlet engine: [Apache Tomcat/9.0.31]
+2024-02-07 14:03:35,909 INFO (DirectJDKLog.java:173)- Initializing Spring embedded WebApplicationContext
+2024-02-07 14:03:35,909 INFO (ServletWebServerApplicationContext.java:284)- Root WebApplicationContext: initialization completed in 3506 ms
+2024-02-07 14:03:36,855 INFO (Version.java:41)- Redisson 3.12.5
+2024-02-07 14:03:37,874 INFO (ConnectionPool.java:167)- 1 connections initialized for /192.168.2.241:6379
+2024-02-07 14:03:37,876 INFO (ConnectionPool.java:167)- 24 connections initialized for /192.168.2.241:6379
+2024-02-07 14:03:38,320 INFO (SLF4JLogger.java:71)- Cluster created with settings {hosts=[192.168.2.241:27017], mode=MULTIPLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2024-02-07 14:03:38,320 INFO (SLF4JLogger.java:71)- Adding discovered server 192.168.2.241:27017 to client view of cluster
+2024-02-07 14:03:38,382 INFO (SLF4JLogger.java:71)- Opened connection [connectionId{localValue:1, serverValue:24}] to 192.168.2.241:27017
+2024-02-07 14:03:38,388 INFO (SLF4JLogger.java:71)- Monitor thread successfully connected to server with description ServerDescription{address=192.168.2.241:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[5, 0, 5]}, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=3488200}
+2024-02-07 14:03:38,389 INFO (SLF4JLogger.java:71)- Discovered cluster type of STANDALONE
+2024-02-07 14:03:38,923 INFO (InitUtils.java:56)- initializer namespace from System Property :null
+2024-02-07 14:03:38,924 INFO (InitUtils.java:65)- initializer namespace from System Environment :null
+2024-02-07 14:03:38,924 INFO (InitUtils.java:75)- initializer namespace from System Property :null
+2024-02-07 14:03:39,167 INFO (HikariDataSource.java:110)- HikariPool-1 - Starting...
+2024-02-07 14:03:39,207 WARN (AbstractApplicationContext.java:558)- Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean]: Factory method 'entityManagerFactory' threw exception; nested exception is java.lang.NoSuchMethodError: org.apache.shardingsphere.infra.util.yaml.constructor.ShardingSphereYamlConstructor$1.setCodePointLimit(I)V
+2024-02-07 14:03:39,261 INFO (ExecutorConfigurationSupport.java:218)- Shutting down ExecutorService 'executor'
+2024-02-07 14:03:39,262 INFO (DirectJDKLog.java:173)- Stopping service [Tomcat]
+2024-02-07 14:03:39,267 WARN (DirectJDKLog.java:173)- The web application [ROOT] appears to have started a thread named [Thread-8] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@11.0.20/sun.net.dns.ResolverConfigurationImpl.notifyAddrChange0(Native Method)
+ java.base@11.0.20/sun.net.dns.ResolverConfigurationImpl$AddressChangeListener.run(ResolverConfigurationImpl.java:144)
+2024-02-07 14:03:39,267 WARN (DirectJDKLog.java:173)- The web application [ROOT] appears to have started a thread named [com.alibaba.nacos.naming.client.listener] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@11.0.20/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@11.0.20/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:234)
+ java.base@11.0.20/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2123)
+ java.base@11.0.20/java.util.concurrent.LinkedBlockingQueue.poll(LinkedBlockingQueue.java:458)
+ app//com.alibaba.nacos.client.naming.core.EventDispatcher$Notifier.run(EventDispatcher.java:114)
+ java.base@11.0.20/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+ java.base@11.0.20/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+ java.base@11.0.20/java.lang.Thread.run(Thread.java:834)
+2024-02-07 14:03:39,268 WARN (DirectJDKLog.java:173)- The web application [ROOT] appears to have started a thread named [com.alibaba.nacos.naming.failover] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@11.0.20/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@11.0.20/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:234)
+ java.base@11.0.20/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2123)
+ java.base@11.0.20/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base@11.0.20/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@11.0.20/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1054)
+ java.base@11.0.20/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1114)
+ java.base@11.0.20/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+ java.base@11.0.20/java.lang.Thread.run(Thread.java:834)
+2024-02-07 14:03:39,269 WARN (DirectJDKLog.java:173)- The web application [ROOT] appears to have started a thread named [com.alibaba.nacos.naming.push.receiver] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@11.0.20/java.net.DualStackPlainDatagramSocketImpl.socketReceiveOrPeekData(Native Method)
+ java.base@11.0.20/java.net.DualStackPlainDatagramSocketImpl.receive0(DualStackPlainDatagramSocketImpl.java:124)
+ java.base@11.0.20/java.net.AbstractPlainDatagramSocketImpl.receive(AbstractPlainDatagramSocketImpl.java:200)
+ java.base@11.0.20/java.net.DatagramSocket.receive(DatagramSocket.java:814)
+ app//com.alibaba.nacos.client.naming.core.PushReceiver.run(PushReceiver.java:73)
+ java.base@11.0.20/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+ java.base@11.0.20/java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:264)
+ java.base@11.0.20/java.util.concurrent.FutureTask.run(FutureTask.java)
+ java.base@11.0.20/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+ java.base@11.0.20/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+ java.base@11.0.20/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+ java.base@11.0.20/java.lang.Thread.run(Thread.java:834)
+2024-02-07 14:03:39,283 INFO (ConditionEvaluationReportLoggingListener.java:136)- 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2024-02-07 14:03:39,292 ERROR (LoggingFailureAnalysisReporter.java:40)- 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+An attempt was made to call a method that does not exist. The attempt was made from the following location:
+
+    org.apache.shardingsphere.infra.util.yaml.constructor.ShardingSphereYamlConstructor$1.<init>(ShardingSphereYamlConstructor.java:45)
+
+The following method did not exist:
+
+    org.apache.shardingsphere.infra.util.yaml.constructor.ShardingSphereYamlConstructor$1.setCodePointLimit(I)V
+
+The method's class, org.apache.shardingsphere.infra.util.yaml.constructor.ShardingSphereYamlConstructor$1, is available from the following locations:
+
+    jar:file:/C:/Users/Administrator/.m2/repository/org/apache/shardingsphere/shardingsphere-infra-util/5.3.2/shardingsphere-infra-util-5.3.2.jar!/org/apache/shardingsphere/infra/util/yaml/constructor/ShardingSphereYamlConstructor$1.class
+
+It was loaded from the following location:
+
+    file:/C:/Users/Administrator/.m2/repository/org/apache/shardingsphere/shardingsphere-infra-util/5.3.2/shardingsphere-infra-util-5.3.2.jar
+
+
+Action:
+
+Correct the classpath of your application so that it contains a single, compatible version of org.apache.shardingsphere.infra.util.yaml.constructor.ShardingSphereYamlConstructor$1
+
+2024-02-07 14:05:53,446 INFO (NacosPropertySourceBuilder.java:87)- Loading nacos data, dataId: 'redis.yml', group: 'common'
+2024-02-07 14:05:53,457 INFO (NacosPropertySourceBuilder.java:87)- Loading nacos data, dataId: 'mongo.yml', group: 'common'
+2024-02-07 14:05:53,463 INFO (NacosPropertySourceBuilder.java:87)- Loading nacos data, dataId: 'jwt.yml', group: 'common'
+2024-02-07 14:05:53,471 INFO (NacosPropertySourceBuilder.java:87)- Loading nacos data, dataId: 'minio.yml', group: 'common'
+2024-02-07 14:05:53,476 INFO (NacosPropertySourceBuilder.java:87)- Loading nacos data, dataId: 'inventory-service.yml', group: 'inventory-service'
+2024-02-07 14:05:53,486 INFO (PropertySourceBootstrapConfiguration.java:105)- Located property source: [BootstrapPropertySource {name='bootstrapProperties-inventory-service-dev.yml'}, BootstrapPropertySource {name='bootstrapProperties-inventory-service-common.yml'}, BootstrapPropertySource {name='bootstrapProperties-inventory-service.yml'}, BootstrapPropertySource {name='bootstrapProperties-minio.yml'}, BootstrapPropertySource {name='bootstrapProperties-jwt.yml'}, BootstrapPropertySource {name='bootstrapProperties-mongo.yml'}, BootstrapPropertySource {name='bootstrapProperties-redis.yml'}]
+2024-02-07 14:05:58,367 INFO (SpringApplication.java:655)- The following profiles are active: common,dev
+2024-02-07 14:05:59,560 WARN (EndpointId.java:155)- Endpoint ID 'nacos-config' contains invalid characters, please migrate to a valid format.
+2024-02-07 14:05:59,565 WARN (EndpointId.java:155)- Endpoint ID 'nacos-discovery' contains invalid characters, please migrate to a valid format.
+2024-02-07 14:05:59,964 INFO (RepositoryConfigurationDelegate.java:249)- Multiple Spring Data modules found, entering strict repository configuration mode!
+2024-02-07 14:05:59,964 INFO (RepositoryConfigurationDelegate.java:127)- Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-02-07 14:06:00,010 INFO (RepositoryConfigurationDelegate.java:187)- Finished Spring Data repository scanning in 37ms. Found 0 JPA repository interfaces.
+2024-02-07 14:06:00,019 INFO (RepositoryConfigurationDelegate.java:249)- Multiple Spring Data modules found, entering strict repository configuration mode!
+2024-02-07 14:06:00,019 INFO (RepositoryConfigurationDelegate.java:127)- Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2024-02-07 14:06:00,043 INFO (RepositoryConfigurationDelegate.java:187)- Finished Spring Data repository scanning in 24ms. Found 0 MongoDB repository interfaces.
+2024-02-07 14:06:00,054 INFO (RepositoryConfigurationDelegate.java:249)- Multiple Spring Data modules found, entering strict repository configuration mode!
+2024-02-07 14:06:00,055 INFO (RepositoryConfigurationDelegate.java:127)- Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2024-02-07 14:06:00,080 INFO (RepositoryConfigurationDelegate.java:187)- Finished Spring Data repository scanning in 19ms. Found 0 Redis repository interfaces.
+2024-02-07 14:06:00,211 WARN (EndpointId.java:155)- Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2024-02-07 14:06:00,356 INFO (GenericScope.java:295)- BeanFactory id=f4b77177-9bc8-3a8a-b3a7-bdd6408b9063
+2024-02-07 14:06:00,767 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'shiroConfig' of type [com.jsxa.vapp.common.shiro.ShiroConfig$$EnhancerBySpringCGLIB$$e51a43c0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 14:06:00,834 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'jwtTokenUtil' of type [com.jsxa.vapp.common.utils.JwtTokenUtil] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 14:06:00,904 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'mybatis-org.mybatis.spring.boot.autoconfigure.MybatisProperties' of type [org.mybatis.spring.boot.autoconfigure.MybatisProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 14:06:00,919 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration' of type [org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration$$EnhancerBySpringCGLIB$$77c4e9c4] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 14:06:00,923 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Hikari' of type [org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Hikari] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 14:06:00,931 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'spring.datasource-org.springframework.boot.autoconfigure.jdbc.DataSourceProperties' of type [org.springframework.boot.autoconfigure.jdbc.DataSourceProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 14:06:00,953 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'dataSource' of type [com.zaxxer.hikari.HikariDataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 14:06:00,973 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'org.springframework.boot.autoconfigure.jdbc.DataSourceInitializerInvoker' of type [org.springframework.boot.autoconfigure.jdbc.DataSourceInitializerInvoker] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 14:06:00,986 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'sqlSessionFactory' of type [org.apache.ibatis.session.defaults.DefaultSqlSessionFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 14:06:00,997 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'sqlSessionTemplate' of type [org.mybatis.spring.SqlSessionTemplate] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 14:06:01,040 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'userMapper' of type [org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 14:06:01,045 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'userMapper' of type [com.sun.proxy.$Proxy140] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 14:06:01,057 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'userRoleMapper' of type [org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 14:06:01,061 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'userRoleMapper' of type [com.sun.proxy.$Proxy141] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 14:06:01,071 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'roleMapper' of type [org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 14:06:01,073 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'roleMapper' of type [com.sun.proxy.$Proxy142] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 14:06:01,086 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'permissionMapper' of type [org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 14:06:01,087 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'permissionMapper' of type [com.sun.proxy.$Proxy143] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 14:06:01,098 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'rolePermissionMapper' of type [org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 14:06:01,099 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'rolePermissionMapper' of type [com.sun.proxy.$Proxy144] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 14:06:01,102 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'shiroRealm' of type [com.jsxa.vapp.common.shiro.ShiroRealm] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 14:06:01,113 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'securityManager' of type [org.apache.shiro.web.mgt.DefaultWebSecurityManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 14:06:01,136 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'authorizationAttributeSourceAdvisor' of type [org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 14:06:01,214 INFO (ExecutorConfigurationSupport.java:181)- Initializing ExecutorService 'executor'
+2024-02-07 14:06:01,582 INFO (TomcatWebServer.java:92)- Tomcat initialized with port(s): 852 (http)
+2024-02-07 14:06:01,595 INFO (DirectJDKLog.java:173)- Initializing ProtocolHandler ["http-nio-852"]
+2024-02-07 14:06:01,596 INFO (DirectJDKLog.java:173)- Starting service [Tomcat]
+2024-02-07 14:06:01,596 INFO (DirectJDKLog.java:173)- Starting Servlet engine: [Apache Tomcat/9.0.31]
+2024-02-07 14:06:01,854 INFO (DirectJDKLog.java:173)- Initializing Spring embedded WebApplicationContext
+2024-02-07 14:06:01,854 INFO (ServletWebServerApplicationContext.java:284)- Root WebApplicationContext: initialization completed in 3471 ms
+2024-02-07 14:06:02,787 INFO (Version.java:41)- Redisson 3.12.5
+2024-02-07 14:06:03,808 INFO (ConnectionPool.java:167)- 1 connections initialized for /192.168.2.241:6379
+2024-02-07 14:06:03,810 INFO (ConnectionPool.java:167)- 24 connections initialized for /192.168.2.241:6379
+2024-02-07 14:06:04,273 INFO (SLF4JLogger.java:71)- Cluster created with settings {hosts=[192.168.2.241:27017], mode=MULTIPLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2024-02-07 14:06:04,274 INFO (SLF4JLogger.java:71)- Adding discovered server 192.168.2.241:27017 to client view of cluster
+2024-02-07 14:06:04,338 INFO (SLF4JLogger.java:71)- Opened connection [connectionId{localValue:1, serverValue:25}] to 192.168.2.241:27017
+2024-02-07 14:06:04,344 INFO (SLF4JLogger.java:71)- Monitor thread successfully connected to server with description ServerDescription{address=192.168.2.241:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[5, 0, 5]}, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=3757200}
+2024-02-07 14:06:04,345 INFO (SLF4JLogger.java:71)- Discovered cluster type of STANDALONE
+2024-02-07 14:06:04,927 INFO (InitUtils.java:56)- initializer namespace from System Property :null
+2024-02-07 14:06:04,928 INFO (InitUtils.java:65)- initializer namespace from System Environment :null
+2024-02-07 14:06:04,928 INFO (InitUtils.java:75)- initializer namespace from System Property :null
+2024-02-07 14:06:05,188 INFO (HikariDataSource.java:110)- HikariPool-1 - Starting...
+2024-02-07 14:06:05,233 WARN (AbstractApplicationContext.java:558)- Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean]: Factory method 'entityManagerFactory' threw exception; nested exception is java.lang.NoSuchMethodError: org.apache.shardingsphere.infra.util.yaml.constructor.ShardingSphereYamlConstructor$1.setCodePointLimit(I)V
+2024-02-07 14:06:05,276 INFO (ExecutorConfigurationSupport.java:218)- Shutting down ExecutorService 'executor'
+2024-02-07 14:06:05,277 INFO (DirectJDKLog.java:173)- Stopping service [Tomcat]
+2024-02-07 14:06:05,282 WARN (DirectJDKLog.java:173)- The web application [ROOT] appears to have started a thread named [Thread-8] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@11.0.20/sun.net.dns.ResolverConfigurationImpl.notifyAddrChange0(Native Method)
+ java.base@11.0.20/sun.net.dns.ResolverConfigurationImpl$AddressChangeListener.run(ResolverConfigurationImpl.java:144)
+2024-02-07 14:06:05,282 WARN (DirectJDKLog.java:173)- The web application [ROOT] appears to have started a thread named [com.alibaba.nacos.naming.client.listener] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@11.0.20/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@11.0.20/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:234)
+ java.base@11.0.20/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2123)
+ java.base@11.0.20/java.util.concurrent.LinkedBlockingQueue.poll(LinkedBlockingQueue.java:458)
+ app//com.alibaba.nacos.client.naming.core.EventDispatcher$Notifier.run(EventDispatcher.java:114)
+ java.base@11.0.20/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+ java.base@11.0.20/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+ java.base@11.0.20/java.lang.Thread.run(Thread.java:834)
+2024-02-07 14:06:05,283 WARN (DirectJDKLog.java:173)- The web application [ROOT] appears to have started a thread named [com.alibaba.nacos.naming.failover] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@11.0.20/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@11.0.20/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:234)
+ java.base@11.0.20/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2123)
+ java.base@11.0.20/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base@11.0.20/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@11.0.20/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1054)
+ java.base@11.0.20/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1114)
+ java.base@11.0.20/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+ java.base@11.0.20/java.lang.Thread.run(Thread.java:834)
+2024-02-07 14:06:05,284 WARN (DirectJDKLog.java:173)- The web application [ROOT] appears to have started a thread named [com.alibaba.nacos.naming.push.receiver] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@11.0.20/java.net.DualStackPlainDatagramSocketImpl.socketReceiveOrPeekData(Native Method)
+ java.base@11.0.20/java.net.DualStackPlainDatagramSocketImpl.receive0(DualStackPlainDatagramSocketImpl.java:124)
+ java.base@11.0.20/java.net.AbstractPlainDatagramSocketImpl.receive(AbstractPlainDatagramSocketImpl.java:200)
+ java.base@11.0.20/java.net.DatagramSocket.receive(DatagramSocket.java:814)
+ app//com.alibaba.nacos.client.naming.core.PushReceiver.run(PushReceiver.java:73)
+ java.base@11.0.20/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+ java.base@11.0.20/java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:264)
+ java.base@11.0.20/java.util.concurrent.FutureTask.run(FutureTask.java)
+ java.base@11.0.20/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+ java.base@11.0.20/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+ java.base@11.0.20/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+ java.base@11.0.20/java.lang.Thread.run(Thread.java:834)
+2024-02-07 14:06:05,297 INFO (ConditionEvaluationReportLoggingListener.java:136)- 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2024-02-07 14:06:05,307 ERROR (LoggingFailureAnalysisReporter.java:40)- 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+An attempt was made to call a method that does not exist. The attempt was made from the following location:
+
+    org.apache.shardingsphere.infra.util.yaml.constructor.ShardingSphereYamlConstructor$1.<init>(ShardingSphereYamlConstructor.java:45)
+
+The following method did not exist:
+
+    org.apache.shardingsphere.infra.util.yaml.constructor.ShardingSphereYamlConstructor$1.setCodePointLimit(I)V
+
+The method's class, org.apache.shardingsphere.infra.util.yaml.constructor.ShardingSphereYamlConstructor$1, is available from the following locations:
+
+    jar:file:/C:/Users/Administrator/.m2/repository/org/apache/shardingsphere/shardingsphere-infra-util/5.3.2/shardingsphere-infra-util-5.3.2.jar!/org/apache/shardingsphere/infra/util/yaml/constructor/ShardingSphereYamlConstructor$1.class
+
+It was loaded from the following location:
+
+    file:/C:/Users/Administrator/.m2/repository/org/apache/shardingsphere/shardingsphere-infra-util/5.3.2/shardingsphere-infra-util-5.3.2.jar
+
+
+Action:
+
+Correct the classpath of your application so that it contains a single, compatible version of org.apache.shardingsphere.infra.util.yaml.constructor.ShardingSphereYamlConstructor$1
+
+2024-02-07 14:14:23,763 INFO (NacosPropertySourceBuilder.java:87)- Loading nacos data, dataId: 'redis.yml', group: 'common'
+2024-02-07 14:14:23,773 INFO (NacosPropertySourceBuilder.java:87)- Loading nacos data, dataId: 'mongo.yml', group: 'common'
+2024-02-07 14:14:23,782 INFO (NacosPropertySourceBuilder.java:87)- Loading nacos data, dataId: 'jwt.yml', group: 'common'
+2024-02-07 14:14:23,788 INFO (NacosPropertySourceBuilder.java:87)- Loading nacos data, dataId: 'minio.yml', group: 'common'
+2024-02-07 14:14:23,795 INFO (NacosPropertySourceBuilder.java:87)- Loading nacos data, dataId: 'inventory-service.yml', group: 'inventory-service'
+2024-02-07 14:14:23,806 INFO (PropertySourceBootstrapConfiguration.java:105)- Located property source: [BootstrapPropertySource {name='bootstrapProperties-inventory-service-dev.yml'}, BootstrapPropertySource {name='bootstrapProperties-inventory-service-common.yml'}, BootstrapPropertySource {name='bootstrapProperties-inventory-service.yml'}, BootstrapPropertySource {name='bootstrapProperties-minio.yml'}, BootstrapPropertySource {name='bootstrapProperties-jwt.yml'}, BootstrapPropertySource {name='bootstrapProperties-mongo.yml'}, BootstrapPropertySource {name='bootstrapProperties-redis.yml'}]
+2024-02-07 14:14:28,667 INFO (SpringApplication.java:655)- The following profiles are active: common,dev
+2024-02-07 14:14:29,891 WARN (EndpointId.java:155)- Endpoint ID 'nacos-config' contains invalid characters, please migrate to a valid format.
+2024-02-07 14:14:29,901 WARN (EndpointId.java:155)- Endpoint ID 'nacos-discovery' contains invalid characters, please migrate to a valid format.
+2024-02-07 14:14:30,325 INFO (RepositoryConfigurationDelegate.java:249)- Multiple Spring Data modules found, entering strict repository configuration mode!
+2024-02-07 14:14:30,327 INFO (RepositoryConfigurationDelegate.java:127)- Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-02-07 14:14:30,376 INFO (RepositoryConfigurationDelegate.java:187)- Finished Spring Data repository scanning in 41ms. Found 0 JPA repository interfaces.
+2024-02-07 14:14:30,383 INFO (RepositoryConfigurationDelegate.java:249)- Multiple Spring Data modules found, entering strict repository configuration mode!
+2024-02-07 14:14:30,383 INFO (RepositoryConfigurationDelegate.java:127)- Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2024-02-07 14:14:30,408 INFO (RepositoryConfigurationDelegate.java:187)- Finished Spring Data repository scanning in 24ms. Found 0 MongoDB repository interfaces.
+2024-02-07 14:14:30,419 INFO (RepositoryConfigurationDelegate.java:249)- Multiple Spring Data modules found, entering strict repository configuration mode!
+2024-02-07 14:14:30,420 INFO (RepositoryConfigurationDelegate.java:127)- Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2024-02-07 14:14:30,448 INFO (RepositoryConfigurationDelegate.java:187)- Finished Spring Data repository scanning in 19ms. Found 0 Redis repository interfaces.
+2024-02-07 14:14:30,586 WARN (EndpointId.java:155)- Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2024-02-07 14:14:30,731 INFO (GenericScope.java:295)- BeanFactory id=f4b77177-9bc8-3a8a-b3a7-bdd6408b9063
+2024-02-07 14:14:31,168 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'shiroConfig' of type [com.jsxa.vapp.common.shiro.ShiroConfig$$EnhancerBySpringCGLIB$$de4e4d99] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 14:14:31,247 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'jwtTokenUtil' of type [com.jsxa.vapp.common.utils.JwtTokenUtil] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 14:14:31,320 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'mybatis-org.mybatis.spring.boot.autoconfigure.MybatisProperties' of type [org.mybatis.spring.boot.autoconfigure.MybatisProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 14:14:31,336 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration' of type [org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration$$EnhancerBySpringCGLIB$$70f8f39d] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 14:14:31,341 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Hikari' of type [org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Hikari] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 14:14:31,350 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'spring.datasource-org.springframework.boot.autoconfigure.jdbc.DataSourceProperties' of type [org.springframework.boot.autoconfigure.jdbc.DataSourceProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 14:14:31,373 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'dataSource' of type [com.zaxxer.hikari.HikariDataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 14:14:31,396 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'org.springframework.boot.autoconfigure.jdbc.DataSourceInitializerInvoker' of type [org.springframework.boot.autoconfigure.jdbc.DataSourceInitializerInvoker] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 14:14:31,408 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'sqlSessionFactory' of type [org.apache.ibatis.session.defaults.DefaultSqlSessionFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 14:14:31,421 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'sqlSessionTemplate' of type [org.mybatis.spring.SqlSessionTemplate] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 14:14:31,470 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'userMapper' of type [org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 14:14:31,474 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'userMapper' of type [com.sun.proxy.$Proxy140] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 14:14:31,486 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'userRoleMapper' of type [org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 14:14:31,487 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'userRoleMapper' of type [com.sun.proxy.$Proxy141] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 14:14:31,497 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'roleMapper' of type [org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 14:14:31,499 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'roleMapper' of type [com.sun.proxy.$Proxy142] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 14:14:31,508 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'permissionMapper' of type [org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 14:14:31,510 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'permissionMapper' of type [com.sun.proxy.$Proxy143] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 14:14:31,534 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'rolePermissionMapper' of type [org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 14:14:31,535 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'rolePermissionMapper' of type [com.sun.proxy.$Proxy144] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 14:14:31,539 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'shiroRealm' of type [com.jsxa.vapp.common.shiro.ShiroRealm] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 14:14:31,550 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'securityManager' of type [org.apache.shiro.web.mgt.DefaultWebSecurityManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 14:14:31,574 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'authorizationAttributeSourceAdvisor' of type [org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 14:14:31,657 INFO (ExecutorConfigurationSupport.java:181)- Initializing ExecutorService 'executor'
+2024-02-07 14:14:32,028 INFO (TomcatWebServer.java:92)- Tomcat initialized with port(s): 852 (http)
+2024-02-07 14:14:32,040 INFO (DirectJDKLog.java:173)- Initializing ProtocolHandler ["http-nio-852"]
+2024-02-07 14:14:32,040 INFO (DirectJDKLog.java:173)- Starting service [Tomcat]
+2024-02-07 14:14:32,041 INFO (DirectJDKLog.java:173)- Starting Servlet engine: [Apache Tomcat/9.0.31]
+2024-02-07 14:14:32,288 INFO (DirectJDKLog.java:173)- Initializing Spring embedded WebApplicationContext
+2024-02-07 14:14:32,288 INFO (ServletWebServerApplicationContext.java:284)- Root WebApplicationContext: initialization completed in 3604 ms
+2024-02-07 14:14:33,260 INFO (Version.java:41)- Redisson 3.12.5
+2024-02-07 14:14:34,352 INFO (ConnectionPool.java:167)- 1 connections initialized for /192.168.2.241:6379
+2024-02-07 14:14:34,353 INFO (ConnectionPool.java:167)- 24 connections initialized for /192.168.2.241:6379
+2024-02-07 14:14:34,795 INFO (SLF4JLogger.java:71)- Cluster created with settings {hosts=[192.168.2.241:27017], mode=MULTIPLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2024-02-07 14:14:34,795 INFO (SLF4JLogger.java:71)- Adding discovered server 192.168.2.241:27017 to client view of cluster
+2024-02-07 14:14:34,857 INFO (SLF4JLogger.java:71)- Opened connection [connectionId{localValue:1, serverValue:26}] to 192.168.2.241:27017
+2024-02-07 14:14:34,863 INFO (SLF4JLogger.java:71)- Monitor thread successfully connected to server with description ServerDescription{address=192.168.2.241:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[5, 0, 5]}, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=4676800}
+2024-02-07 14:14:34,865 INFO (SLF4JLogger.java:71)- Discovered cluster type of STANDALONE
+2024-02-07 14:14:35,398 INFO (InitUtils.java:56)- initializer namespace from System Property :null
+2024-02-07 14:14:35,399 INFO (InitUtils.java:65)- initializer namespace from System Environment :null
+2024-02-07 14:14:35,400 INFO (InitUtils.java:75)- initializer namespace from System Property :null
+2024-02-07 14:14:35,661 INFO (HikariDataSource.java:110)- HikariPool-1 - Starting...
+2024-02-07 14:14:35,702 WARN (AbstractApplicationContext.java:558)- Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean]: Factory method 'entityManagerFactory' threw exception; nested exception is java.lang.NoSuchMethodError: org.apache.shardingsphere.infra.util.yaml.constructor.ShardingSphereYamlConstructor$1.setCodePointLimit(I)V
+2024-02-07 14:14:35,751 INFO (ExecutorConfigurationSupport.java:218)- Shutting down ExecutorService 'executor'
+2024-02-07 14:14:35,752 INFO (DirectJDKLog.java:173)- Stopping service [Tomcat]
+2024-02-07 14:14:35,757 WARN (DirectJDKLog.java:173)- The web application [ROOT] appears to have started a thread named [Thread-8] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@11.0.20/sun.net.dns.ResolverConfigurationImpl.notifyAddrChange0(Native Method)
+ java.base@11.0.20/sun.net.dns.ResolverConfigurationImpl$AddressChangeListener.run(ResolverConfigurationImpl.java:144)
+2024-02-07 14:14:35,758 WARN (DirectJDKLog.java:173)- The web application [ROOT] appears to have started a thread named [com.alibaba.nacos.naming.client.listener] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@11.0.20/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@11.0.20/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:234)
+ java.base@11.0.20/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2123)
+ java.base@11.0.20/java.util.concurrent.LinkedBlockingQueue.poll(LinkedBlockingQueue.java:458)
+ app//com.alibaba.nacos.client.naming.core.EventDispatcher$Notifier.run(EventDispatcher.java:114)
+ java.base@11.0.20/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+ java.base@11.0.20/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+ java.base@11.0.20/java.lang.Thread.run(Thread.java:834)
+2024-02-07 14:14:35,758 WARN (DirectJDKLog.java:173)- The web application [ROOT] appears to have started a thread named [com.alibaba.nacos.naming.failover] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@11.0.20/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@11.0.20/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:234)
+ java.base@11.0.20/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2123)
+ java.base@11.0.20/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base@11.0.20/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@11.0.20/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1054)
+ java.base@11.0.20/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1114)
+ java.base@11.0.20/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+ java.base@11.0.20/java.lang.Thread.run(Thread.java:834)
+2024-02-07 14:14:35,759 WARN (DirectJDKLog.java:173)- The web application [ROOT] appears to have started a thread named [com.alibaba.nacos.naming.push.receiver] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@11.0.20/java.net.DualStackPlainDatagramSocketImpl.socketReceiveOrPeekData(Native Method)
+ java.base@11.0.20/java.net.DualStackPlainDatagramSocketImpl.receive0(DualStackPlainDatagramSocketImpl.java:124)
+ java.base@11.0.20/java.net.AbstractPlainDatagramSocketImpl.receive(AbstractPlainDatagramSocketImpl.java:200)
+ java.base@11.0.20/java.net.DatagramSocket.receive(DatagramSocket.java:814)
+ app//com.alibaba.nacos.client.naming.core.PushReceiver.run(PushReceiver.java:73)
+ java.base@11.0.20/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+ java.base@11.0.20/java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:264)
+ java.base@11.0.20/java.util.concurrent.FutureTask.run(FutureTask.java)
+ java.base@11.0.20/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+ java.base@11.0.20/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+ java.base@11.0.20/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+ java.base@11.0.20/java.lang.Thread.run(Thread.java:834)
+2024-02-07 14:14:35,773 INFO (ConditionEvaluationReportLoggingListener.java:136)- 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2024-02-07 14:14:35,783 ERROR (LoggingFailureAnalysisReporter.java:40)- 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+An attempt was made to call a method that does not exist. The attempt was made from the following location:
+
+    org.apache.shardingsphere.infra.util.yaml.constructor.ShardingSphereYamlConstructor$1.<init>(ShardingSphereYamlConstructor.java:45)
+
+The following method did not exist:
+
+    org.apache.shardingsphere.infra.util.yaml.constructor.ShardingSphereYamlConstructor$1.setCodePointLimit(I)V
+
+The method's class, org.apache.shardingsphere.infra.util.yaml.constructor.ShardingSphereYamlConstructor$1, is available from the following locations:
+
+    jar:file:/C:/Users/Administrator/.m2/repository/org/apache/shardingsphere/shardingsphere-infra-util/5.3.2/shardingsphere-infra-util-5.3.2.jar!/org/apache/shardingsphere/infra/util/yaml/constructor/ShardingSphereYamlConstructor$1.class
+
+It was loaded from the following location:
+
+    file:/C:/Users/Administrator/.m2/repository/org/apache/shardingsphere/shardingsphere-infra-util/5.3.2/shardingsphere-infra-util-5.3.2.jar
+
+
+Action:
+
+Correct the classpath of your application so that it contains a single, compatible version of org.apache.shardingsphere.infra.util.yaml.constructor.ShardingSphereYamlConstructor$1
+
+2024-02-07 14:17:27,977 INFO (NacosPropertySourceBuilder.java:87)- Loading nacos data, dataId: 'redis.yml', group: 'common'
+2024-02-07 14:17:27,986 INFO (NacosPropertySourceBuilder.java:87)- Loading nacos data, dataId: 'mongo.yml', group: 'common'
+2024-02-07 14:17:27,990 INFO (NacosPropertySourceBuilder.java:87)- Loading nacos data, dataId: 'jwt.yml', group: 'common'
+2024-02-07 14:17:27,995 INFO (NacosPropertySourceBuilder.java:87)- Loading nacos data, dataId: 'minio.yml', group: 'common'
+2024-02-07 14:17:28,000 INFO (NacosPropertySourceBuilder.java:87)- Loading nacos data, dataId: 'inventory-service.yml', group: 'inventory-service'
+2024-02-07 14:17:28,011 INFO (PropertySourceBootstrapConfiguration.java:105)- Located property source: [BootstrapPropertySource {name='bootstrapProperties-inventory-service-dev.yml'}, BootstrapPropertySource {name='bootstrapProperties-inventory-service-common.yml'}, BootstrapPropertySource {name='bootstrapProperties-inventory-service.yml'}, BootstrapPropertySource {name='bootstrapProperties-minio.yml'}, BootstrapPropertySource {name='bootstrapProperties-jwt.yml'}, BootstrapPropertySource {name='bootstrapProperties-mongo.yml'}, BootstrapPropertySource {name='bootstrapProperties-redis.yml'}]
+2024-02-07 14:17:32,890 INFO (SpringApplication.java:655)- The following profiles are active: common,dev
+2024-02-07 14:17:34,140 WARN (EndpointId.java:155)- Endpoint ID 'nacos-config' contains invalid characters, please migrate to a valid format.
+2024-02-07 14:17:34,145 WARN (EndpointId.java:155)- Endpoint ID 'nacos-discovery' contains invalid characters, please migrate to a valid format.
+2024-02-07 14:17:34,561 INFO (RepositoryConfigurationDelegate.java:249)- Multiple Spring Data modules found, entering strict repository configuration mode!
+2024-02-07 14:17:34,562 INFO (RepositoryConfigurationDelegate.java:127)- Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-02-07 14:17:34,609 INFO (RepositoryConfigurationDelegate.java:187)- Finished Spring Data repository scanning in 39ms. Found 0 JPA repository interfaces.
+2024-02-07 14:17:34,616 INFO (RepositoryConfigurationDelegate.java:249)- Multiple Spring Data modules found, entering strict repository configuration mode!
+2024-02-07 14:17:34,616 INFO (RepositoryConfigurationDelegate.java:127)- Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2024-02-07 14:17:34,636 INFO (RepositoryConfigurationDelegate.java:187)- Finished Spring Data repository scanning in 19ms. Found 0 MongoDB repository interfaces.
+2024-02-07 14:17:34,646 INFO (RepositoryConfigurationDelegate.java:249)- Multiple Spring Data modules found, entering strict repository configuration mode!
+2024-02-07 14:17:34,647 INFO (RepositoryConfigurationDelegate.java:127)- Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2024-02-07 14:17:34,673 INFO (RepositoryConfigurationDelegate.java:187)- Finished Spring Data repository scanning in 19ms. Found 0 Redis repository interfaces.
+2024-02-07 14:17:34,799 WARN (EndpointId.java:155)- Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2024-02-07 14:17:34,940 INFO (GenericScope.java:295)- BeanFactory id=f4b77177-9bc8-3a8a-b3a7-bdd6408b9063
+2024-02-07 14:17:35,364 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'shiroConfig' of type [com.jsxa.vapp.common.shiro.ShiroConfig$$EnhancerBySpringCGLIB$$71c9be4c] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 14:17:35,440 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'jwtTokenUtil' of type [com.jsxa.vapp.common.utils.JwtTokenUtil] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 14:17:35,511 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'mybatis-org.mybatis.spring.boot.autoconfigure.MybatisProperties' of type [org.mybatis.spring.boot.autoconfigure.MybatisProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 14:17:35,525 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration' of type [org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration$$EnhancerBySpringCGLIB$$4746450] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 14:17:35,531 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Hikari' of type [org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Hikari] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 14:17:35,539 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'spring.datasource-org.springframework.boot.autoconfigure.jdbc.DataSourceProperties' of type [org.springframework.boot.autoconfigure.jdbc.DataSourceProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 14:17:35,562 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'dataSource' of type [com.zaxxer.hikari.HikariDataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 14:17:35,583 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'org.springframework.boot.autoconfigure.jdbc.DataSourceInitializerInvoker' of type [org.springframework.boot.autoconfigure.jdbc.DataSourceInitializerInvoker] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 14:17:35,596 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'sqlSessionFactory' of type [org.apache.ibatis.session.defaults.DefaultSqlSessionFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 14:17:35,605 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'sqlSessionTemplate' of type [org.mybatis.spring.SqlSessionTemplate] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 14:17:35,650 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'userMapper' of type [org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 14:17:35,653 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'userMapper' of type [com.sun.proxy.$Proxy140] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 14:17:35,666 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'userRoleMapper' of type [org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 14:17:35,667 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'userRoleMapper' of type [com.sun.proxy.$Proxy141] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 14:17:35,678 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'roleMapper' of type [org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 14:17:35,680 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'roleMapper' of type [com.sun.proxy.$Proxy142] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 14:17:35,692 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'permissionMapper' of type [org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 14:17:35,693 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'permissionMapper' of type [com.sun.proxy.$Proxy143] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 14:17:35,702 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'rolePermissionMapper' of type [org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 14:17:35,704 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'rolePermissionMapper' of type [com.sun.proxy.$Proxy144] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 14:17:35,707 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'shiroRealm' of type [com.jsxa.vapp.common.shiro.ShiroRealm] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 14:17:35,719 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'securityManager' of type [org.apache.shiro.web.mgt.DefaultWebSecurityManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 14:17:35,742 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'authorizationAttributeSourceAdvisor' of type [org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-07 14:17:35,812 INFO (ExecutorConfigurationSupport.java:181)- Initializing ExecutorService 'executor'
+2024-02-07 14:17:36,174 INFO (TomcatWebServer.java:92)- Tomcat initialized with port(s): 852 (http)
+2024-02-07 14:17:36,187 INFO (DirectJDKLog.java:173)- Initializing ProtocolHandler ["http-nio-852"]
+2024-02-07 14:17:36,188 INFO (DirectJDKLog.java:173)- Starting service [Tomcat]
+2024-02-07 14:17:36,188 INFO (DirectJDKLog.java:173)- Starting Servlet engine: [Apache Tomcat/9.0.31]
+2024-02-07 14:17:36,452 INFO (DirectJDKLog.java:173)- Initializing Spring embedded WebApplicationContext
+2024-02-07 14:17:36,452 INFO (ServletWebServerApplicationContext.java:284)- Root WebApplicationContext: initialization completed in 3547 ms
+2024-02-07 14:17:37,432 INFO (Version.java:41)- Redisson 3.12.5
+2024-02-07 14:17:38,449 INFO (ConnectionPool.java:167)- 1 connections initialized for /192.168.2.241:6379
+2024-02-07 14:17:38,451 INFO (ConnectionPool.java:167)- 24 connections initialized for /192.168.2.241:6379
+2024-02-07 14:17:38,887 INFO (SLF4JLogger.java:71)- Cluster created with settings {hosts=[192.168.2.241:27017], mode=MULTIPLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2024-02-07 14:17:38,888 INFO (SLF4JLogger.java:71)- Adding discovered server 192.168.2.241:27017 to client view of cluster
+2024-02-07 14:17:38,965 INFO (SLF4JLogger.java:71)- Opened connection [connectionId{localValue:1, serverValue:27}] to 192.168.2.241:27017
+2024-02-07 14:17:38,971 INFO (SLF4JLogger.java:71)- Monitor thread successfully connected to server with description ServerDescription{address=192.168.2.241:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[5, 0, 5]}, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=3889400}
+2024-02-07 14:17:38,973 INFO (SLF4JLogger.java:71)- Discovered cluster type of STANDALONE
+2024-02-07 14:17:39,615 INFO (InitUtils.java:56)- initializer namespace from System Property :null
+2024-02-07 14:17:39,615 INFO (InitUtils.java:65)- initializer namespace from System Environment :null
+2024-02-07 14:17:39,616 INFO (InitUtils.java:75)- initializer namespace from System Property :null
+2024-02-07 14:17:39,868 INFO (HikariDataSource.java:110)- HikariPool-1 - Starting...
+2024-02-07 14:17:39,910 WARN (AbstractApplicationContext.java:558)- Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean]: Factory method 'entityManagerFactory' threw exception; nested exception is java.lang.NoSuchMethodError: org.apache.shardingsphere.infra.util.yaml.constructor.ShardingSphereYamlConstructor$1.setCodePointLimit(I)V
+2024-02-07 14:17:39,960 INFO (ExecutorConfigurationSupport.java:218)- Shutting down ExecutorService 'executor'
+2024-02-07 14:17:39,961 INFO (DirectJDKLog.java:173)- Stopping service [Tomcat]
+2024-02-07 14:17:39,967 WARN (DirectJDKLog.java:173)- The web application [ROOT] appears to have started a thread named [Thread-8] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@11.0.20/sun.net.dns.ResolverConfigurationImpl.notifyAddrChange0(Native Method)
+ java.base@11.0.20/sun.net.dns.ResolverConfigurationImpl$AddressChangeListener.run(ResolverConfigurationImpl.java:144)
+2024-02-07 14:17:39,967 WARN (DirectJDKLog.java:173)- The web application [ROOT] appears to have started a thread named [com.alibaba.nacos.naming.client.listener] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@11.0.20/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@11.0.20/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:234)
+ java.base@11.0.20/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2123)
+ java.base@11.0.20/java.util.concurrent.LinkedBlockingQueue.poll(LinkedBlockingQueue.java:458)
+ app//com.alibaba.nacos.client.naming.core.EventDispatcher$Notifier.run(EventDispatcher.java:114)
+ java.base@11.0.20/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+ java.base@11.0.20/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+ java.base@11.0.20/java.lang.Thread.run(Thread.java:834)
+2024-02-07 14:17:39,968 WARN (DirectJDKLog.java:173)- The web application [ROOT] appears to have started a thread named [com.alibaba.nacos.naming.failover] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@11.0.20/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@11.0.20/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:234)
+ java.base@11.0.20/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2123)
+ java.base@11.0.20/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base@11.0.20/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@11.0.20/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1054)
+ java.base@11.0.20/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1114)
+ java.base@11.0.20/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+ java.base@11.0.20/java.lang.Thread.run(Thread.java:834)
+2024-02-07 14:17:39,969 WARN (DirectJDKLog.java:173)- The web application [ROOT] appears to have started a thread named [com.alibaba.nacos.naming.push.receiver] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@11.0.20/java.net.DualStackPlainDatagramSocketImpl.socketReceiveOrPeekData(Native Method)
+ java.base@11.0.20/java.net.DualStackPlainDatagramSocketImpl.receive0(DualStackPlainDatagramSocketImpl.java:124)
+ java.base@11.0.20/java.net.AbstractPlainDatagramSocketImpl.receive(AbstractPlainDatagramSocketImpl.java:200)
+ java.base@11.0.20/java.net.DatagramSocket.receive(DatagramSocket.java:814)
+ app//com.alibaba.nacos.client.naming.core.PushReceiver.run(PushReceiver.java:73)
+ java.base@11.0.20/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+ java.base@11.0.20/java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:264)
+ java.base@11.0.20/java.util.concurrent.FutureTask.run(FutureTask.java)
+ java.base@11.0.20/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+ java.base@11.0.20/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+ java.base@11.0.20/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+ java.base@11.0.20/java.lang.Thread.run(Thread.java:834)
+2024-02-07 14:17:39,985 INFO (ConditionEvaluationReportLoggingListener.java:136)- 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2024-02-07 14:17:39,994 ERROR (LoggingFailureAnalysisReporter.java:40)- 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+An attempt was made to call a method that does not exist. The attempt was made from the following location:
+
+    org.apache.shardingsphere.infra.util.yaml.constructor.ShardingSphereYamlConstructor$1.<init>(ShardingSphereYamlConstructor.java:45)
+
+The following method did not exist:
+
+    org.apache.shardingsphere.infra.util.yaml.constructor.ShardingSphereYamlConstructor$1.setCodePointLimit(I)V
+
+The method's class, org.apache.shardingsphere.infra.util.yaml.constructor.ShardingSphereYamlConstructor$1, is available from the following locations:
+
+    jar:file:/C:/Users/Administrator/.m2/repository/org/apache/shardingsphere/shardingsphere-infra-util/5.3.2/shardingsphere-infra-util-5.3.2.jar!/org/apache/shardingsphere/infra/util/yaml/constructor/ShardingSphereYamlConstructor$1.class
+
+It was loaded from the following location:
+
+    file:/C:/Users/Administrator/.m2/repository/org/apache/shardingsphere/shardingsphere-infra-util/5.3.2/shardingsphere-infra-util-5.3.2.jar
+
+
+Action:
+
+Correct the classpath of your application so that it contains a single, compatible version of org.apache.shardingsphere.infra.util.yaml.constructor.ShardingSphereYamlConstructor$1
+

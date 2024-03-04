@@ -1,0 +1,12 @@
+#local---本地开发dev，即公司服务器
+spring:
+  cloud:
+    nacos:
+      config:
+        server-addr: 192.168.1.5:8848
+        file-extension: yml
+        group: ${spring.application.name}
+        namespace: b44ef371-0996-4f6d-b2c2-949978b226c8
+      discovery:
+        server-addr: 192.168.1.5:8848
+        namespace: b44ef371-0996-4f6d-b2c2-949978b226c8
