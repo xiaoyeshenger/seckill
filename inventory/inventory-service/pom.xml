@@ -43,11 +43,6 @@
             <version>2.7.14</version>
         </dependency>
 
-        <dependency>
-            <groupId>com.alibaba.cloud</groupId>
-            <artifactId>spring-cloud-starter-alibaba-seata</artifactId>
-        </dependency>
-
         <!-- groovy-all -->
         <dependency>
             <groupId>org.codehaus.groovy</groupId>
@@ -62,12 +57,26 @@
             <version>2.3.1</version>
         </dependency>
 
-
         <dependency>
             <groupId>org.yaml</groupId>
             <artifactId>snakeyaml</artifactId>
             <version>1.33</version>
         </dependency>
+
+        <!--canal 注意:原始版本为1.2.1-RELEASE，但是该版本有一些bug，作者又停更，所以使用1.2.6-RELEASE，但1.2.6-RELEASE是个私包，
+        需要从https://github.com/NormanGyllenhaal/canal-client下载源码后，打包放入maven仓库后再引入-->
+        <dependency>
+            <groupId>top.javatool</groupId>
+            <artifactId>canal-spring-boot-starter</artifactId>
+            <version>1.2.6-RELEASE</version>
+        </dependency>
+
+        <!--jooq-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jooq</artifactId>
+        </dependency>
+
 
     </dependencies>
 

@@ -39,8 +39,6 @@ public class OperateLogServiceImpl implements OperateLogService {
 
     private final OperateLogDao operateLogDao;
 
-    private final CacheUtil cacheUtil;
-
 
     @Override
     @Transactional
@@ -77,7 +75,6 @@ public class OperateLogServiceImpl implements OperateLogService {
         attr.put("operatorName", e.getOperatorName());
         attr.put("operatorMobile", e.getOperatorMobile());
         attr.put("regionCode", e.getRegionCode());
-        attr.put("regionName", ObjUtil.isEmpty(e.getRegionCode())?"":cacheUtil.getRegionName(e.getRegionCode()));
         return attr;
     }
 
@@ -104,7 +101,6 @@ public class OperateLogServiceImpl implements OperateLogService {
                             attr.put("operatorName", e.getOperatorName());
                             attr.put("operatorMobile", e.getOperatorMobile());
                             attr.put("regionCode", e.getRegionCode());
-                            attr.put("regionName", ObjUtil.isEmpty(e.getRegionCode())?"":cacheUtil.getRegionName(e.getRegionCode()));
                             return attr;
                         }
                 );
@@ -123,7 +119,6 @@ public class OperateLogServiceImpl implements OperateLogService {
             OperateLogExcelVo operateLogExcelVo = VoPoConverterUtil.copyProperties(operateLog, OperateLogExcelVo.class);
             operateLogExcelVo.setOrder(order++);
             operateLogExcelVo.setStatusCn(operateLog.getStatus()==1?"成功":"失败");
-            operateLogExcelVo.setRegionName(ObjUtil.isEmpty(operateLog.getRegionCode())?"":cacheUtil.getRegionName(operateLog.getRegionCode()));
             operateLogExcelVoList.add(operateLogExcelVo);
         }
 

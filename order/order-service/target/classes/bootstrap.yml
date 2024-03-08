@@ -26,3 +26,11 @@ spring:
           data‐id: minio.yml
           group: common
           refresh: true
+        ext‐config[5]:
+          data‐id: rocketmq.yml
+          group: common
+          refresh: true
+        ext‐config[6]:
+          data‐id: seata.yml
+          group: common
+          refresh: true

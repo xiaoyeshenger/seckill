@@ -22,10 +22,14 @@ import com.jsxa.vapp.common.utils.*;
 import com.jsxa.vapp.common.redis.RedisService;
 import com.jsxa.vapp.common.redis.RedisKey;
 import com.jsxa.vapp.common.validator.FieldDupValidator;
+import com.jsxa.vapp.order.rocksDB.RocksDBUtil;
+import com.jsxa.vapp.order.service.OrderService;
 import com.jsxa.vapp.order.service.VaccinationRecordService;
+import org.apache.rocketmq.client.producer.SendCallback;
 import org.apache.rocketmq.client.producer.SendResult;
 import org.apache.rocketmq.client.producer.SendStatus;
 import org.apache.rocketmq.spring.core.RocketMQTemplate;
+import org.rocksdb.RocksDBException;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.data.redis.core.script.DefaultRedisScript;
@@ -62,10 +66,8 @@ import static org.mybatis.dynamic.sql.SqlBuilder.*;
 public class VaccinationRecordServiceImpl implements VaccinationRecordService {
 
 
-    //1.将抢苗是否启用保存在内存
+    //1.本机内存保存抢苗活动是否启用
     public static Map<String, Object> runtimeVaccineStockMap = new HashMap<String, Object>(){{put("start", "0");}};
-
-    private final MinioUtil minioUtil;
 
     private final RedisService redisService;
 
@@ -86,7 +88,6 @@ public class VaccinationRecordServiceImpl implements VaccinationRecordService {
 
 
     @Override
-    @Transactional
     public Map<String, Object> addVaccinationRecord(VaccinationRecordReqDto vaccinationRecordReqDto) {
         //1.判断是否能够开始预约抢苗(未开始/已结束(库存被抢空))
         String start = (String) runtimeVaccineStockMap.get("start");
@@ -177,6 +178,7 @@ public class VaccinationRecordServiceImpl implements VaccinationRecordService {
             }
         }
 
+
         //3.库存查询和预扣减(此处是对redis进行扣减所以是库存预扣减，真正的库存扣减是对mysql进行扣减)
         //库存扣减的核心是 查询和扣减 2步必须是原子操作，为了高并发使用redis+lua脚本实现库存的原子性无锁扣减以防止超卖（lua脚本在redis可以保证原子性）,
         //速度比分布式锁快，并且不用考虑锁超时时间设置等问题，而悲观锁和乐观锁都会阻塞其他请求，所以redis+lua是无锁操作，速度更快
@@ -186,7 +188,21 @@ public class VaccinationRecordServiceImpl implements VaccinationRecordService {
             throw new IllegalArgumentException("疫苗已被约满,请到稍后再约!");
         }
 
-        //4.扣减redis中的库存成功后，将订单信息即预约记录同步发送到rocketmq,订单消费者监听到消息后再做订单创建和库存扣减
+        //4.在本地持久化扣减记录，便于后期查错和同步数据(因为存在着Redis宕机和本服务同时宕机的可能，这样会造成数据的丢失，所以需要快速持久化扣减记录，采用WAL机制实现，保存到本地RocksDB数据库)
+        //(1).列族名称(类似于OOS的桶)
+        String cfName = "vaccineReleaseId:" + vaccineReleaseId;
+        //(2).key = itemKey = idNumber + "_" + vaccineId + "_" + dose;
+        String key = itemKey;
+        //(3).value = 扣减的库存数量
+        String value = "1";
+        try {
+            RocksDBUtil.put(cfName,key,value);
+        } catch (RocksDBException e) {
+            e.printStackTrace();
+            throw new IllegalArgumentException("服务异常，请稍后再试!");
+        }
+
+        //5.扣减redis中的库存成功后，将订单信息即预约记录同步发送到rocketmq,订单消费者监听到消息后再做订单创建和库存扣减
         //(1).构建预约记录
         VaccinationRecord vaccinationRecord = VoPoConverterUtil.copyProperties(vaccinationRecordReqDto, VaccinationRecord.class);
         Long currentTime = System.currentTimeMillis();
@@ -223,7 +239,7 @@ public class VaccinationRecordServiceImpl implements VaccinationRecordService {
             SendResult sendResult = rocketMQTemplate.syncSend("vaccination_record", vaccinationRecord);
             if(!sendResult.getSendStatus().equals(SendStatus.SEND_OK)){
                 redisService.incrByDelta("RuntimeVaccineStock",1);
-                throw new IllegalArgumentException("服务异常，请稍后再试!");
+                throw new IllegalArgumentException("服务异常，请稍后再试!!");
             }
         }catch (Exception e){
             redisService.incrByDelta("RuntimeVaccineStock",1);
@@ -231,7 +247,11 @@ public class VaccinationRecordServiceImpl implements VaccinationRecordService {
             throw new IllegalArgumentException("服务异常，请稍后再试!!!");
         }
 
-        //4.返回结果
+
+        //6.预约成功，将该用户的预约信息存入redis，避免重复预约
+        //redisService.hmSet("RushVaccineRecord", itemKey,String.valueOf(System.currentTimeMillis()));
+
+        //7.返回结果
         Map<String,Object> resultMap = new HashMap<>();
         resultMap.put("msg","预约成功,正在创建订单");
         return resultMap;

@@ -2,6 +2,7 @@ package com.jsxa.vapp.order.redisMq;
 
 
 import com.alibaba.fastjson.JSONObject;
+import com.jsxa.vapp.common.redis.RedisService;
 import com.jsxa.vapp.order.service.impl.VaccinationRecordServiceImpl;
 import com.jsxa.vapp.order.webSocket.WebSocketKey;
 import com.jsxa.vapp.order.webSocket.WebSocketService;
@@ -30,7 +31,6 @@ public class RedisMqListener implements MessageListener {
 
     private final WebSocketService webSocketService;
 
-
     @Override
     @Synchronized
     @SneakyThrows
@@ -57,6 +57,7 @@ public class RedisMqListener implements MessageListener {
         //(5).通过ws推送抢苗是否启用给前端(start="1"/"0"),前端监听ws://192.168.2.230:850/api/ws/runtimeVaccineStock/{vaccineReleaseId}即可收到消息
         TextMessage textMessage = new TextMessage(s);
         webSocketService.sendMessageToOne(WebSocketKey.RuntimeVaccineStock + vaccineReleaseId,textMessage);
+
     }
 }
 

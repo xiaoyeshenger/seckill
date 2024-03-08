@@ -14,7 +14,7 @@ dataSources:
 rules:
   - !SHARDING
     tables:
-      vaccination_person:
+      vaccination_record:
         actualDataNodes: ds-0.vaccination_record$->{0..9}
         tableStrategy:
           complex:

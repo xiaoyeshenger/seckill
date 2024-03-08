@@ -1,9 +1,11 @@
 package com.jsxa.vapp.inventory.service.impl;
 
 import cn.hutool.json.JSONUtil;
+import com.alibaba.fastjson.JSONObject;
 import com.github.pagehelper.PageHelper;
 import com.alibaba.excel.EasyExcel;
 import com.alibaba.excel.ExcelReader;
+import com.jsxa.vapp.common.annotation.SeataExp;
 import com.jsxa.vapp.common.bo.vo.PageVo;
 import com.jsxa.vapp.common.redis.RedisKey;
 import com.jsxa.vapp.common.redis.RedisService;
@@ -24,6 +26,9 @@ import com.jsxa.vapp.common.redis.RedisKey;
 import com.jsxa.vapp.common.validator.FieldDupValidator;
 import com.jsxa.vapp.inventory.service.VaccineReleaseService;
 import com.jsxa.vapp.inventory.util.XxlJobUtil;
+import io.seata.core.context.RootContext;
+import io.seata.core.model.BranchType;
+import io.seata.spring.annotation.GlobalTransactional;
 import org.mybatis.dynamic.sql.render.RenderingStrategies;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -36,6 +41,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Validator;
+import org.apache.shardingsphere.sql.parser.mysql.parser.MySQLLexer;
 
 
 import javax.annotation.Resource;
@@ -60,7 +66,7 @@ public class VaccineReleaseServiceImpl implements VaccineReleaseService {
     @Value("${xxl.job.admin.addresses}")
     private String adminAddresses;
 
-    private final MinioUtil minioUtil;
+    private final RedisService redisService;
 
     private final Validator validator;
 
@@ -85,7 +91,7 @@ public class VaccineReleaseServiceImpl implements VaccineReleaseService {
         vaccineRelease
                 .setId(new IdWorker().nextId())
                 .setDockAmount(vaccineReleaseReqDto.getAmount())
-                .setVersion(1)
+                .setVersion(0)
                 .setStatus((byte)1)
                 .setCreateTime(System.currentTimeMillis());
 
@@ -359,12 +365,16 @@ public class VaccineReleaseServiceImpl implements VaccineReleaseService {
                     timeTaskMapper.insert(vaccineReleaseTimeTask);
                 }
 
-                //(1)更新状态
+                //(1).更新状态
                 vaccineReleaseMapper.update(update(VaccineReleaseDynamicSqlSupport.vaccineRelease)
                         .set(VaccineReleaseDynamicSqlSupport.status).equalToWhenPresent(status)
                         .where(VaccineReleaseDynamicSqlSupport.id, isEqualTo(id))
                         .build()
                         .render(RenderingStrategies.MYBATIS3));
+
+                //(2).将上线的放苗活动存入redis
+                e.setStatus((byte)1);
+                redisService.hmSet("VaccineRelease", String.valueOf(e.getId()), JSONObject.toJSONString(e));
 
             }
         }
@@ -374,8 +384,24 @@ public class VaccineReleaseServiceImpl implements VaccineReleaseService {
         return resultMap;
     }
 
+
+    /**
+     * 库存扣减
+     * 库存扣减和orderServer中的创建订单是一组全局事务,要使用seata全局事务需要做以下二选一(此处选择方式(2)):
+     * (1).在reduceDock方法上打上自定义注解@SeataExp，代码量少但逻辑更隐蔽(具体原因可参见com.jsxa.vapp.common.aop.SeataGlobalTransactionalAspect)
+     * (2).在事务发起方即OrderService中处理微服务调用的结果，代码量增多但逻辑更清晰(具体原因可参见com.jsxa.vapp.common.aop.SeataGlobalTransactionalAspect)
+     */
+    //@SeataExp
     @Override
     public Map<String, Object> reduceDock(Long vaccineReleaseId) {
+        //获取当前事务的XID
+        String xid = RootContext.getXID();
+        if(ObjUtil.isEmpty(xid)){
+            log.info("xid为空");
+        }
+        //BranchType branchType = RootContext.getBranchType();
+        //String branchTypeName = RootContext.getBranchType();
+        log.info("Inventory--------------> threadId:{},threadName:{},Seata_XID:{}",Thread.currentThread().getId(),Thread.currentThread().getName(),xid);
 
         //1.获取到疫苗发放活动信息
         VaccineRelease vaccineRelease = vaccineReleaseMapper.selectByPrimaryKey(vaccineReleaseId);
@@ -387,11 +413,13 @@ public class VaccineReleaseServiceImpl implements VaccineReleaseService {
         Integer version = vaccineRelease.getVersion();
 
         //3.采用乐观锁即版本(version)的方式再次防止超卖(sql详见reduceDock()方法)，使用版本version机制，需要在乐观锁控制的数据库表中增加一个字段 versison，字段类型使用int,
-        //  原理是在提交更新的时候检查当前数据库中数据的版本号和自己更新前第一次取到的版本号进行对比，如果一致则OK，
+        //  原理是在提交更新的时候检查当前数据库中数据的版本号与自己更新前第一次获取到的版本号进行对比，如果一致则OK，
         //  否则就是版本冲突，此时采用重试机制保证最终更新成功(重试机制步骤:间隔1秒更新3次，如果还是失败则放入rocketmq延迟队列去更新，直到最终更新成功)
-        int i = vaccineReleaseMapper.reduceDock(vaccineReleaseId, 1, version);
+        vaccineReleaseMapper.reduceDock(vaccineReleaseId, 1, version);
+        //vaccineReleaseMapper.reduceDockWithNoVersion(vaccineReleaseId, 1);
 
         Map<String, Object> resultMap = new HashMap<>();
+        resultMap.put("code", 200);
         resultMap.put("msg", "库存扣减成功");
         return resultMap;
     }

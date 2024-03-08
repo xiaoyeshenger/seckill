@@ -2,7 +2,6 @@ package com.jsxa.vapp.common.dao.impl;
  
 import com.jsxa.vapp.common.bo.po.HttpPushLog;
 import com.jsxa.vapp.common.cache.DictCache;
-import com.jsxa.vapp.common.cache.RegionCache;
 import com.jsxa.vapp.common.dao.HttpPushLogDao;;
 import com.jsxa.vapp.common.bo.dto.HttpPushLogPageReqDto;
 import com.jsxa.vapp.common.utils.ObjUtil;
@@ -10,16 +9,11 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import com.jsxa.vapp.common.mongo.MongoBaseDaoImpl;
 
 import javax.annotation.Resource;
-import javax.persistence.criteria.Expression;
-import javax.persistence.criteria.Predicate;
-import java.util.Date;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 
@@ -33,9 +27,6 @@ import java.util.Set;
  **/
 @Repository
 public class HttpPushLogDaoImpl extends MongoBaseDaoImpl<HttpPushLog> implements HttpPushLogDao {
-
-    @Resource
-    private RegionCache regionCache;
 
     @Resource
     private DictCache dictCache;
@@ -115,13 +106,6 @@ public class HttpPushLogDaoImpl extends MongoBaseDaoImpl<HttpPushLog> implements
             criteria.and("productType").in(codeListByParentId);
         }
 
-        String regionCode = httpPushLogPageReqDto.getRegionCode();
-        if (!ObjUtil.isEmpty(regionCode)){
-            Set<String> villageCodeSet = regionCache.getCodeListByParentCodeAndChildType(regionCode, 408L);
-            if(!ObjUtil.isEmpty(villageCodeSet)){
-                criteria.and("regionCode").in(villageCodeSet);
-            }
-        }
 
         String deviceKey = httpPushLogPageReqDto.getDeviceKey();
         if (!ObjUtil.isEmpty(deviceKey)){

@@ -2,10 +2,8 @@ package com.jsxa.vapp.sys.service.impl;
 
 import com.alibaba.fastjson.JSONObject;
 import com.jsxa.vapp.common.bo.po.*;
-import com.jsxa.vapp.common.bo.vo.RegionVo;
 import com.jsxa.vapp.common.bo.vo.UserVo;
 import com.jsxa.vapp.common.cache.DictCache;
-import com.jsxa.vapp.common.cache.RegionCache;
 import com.jsxa.vapp.common.constant.Constant;
 import com.jsxa.vapp.common.jobManager.AsyncJobManager;
 import com.jsxa.vapp.common.jobManager.factory.AsyncFactory;
@@ -41,7 +39,6 @@ import java.util.regex.Pattern;
 import static com.jsxa.vapp.common.utils.Sm4Util.SYS_IV;
 import static com.jsxa.vapp.common.utils.Sm4Util.SYS_SECRET_KEY;
 import static org.mybatis.dynamic.sql.SqlBuilder.isEqualTo;
-import static org.mybatis.dynamic.sql.SqlBuilder.update;
 import static org.mybatis.dynamic.sql.select.SelectDSL.select;
 
 /*
@@ -112,11 +109,6 @@ public class LoginServiceImpl implements LoginService {
     private final OrganizationMapper organizationMapper;
 
     private final PageTemplateMapper pageTemplateMapper;
-
-    private final RegionMapper regionMapper;
-
-    private final RegionCache regionCache;
-
 
     private final DictCache dictCache;
 

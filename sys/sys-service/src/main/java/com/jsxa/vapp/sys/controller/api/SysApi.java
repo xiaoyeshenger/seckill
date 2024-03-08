@@ -4,7 +4,6 @@ import com.jsxa.vapp.common.bo.dto.PageReqDto;
 import com.jsxa.vapp.common.bo.vo.PageVo;
 import com.jsxa.vapp.common.bo.vo.RegionVo;
 import com.jsxa.vapp.common.bo.vo.ResultVo;
-import com.jsxa.vapp.common.cache.RegionCache;
 import com.jsxa.vapp.sys.bo.po.PageTemplate;
 import com.jsxa.vapp.sys.service.DeptService;
 import com.jsxa.vapp.sys.service.PageTemplateService;
@@ -36,8 +35,6 @@ public class SysApi {
 
     private final PageTemplateService pageTemplateService;
 
-    private final RegionCache regionCache;
-
 
     //查询APP的权限列表并分页
     @PostMapping("/permission/getAppPermissionListPageVo")
@@ -55,11 +52,5 @@ public class SysApi {
     @GetMapping("/pageTemplate/getPageTemplateByParkId/{parkId}")
     PageTemplate getPageTemplateByParkId(@PathVariable Long parkId){
         return pageTemplateService.getPageTemplateByParkId(parkId);
-    }
-
-
-    @GetMapping("/region/getRegionByCode/{regionCode}")
-    RegionVo getRegionByCode(@PathVariable String regionCode){
-        return regionCache.getRegionVoByCode(regionCode);
     }
 }

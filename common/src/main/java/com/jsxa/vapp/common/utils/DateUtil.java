@@ -1045,10 +1045,24 @@ public class DateUtil {
         return sdf.format(new Date());
     }
 
+    public static Long getTimestampDateTime(String dataTime){
 
+        String format = "yyyy-MM-dd'T'HH:mm:ssXXX";
+        SimpleDateFormat sdf = new SimpleDateFormat(format);
+        Date date = null;
+        try {
+            date = sdf.parse(dataTime);
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
+        Long timestamp = date.getTime();
+        return timestamp;
+    }
 
 /* public static void main(String[] args) throws Exception {
-
+    String dataTime = "2024-02-23T09:37:12+08:00";
+    Long timestampDateTime = getTimestampDateTime(dataTime);
+    System.out.println("timestampDateTime:"+timestampDateTime);
  }*/
 
 }

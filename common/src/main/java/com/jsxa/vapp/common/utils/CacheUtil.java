@@ -1,7 +1,6 @@
 package com.jsxa.vapp.common.utils;
 
 import com.jsxa.vapp.common.bo.vo.RegionVo;
-import com.jsxa.vapp.common.cache.RegionCache;
 import com.jsxa.vapp.common.redis.RedisKey;
 import com.jsxa.vapp.common.redis.RedisService;
 import lombok.RequiredArgsConstructor;
@@ -14,8 +13,6 @@ public class CacheUtil {
 
     private final RedisService redisService;
 
-    private final RegionCache regionCache;
-
 
     public String getParkName(Long parkId) {
         String parkName = (String)redisService.hmGet(RedisKey.SYS_PARK_KEY, String.valueOf(parkId));
@@ -23,41 +20,6 @@ public class CacheUtil {
             throw new IllegalArgumentException("ID为 "+parkId+" 的园区不存在");
         }
         return parkName;
-    }
-
-    public RegionVo getRegionByCode(String regionCode) {
-        RegionVo regionVoByCode = regionCache.getRegionVoByCode(regionCode);
-        if (ObjUtil.isEmpty(regionVoByCode)){
-            throw new IllegalArgumentException("码值为 "+regionCode+" 的区域不存在");
-        }
-        return regionVoByCode;
-    }
-
-    public String getRegionName(String regionCode) {
-        RegionVo regionVoByCode = regionCache.getRegionVoByCode(regionCode);
-        if (ObjUtil.isEmpty(regionVoByCode)){
-            throw new IllegalArgumentException("码值为 "+regionCode+" 的区域不存在");
-        }
-        return regionVoByCode.getName();
-    }
-
-    public String getParentAndSelfRegionName(String regionCode) {
-        RegionVo regionVoByCode = regionCache.getRegionVoByCode(regionCode);
-        if (ObjUtil.isEmpty(regionVoByCode)){
-            throw new IllegalArgumentException("码值为 "+regionCode+" 的区域不存在");
-        }
-        String parentCode = regionVoByCode.getParentCode();
-        RegionVo parentRegion = regionCache.getRegionVoByCode(parentCode);
-        if (ObjUtil.isEmpty(parentRegion)){
-            throw new IllegalArgumentException("码值为 "+parentCode+" 的父级1区域不存在");
-        }
-
-        String pcCode = parentRegion.getParentCode();
-        RegionVo pcRegion = regionCache.getRegionVoByCode(pcCode);
-        if (ObjUtil.isEmpty(pcRegion)){
-            throw new IllegalArgumentException("码值为 "+pcCode+" 的父级2区域不存在");
-        }
-        return pcRegion.getName() + "-" + parentRegion.getName() + "-" + regionVoByCode.getName();
     }
 
     public String getDataDictName(Long dataDictId) {
@@ -78,7 +40,6 @@ public class CacheUtil {
         Long dataDictId = dataDictIdInt.longValue();
         return dataDictId;
     }
-
 
     public String getProductNameById(String productId) {
 

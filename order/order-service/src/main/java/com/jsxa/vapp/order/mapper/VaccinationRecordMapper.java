@@ -108,6 +108,7 @@ public interface VaccinationRecordMapper {
     default int insert(VaccinationRecord record) {
         return insert(SqlBuilder.insert(record)
                 .into(vaccinationRecord)
+                .map(id).toProperty("id")
                 .map(recordType).toProperty("recordType")
                 .map(vaild).toProperty("vaild")
                 .map(vaccineReleaseId).toProperty("vaccineReleaseId")
@@ -146,6 +147,7 @@ public interface VaccinationRecordMapper {
     default int insertSelective(VaccinationRecord record) {
         return insert(SqlBuilder.insert(record)
                 .into(vaccinationRecord)
+                .map(id).toPropertyWhenPresent("id", record::getId)
                 .map(recordType).toPropertyWhenPresent("recordType", record::getRecordType)
                 .map(vaild).toPropertyWhenPresent("vaild", record::getVaild)
                 .map(vaccineReleaseId).toPropertyWhenPresent("vaccineReleaseId", record::getVaccineReleaseId)

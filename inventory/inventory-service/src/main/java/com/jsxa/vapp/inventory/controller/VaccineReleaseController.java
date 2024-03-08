@@ -173,7 +173,7 @@ public class VaccineReleaseController {
      * @return
      */
     @Log(businessType = BusinessType.UPDATE)
-    @ApiOperation("修改项目状态")
+    @ApiOperation("修改放苗状态")
     @PostMapping(value = "updateStatus", produces = {"application/json"})
     public ResultVo<Map<String, Object>> updateStatus(
             @Validated @RequestBody UpdateVaccineReleaseStatusReqDto updateVaccineReleaseStatusReqDto

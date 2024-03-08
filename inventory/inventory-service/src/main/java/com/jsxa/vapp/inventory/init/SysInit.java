@@ -73,15 +73,5 @@ public class SysInit {
         vaccineList.forEach(e -> {
             redisService.hmSet("Vaccine", String.valueOf(e.getId()), JSONObject.toJSONString(e));
         });
-
-
-        log.info("step4 ---> 开始同步 启用成功的疫苗发放信息到Redis(status=1的疫苗发放记录)");
-        VaccineRelease release = vaccineReleaseMapper.selectByExampleOne()
-                .where(VaccineReleaseDynamicSqlSupport.status, isEqualTo((byte)1))
-                .build()
-                .execute();
-        if(!ObjUtil.isEmpty(release)){
-            redisService.hmSet("VaccineRelease", String.valueOf(release.getId()), JSONObject.toJSONString(release));
-        }
     }
 }

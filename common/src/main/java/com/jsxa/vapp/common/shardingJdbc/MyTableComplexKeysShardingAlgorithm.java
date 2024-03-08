@@ -25,7 +25,7 @@ public class MyTableComplexKeysShardingAlgorithm implements ComplexKeysShardingA
 
     @Override
     public Collection<String> doSharding(Collection<String> tableNameList, ComplexKeysShardingValue<String> complexKeysShardingValue) {
-        log.info("[MyTableComplexKeysShardingAlgorithm] complexKeysShardingValue: [{}]", complexKeysShardingValue);
+        log.info("[复合分片算法] complexKeysShardingValue: [{}]", complexKeysShardingValue);
         Set<String> tableNameResultList = new LinkedHashSet<>();
 
         Long id = (Long) this.getShardingValue(complexKeysShardingValue, "id");

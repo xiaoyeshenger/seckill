@@ -127,7 +127,7 @@ public class CodeGenerator {
 
     //mysql
     public static final String MYSQL_DRIVER = "com.mysql.cj.jdbc.Driver";
-    public static final String MYSQL_URL = "jdbc:mysql://192.168.2.241:6033/inventory?serverTimezone=UTC&characterEncoding=utf-8&nullCatalogMeansCurrent=true&useSSL=false&allowPublicKeyRetrieval=true";
+    public static final String MYSQL_URL = "jdbc:mysql://192.168.2.241:6033/vapp_order?serverTimezone=UTC&characterEncoding=utf-8&nullCatalogMeansCurrent=true&useSSL=false&allowPublicKeyRetrieval=true";
     public static final String MYSQL_USERNAME = "proxysql_test";
     public static final String MYSQL_PASSWORD = "my888555";
 
@@ -145,15 +145,15 @@ public class CodeGenerator {
 /*    public static void main(String[] args) {
 
           genCodeByPoJoName(
-                 new VaccineRelease(),
-                  "VaccineRelease",
-                          "vaccine_release",
-                          "疫苗发放",
-                          "inventory",
+                 new RocketMqFailMsg(),
+                  "RocketMqFailMsg",
+                          "rocket_mq_fail_msg",
+                          "rocketMQ失败消息",
+                          "order",
                           false,
                           "mysql",
-                          "com.jsxa.vapp.inventory.mapper",
-                          "inventory/inventory-service/src/main/java");
+                          "com.jsxa.vapp.order.mapper",
+                          "order/order-service/src/main/java");
     }*/
 
     /**
@@ -175,6 +175,8 @@ public class CodeGenerator {
         //genReqDto(pojoName,object,includeMultipartFile,dbType,moduleName);
         //genExcelVoAndListener(pojoName,object,dbType,moduleName);
         if("mysql".equals(dbType)){
+            //mapper文件生成后，向数据库新增新的对象时，如果需要使用自己指定的id
+            //则需要在insert()和insertSelective()方法中添加map(id).toProperty("id")
             genMapper(object.getClass(),tableName,targetPackage,targetProject);
         }
         /*if("mongo".equals(dbType)){

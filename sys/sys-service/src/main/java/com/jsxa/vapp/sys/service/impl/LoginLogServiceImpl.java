@@ -38,7 +38,6 @@ import java.util.*;
 @RequiredArgsConstructor
 public class LoginLogServiceImpl implements LoginLogService {
 
-    private final CacheUtil cacheUtil;
 
     private final LoginLogDao loginLogDao;
 
@@ -71,7 +70,6 @@ public class LoginLogServiceImpl implements LoginLogService {
         attr.put("status", e.getStatus());
         attr.put("loginTime", e.getLoginTime());
         attr.put("regionCode", e.getRegionCode());
-        attr.put("regionName", ObjUtil.isEmpty(e.getRegionCode())?"":cacheUtil.getRegionName(e.getRegionCode()));
         return attr;
     }
 
@@ -92,7 +90,6 @@ public class LoginLogServiceImpl implements LoginLogService {
                             attr.put("status", e.getStatus());
                             attr.put("loginTime", e.getLoginTime());
                             attr.put("regionCode", e.getRegionCode());
-                            attr.put("regionName", ObjUtil.isEmpty(e.getRegionCode())?"":cacheUtil.getRegionName(e.getRegionCode()));
                             return attr;
                         }
                 );
@@ -111,7 +108,6 @@ public class LoginLogServiceImpl implements LoginLogService {
             LoginLogExcelVo loginLogExcelVo = VoPoConverterUtil.copyProperties(loginLog, LoginLogExcelVo.class);
             loginLogExcelVo.setOrder(order++);
             loginLogExcelVo.setStatusCn(loginLog.getStatus()==1?"成功":"失败");
-            loginLogExcelVo.setRegionName(ObjUtil.isEmpty(loginLog.getRegionCode())?"":cacheUtil.getRegionName(loginLog.getRegionCode()));
             loginLogExcelVoList.add(loginLogExcelVo);
         }
 

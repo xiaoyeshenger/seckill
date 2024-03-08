@@ -82,7 +82,6 @@ public class HttpPushLogServiceImpl implements HttpPushLogService {
         attr.put("productName", e.getProductName());
         attr.put("productType", e.getProductType());
         attr.put("regionCode", e.getRegionCode());
-        attr.put("regionName", cacheUtil.getParentAndSelfRegionName(e.getRegionCode()));
         return attr;
     }
 
@@ -111,7 +110,6 @@ public class HttpPushLogServiceImpl implements HttpPushLogService {
                     attr.put("productId", e.getProductId());
                     attr.put("productName", e.getProductName());
                     attr.put("regionCode", e.getRegionCode());
-                    attr.put("regionName", cacheUtil.getParentAndSelfRegionName(e.getRegionCode()));
                     return attr;
                 }
         );
@@ -133,7 +131,6 @@ public class HttpPushLogServiceImpl implements HttpPushLogService {
             httpPushLogExcelVo.setStatusCn(httpPushLog.getStatus() == 1 ? "成功" : "失败");
             httpPushLogExcelVo.setLatestDataCn(httpPushLog.getLatestData() == 1 ? "是" : "否");
             httpPushLogExcelVo.setPushTypeCn(cacheUtil.getDataDictName(httpPushLog.getPushType()));
-            httpPushLogExcelVo.setRegionValue(cacheUtil.getParentAndSelfRegionName(httpPushLog.getRegionCode()));
             httpPushLogExcelVoList.add(httpPushLogExcelVo);
         }
 
@@ -177,15 +174,7 @@ public class HttpPushLogServiceImpl implements HttpPushLogService {
             DeviceVo deviceVo = JSONObject.parseObject((String) redisService.hmGet("device", serialNumber), DeviceVo.class);
             if (!ObjUtil.isEmpty(deviceVo)) {
                 //--3.构建httpPushLogCdlotExcelVo
-                //a.社区名称
-                RegionVo village = cacheUtil.getRegionByCode(deviceVo.getRegionCode());
-                String villageName = village.getName();
-                //b.乡镇名称
-                RegionVo town = cacheUtil.getRegionByCode(village.getParentCode());
-                String townName = town.getName();
-                //c.区市县名称
-                RegionVo county = cacheUtil.getRegionByCode(town.getParentCode());
-                String countyName = county.getName();
+
                 //产品信息
                 ProductVo productVo = JSONObject.parseObject((String) redisService.hmGet("product", String.valueOf(deviceVo.getProductId())), ProductVo.class);
                 HttpPushLogCdlotExcelVo httpPushLogCdlotExcelVo = HttpPushLogCdlotExcelVo.builder().order(order++)
@@ -196,16 +185,12 @@ public class HttpPushLogServiceImpl implements HttpPushLogService {
                         .manufacturer("四川金石信安科技有限公司")
                         .deviceModel(productVo.getProductModel())
                         .deviceType(productVo.getName())
-                        .belongRegion(countyName)
-                        .belongTown(townName)
-                        .belongVillage(villageName)
                         .belongGrid(ObjUtil.isEmpty(deviceVo.getGridId()) ? null : (String) redisService.hmGet("gridName", String.valueOf(deviceVo.getGridId())))
                         .address(deviceVo.getAddress())
                         .useObject(null)
                         .longitude(convert6Digit(GPSUtil.bd09_To_gps84(Double.valueOf(deviceVo.getLatitude()), Double.valueOf(deviceVo.getLongitude()))[1]))
                         .latitude(convert6Digit(GPSUtil.bd09_To_gps84(Double.valueOf(deviceVo.getLatitude()), Double.valueOf(deviceVo.getLongitude()))[0]))
                         .altitude(null)
-                        .constructionUnit(countyName + townName)
                         .maintenanceUnit("四川金石信安科技有限公司")
                         .contactPerson("阴琴")
                         .contactMobile("18140222267")
@@ -305,7 +290,7 @@ public class HttpPushLogServiceImpl implements HttpPushLogService {
                 .setHttpResult(resultStr)
                 .setLatestData((byte) 1)
                 .setStatus(status)
-                .setOperateTime(new Date().getTime())
+                .setOperateTime(System.currentTimeMillis())
                 .setOperateDate(DateUtil.getCurTimeString());
 
         httpPushLogDao.insert(againPushLog);

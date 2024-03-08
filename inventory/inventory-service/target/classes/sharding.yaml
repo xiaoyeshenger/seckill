@@ -7,7 +7,7 @@ dataSources:
   ds-0:
     driverClassName: com.mysql.cj.jdbc.Driver
     dataSourceClassName: com.zaxxer.hikari.HikariDataSource
-    jdbcUrl: jdbc:mysql://192.168.2.241:6033/inventory?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai
+    jdbcUrl: jdbc:mysql://192.168.2.241:6033/vapp_inventory?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai
     username: proxysql_test
     password: my888555
 

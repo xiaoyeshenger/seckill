@@ -26,3 +26,7 @@ spring:
           data‐id: seata.yml
           group: common
           refresh: true
+        ext‐config[5]:
+          data‐id: canal.yml
+          group: common
+          refresh: true

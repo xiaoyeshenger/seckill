@@ -63,7 +63,6 @@ public class SysInit {
 
     private final DictCache dictCache;
 
-    private final RegionCache regionCache;
 
 
     //(2).系统启动后，加载系统配置
@@ -80,17 +79,7 @@ public class SysInit {
             redisService.hmSet(RedisKey.SYS_SETTING_KEY, ss.getSettingKey(), ss.getSettingValue());
         });
 
-        log.info("step2 ---> 开始同步参数设置(每个园区)信息到Redis");
-        //--2.从数据库中查询所有的参数设置信息
-        List<ParamSetting> paramSettingList = paramSettingMapper.selectByExample()
-                .build()
-                .execute();
-
-        paramSettingList.forEach(ps -> {
-            redisService.hmSet(RedisKey.PARAM_SETTING_KEY + String.valueOf(ps.getParkId()), ps.getParamKey(), ps.getParamValue());
-        });
-
-        log.info("step3 ---> 开始同步数据字典ID和NAME到Redis");
+        log.info("step2 ---> 开始同步数据字典ID和NAME到Redis");
         //--3.从数据库中查询所有的字典信息
         List<DataDict> dataDictList = dataDictMapper.selectByExample()
                 .build()
@@ -104,38 +93,8 @@ public class SysInit {
         });
 
         //--4.重新加载所有的数据字典
-        log.info("step4 ---> 开始同步数据字典到本地缓存");
+        log.info("step3 ---> 开始同步数据字典到本地缓存");
         dictCache.reloadDataDict();
-
-        //--5.重新加载区域信息
-        log.info("step5 ---> 开始同步区域信息到本地缓存");
-        regionCache.reloadRegion();
-
-        //--6.同步初始化页面模板配置信息
-        log.info("step9 ---> 开始同步初始化页面模板配置信息");
-        PageTemplate pt = pageTemplateMapper.selectByExampleOne()
-                .where(PageTemplateDynamicSqlSupport.activeFlag, isEqualTo((byte)1))
-                .and(PageTemplateDynamicSqlSupport.templateType, isEqualTo(802L))
-                .and(PageTemplateDynamicSqlSupport.pageKey, isEqualTo("M1"))
-                .and(PageTemplateDynamicSqlSupport.parkId, isEqualTo(999999L))
-                .build()
-                .execute();
-        if (ObjUtil.isEmpty(pt)) {
-            pt = PageTemplate.builder()
-                    .id(new IdWorker().nextId())
-                    .name("通用基础模板")
-                    .pageType(822L)
-                    .pageKey("M1")
-                    .templateType(802L)
-                    .description("适用于每个园区的通用基础模板")
-                    .picUrl("/pagetemplate/default/pic/def.jpg")
-                    .orderNum(1)
-                    .activeFlag((byte)1)
-                    .parkId(999999L)
-                    .createTime(new Date().getTime())
-                    .build();
-            pageTemplateMapper.insert(pt);
-        }
 
 
         //--7.初始化用户信息
@@ -155,7 +114,7 @@ public class SysInit {
                     .useType(17L)
                     .status((byte)1)
                     .delFlag((byte)0)
-                    .createTime(new Date().getTime())
+                    .createTime(System.currentTimeMillis())
                     .build();
             roleMapper.insert(role);
         }
@@ -196,7 +155,7 @@ public class SysInit {
             userRole =  UserRole.builder()
                     .userId(userId)
                     .roleId(roleId)
-                    .createTime(new Date().getTime())
+                    .createTime(System.currentTimeMillis())
                     .build();
             userRoleMapper.insert(userRole);
         }
