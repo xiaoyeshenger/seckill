@@ -1,0 +1,36 @@
+
+1.运行openresty
+sh ./1_run_compose.sh
+
+ //如果要jwt token校验则运行
+sh 2_init_jwt_evn.sh
+
+ //如果要使用图形验证码则运行
+sh 3_init_checkcode_evn.sh
+
+
+2.查看日志，调试时，2个日志配合一起查看
+tail -f logs/access.log
+tail -f logs/error.log 
+
+3.所有的Lua脚本都在 lua文件夹下,只需要修改 default.conf 配置对应的 xxx.lua 文件即可执行对应的lua脚本
+
+
+4.修改lua脚本后执行重新加载配置即可
+docker exec -it openresty nginx -s reload
+
+5.修改default.conf 则需要重启openresty以生效
+docker restart openresty
+
+
+
+6.openresty执行阶段详解
+
+https://blog.51cto.com/lisea/2425794
+
+
+
+
+
+
+
