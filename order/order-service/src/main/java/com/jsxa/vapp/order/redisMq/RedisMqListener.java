@@ -72,7 +72,9 @@ public class RedisMqListener implements MessageListener {
 
     }
 
-
+    /**
+     * 通过http向nginx内存下发预约启动状态和库存数量
+     */
     private void updateNginxStock(String vaccineReleaseId,Integer amount){
         //--1.请求地址
         String apiUrl = nginxUrl + "updateStockStatus";
