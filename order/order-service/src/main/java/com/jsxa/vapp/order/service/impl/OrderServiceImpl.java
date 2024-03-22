@@ -50,14 +50,12 @@ public class OrderServiceImpl implements OrderService {
         //(1).查询到该订单对应的放苗活动id
         Long vaccineReleaseId = vaccinationRecord.getVaccineReleaseId();
 
-
         //(2).调用inventory微服务扣减库存(库存扣减采用乐观锁version版本的机制),判断库存微服务响应码是否正常，不正常则抛出异常让seata分布式事务感知该异常以便做出回滚
         Map<String, Object> resultMap = inventoryServiceFeignClient.reduceDock(vaccineReleaseId);
         Integer code = (Integer) resultMap.get("code");
         if(code != 200){
             throw new IllegalArgumentException("调用扣减库存失败");
         }
-
 
         //(3).将订单信息保存到数据库
         vaccinationRecordMapper.insert(vaccinationRecord);
