@@ -50,7 +50,7 @@ public class VaccinaReleaseStatusXxlJob {
         }
 
         //2.将启用状态保存到redis以便服务器宕机后再次查询(init.SysInit)
-        redisService.set("RuntimeVaccineStatus","1");
+        redisService.set("RuntimeVaccineStatus",1);
 
         //3.将放苗库存数量放入redis，以便前端可以抢苗
         redisService.set("RuntimeVaccineStock",vaccineRelease.getDockAmount());
@@ -61,7 +61,8 @@ public class VaccinaReleaseStatusXxlJob {
         // step2--> 通知前端(通过websocket通知前端将将预约按钮由灰色变为启用)，即可以正式抢苗了
         Map<String, Object> wsDataMap = new HashMap<>();
         wsDataMap.put("vaccineReleaseId",String.valueOf(vaccineReleaseId));
-        wsDataMap.put("start","1");
+        wsDataMap.put("start",1);
+        wsDataMap.put("stock",vaccineRelease.getDockAmount());
         String dataStr = JSON.toJSONString(wsDataMap);
         redisService.convertAndSend("RuntimeVaccineStock", dataStr);
     }

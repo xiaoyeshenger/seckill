@@ -24,7 +24,7 @@ import java.util.Map;
 /**
  * @Author zhangyong
  * @Description VaccineReleaseController类
- * @Date 2024/02/27 15:03
+ * @Date 2021/02/27 15:03
  * @Param
  * @return
  */
@@ -41,7 +41,7 @@ public class VaccineReleaseController {
     /**
      * @Author zhangyong
      * @Description //(1) 添加疫苗发放信息
-     * @Date 2024/02/27 15:03
+     * @Date 2021/02/27 15:03
      * @Param
      * @return
      */
@@ -57,7 +57,7 @@ public class VaccineReleaseController {
     /**
      * @Author zhangyong
      * @Description //(2) 通过id删除疫苗发放信息
-     * @Date 2024/02/27 15:03
+     * @Date 2021/02/27 15:03
      * @Param
      * @return
      */
@@ -74,7 +74,7 @@ public class VaccineReleaseController {
     /**
      * @Author zhangyong
      * @Description //(3) 更新疫苗发放信息
-     * @Date 2024/02/27 15:03
+     * @Date 2021/02/27 15:03
      * @Param
      * @return
      */
@@ -90,7 +90,7 @@ public class VaccineReleaseController {
     /**
      * @Author zhangyong
      * @Description //(4) 通过id查询疫苗发放信息
-     * @Date 2024/02/27 15:03
+     * @Date 2021/02/27 15:03
      * @Param
      * @return
      */
@@ -106,7 +106,7 @@ public class VaccineReleaseController {
     /**
      * @Author zhangyong
      * @Description //(5) 查询所有的疫苗发放信息列表并分页(支持关键字查询)
-     * @Date 2024/02/27 15:03
+     * @Date 2021/02/27 15:03
      * @Param
      * @return
      */
@@ -121,7 +121,7 @@ public class VaccineReleaseController {
     /**
      * @Author zhangyong
      * @Description //(6) 下载疫苗发放标准上传模板
-     * @Date 2024/02/27 15:03
+     * @Date 2021/02/27 15:03
      * @Param
      * @return
      */
@@ -136,7 +136,7 @@ public class VaccineReleaseController {
     /**
      * @Author zhangyong
      * @Description //(6) 通过excel导入疫苗发放
-     * @Date 2024/02/27 15:03
+     * @Date 2021/02/27 15:03
      * @Param
      * @return
      */
@@ -151,7 +151,7 @@ public class VaccineReleaseController {
     /**
      * @Author zhangyong
      * @Description //(8) 导出疫苗发放到excel
-     * @Date 2024/02/27 15:03
+     * @Date 2021/02/27 15:03
      * @Param
      * @return
      */

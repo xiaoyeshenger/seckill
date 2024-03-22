@@ -11,14 +11,12 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.util.FastByteArrayOutputStream;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
 import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Component
@@ -269,7 +267,7 @@ public class MinioUtil {
         return objectItems;
     }
 
-    /*
+    /**
      * @Author: zhangyong
      * description: 批量删除文件对象
      * @Date: 2021-03-22 16:45
@@ -280,5 +278,49 @@ public class MinioUtil {
         List<DeleteObject> dos = objects.stream().map(e -> new DeleteObject(e)).collect(Collectors.toList());
         Iterable<Result<DeleteError>> results = minioClient.removeObjects(RemoveObjectsArgs.builder().bucket(bucketName).objects(dos).build());
         return results;
+    }
+
+
+    /**
+     * 上传Multipart文件到minio
+     */
+    public List<String> uploadMultipartFile(MultipartHttpServletRequest multipartHttpServletRequest, String bucketName){
+        //1.获取所有的文件名
+        Iterator<String> fileNames = multipartHttpServletRequest.getFileNames();
+        //2.根据文件名获取文件并保存
+        List<String> fileNameList = new ArrayList<>();
+        while (fileNames.hasNext()) {
+            String fileName = fileNames.next();
+            List<MultipartFile> multipartFileList = multipartHttpServletRequest.getFiles(fileName);
+            String curTimeStr = DateUtil.getCurTimeStr();
+            for (int i = 0; i < multipartFileList.size(); i++) {
+                MultipartFile multipartFile = multipartFileList.get(i);
+                if (!ObjUtil.isEmpty(multipartFile)) {
+                    String filename = multipartFile.getName();
+                    String name = curTimeStr +"_"+UUIDUtil.getUUID(4)+"_"+(i+1)+"_"+filename;
+                    String contentType = multipartFile.getContentType();
+                    if (contentType.contains("image/") && (!filename.contains(".jpg"))) {
+                        name +=".jpg";
+                    }else if (contentType.contains("audio/") && (!filename.contains(".mp3"))) {
+                        name +=".mp3";
+                    }else if (contentType.contains("video/") && (!filename.contains(".mp4"))) {
+                        name +=".mp4";
+                    }else if (contentType.contains("xml") && (!filename.contains(".xml"))) {
+                        name +=".xml";
+                    }else if (contentType.contains("yaml") && (!filename.contains(".yaml"))) {
+                        name +=".yaml";
+                    } else if (contentType.contains("text/") && (!filename.contains(".txt"))) {
+                        name +=".txt";
+                    } else {
+                        // TODO: 处理其他类型的文件
+                    }
+                    Boolean upload = this.upload(bucketName, multipartFile, name);
+                    if(upload){
+                        fileNameList.add(name);
+                    }
+                }
+            }
+        }
+        return fileNameList;
     }
 }

@@ -20,10 +20,10 @@ public class FeignTokenInterceptor implements RequestInterceptor {
     @Override
     public void apply(RequestTemplate requestTemplate) {
         //1.向后传递seata的xid，以便实现分布式事务
-        String xid = RootContext.getXID();
+        /*String xid = RootContext.getXID();
         if(!ObjUtil.isEmpty(xid)){
             requestTemplate.header(RootContext.KEY_XID, xid);
-        }
+        }*/
 
         //2.其他header有的话也一并传递
         ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();

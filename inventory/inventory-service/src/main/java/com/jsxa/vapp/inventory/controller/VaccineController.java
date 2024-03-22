@@ -23,7 +23,7 @@ import java.util.Map;
 /**
  * @Author zhangyong
  * @Description VaccineController类
- * @Date 2024/02/27 14:20
+ * @Date 2021/02/27 14:20
  * @Param
  * @return
  */
@@ -40,7 +40,7 @@ public class VaccineController {
     /**
      * @Author zhangyong
      * @Description //(1) 添加疫苗信息
-     * @Date 2024/02/27 14:20
+     * @Date 2021/02/27 14:20
      * @Param
      * @return
      */
@@ -56,7 +56,7 @@ public class VaccineController {
     /**
      * @Author zhangyong
      * @Description //(2) 通过id删除疫苗信息
-     * @Date 2024/02/27 14:20
+     * @Date 2021/02/27 14:20
      * @Param
      * @return
      */
@@ -73,7 +73,7 @@ public class VaccineController {
     /**
      * @Author zhangyong
      * @Description //(3) 更新疫苗信息
-     * @Date 2024/02/27 14:20
+     * @Date 2021/02/27 14:20
      * @Param
      * @return
      */
@@ -89,7 +89,7 @@ public class VaccineController {
     /**
      * @Author zhangyong
      * @Description //(4) 通过id查询疫苗信息
-     * @Date 2024/02/27 14:20
+     * @Date 2021/02/27 14:20
      * @Param
      * @return
      */
@@ -105,7 +105,7 @@ public class VaccineController {
     /**
      * @Author zhangyong
      * @Description //(5) 查询所有的疫苗信息列表并分页(支持关键字查询)
-     * @Date 2024/02/27 14:20
+     * @Date 2021/02/27 14:20
      * @Param
      * @return
      */
@@ -120,7 +120,7 @@ public class VaccineController {
     /**
      * @Author zhangyong
      * @Description //(6) 下载疫苗标准上传模板
-     * @Date 2024/02/27 14:20
+     * @Date 2021/02/27 14:20
      * @Param
      * @return
      */
@@ -135,7 +135,7 @@ public class VaccineController {
     /**
      * @Author zhangyong
      * @Description //(6) 通过excel导入疫苗
-     * @Date 2024/02/27 14:20
+     * @Date 2021/02/27 14:20
      * @Param
      * @return
      */
@@ -150,7 +150,7 @@ public class VaccineController {
     /**
      * @Author zhangyong
      * @Description //(8) 导出疫苗到excel
-     * @Date 2024/02/27 14:20
+     * @Date 2021/02/27 14:20
      * @Param
      * @return
      */

@@ -43,7 +43,7 @@ public class JwtTokenUtil {
         return Jwts.builder()
                 .setClaims(claims)
                 .setExpiration(generateExpirationDate())
-                .signWith(SignatureAlgorithm.HS512, secret)
+                .signWith(SignatureAlgorithm.HS512,secret)
                 .compact();
     }
 
@@ -117,6 +117,14 @@ public class JwtTokenUtil {
         return generateToken(claims);
     }
 
+    @SneakyThrows
+    public String generateTokenByMap(Map<String, Object> map) {
+        Map<String, Object> claims = new HashMap<>(2);
+        claims.put(CLAIM_KEY_USERNAME, new ObjectMapper().writeValueAsString(map));
+        claims.put(CLAIM_KEY_CREATED, new Date());
+        return generateToken(claims);
+    }
+
     /**
      * 判断token是否可以被刷新
      */
@@ -132,6 +140,5 @@ public class JwtTokenUtil {
         claims.put(CLAIM_KEY_CREATED, new Date());
         return generateToken(claims);
     }
-
 
 }

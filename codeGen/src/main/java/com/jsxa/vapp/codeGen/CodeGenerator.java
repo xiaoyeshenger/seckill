@@ -145,10 +145,10 @@ public class CodeGenerator {
 /*    public static void main(String[] args) {
 
           genCodeByPoJoName(
-                 new RocketMqFailMsg(),
-                  "RocketMqFailMsg",
-                          "rocket_mq_fail_msg",
-                          "rocketMQ失败消息",
+                 new MicroServiceInvokeFailMsg(),
+                  "MicroServiceInvokeFailMsg",
+                          "micro_service_invoke_fail_msg",
+                          "微服务调用失败的消息",
                           "order",
                           false,
                           "mysql",

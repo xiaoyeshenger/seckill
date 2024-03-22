@@ -5,20 +5,15 @@ import com.jsxa.vapp.common.utils.DateUtil;
 import com.jsxa.vapp.common.utils.IdWorker;
 import com.jsxa.vapp.order.bo.po.RocketMqFailMsg;
 import com.jsxa.vapp.order.bo.po.VaccinationRecord;
-import com.jsxa.vapp.order.feign.InventoryServiceFeignClient;
 import com.jsxa.vapp.order.mapper.RocketMqFailMsgMapper;
-import com.jsxa.vapp.order.mapper.VaccinationRecordMapper;
 import com.jsxa.vapp.order.service.OrderService;
-import io.seata.spring.annotation.GlobalTransactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.rocketmq.common.message.MessageExt;
-import org.apache.rocketmq.spring.annotation.ConsumeMode;
 import org.apache.rocketmq.spring.annotation.RocketMQMessageListener;
 import org.apache.rocketmq.spring.core.RocketMQListener;
 import org.springframework.stereotype.Component;
 
-import java.util.Map;
 
 /**
  * @author zhangyong

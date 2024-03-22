@@ -1,8 +1,8 @@
 package com.jsxa.vapp.common.shardingJdbc;
 
 import lombok.extern.slf4j.Slf4j;
-import org.apache.shardingsphere.sharding.api.sharding.complex.ComplexKeysShardingAlgorithm;
-import org.apache.shardingsphere.sharding.api.sharding.complex.ComplexKeysShardingValue;
+import org.apache.shardingsphere.api.sharding.complex.ComplexKeysShardingAlgorithm;
+import org.apache.shardingsphere.api.sharding.complex.ComplexKeysShardingValue;
 import org.springframework.stereotype.Component;
 
 import java.util.Collection;
@@ -47,10 +47,10 @@ public class MyTableComplexKeysShardingAlgorithm implements ComplexKeysShardingA
         return null;
     }
 
-    @Override
+    /*@Override
     public String getType() {
         return null;
-    }
+    }*/
 
 /*    private static Map<String, AlgorithmConfiguration> createDiscoveryTypes() {
         Map<String, AlgorithmConfiguration> discoveryTypes = new HashMap<>(1, 1);

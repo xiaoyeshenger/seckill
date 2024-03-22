@@ -29,6 +29,9 @@ import com.jsxa.vapp.inventory.util.XxlJobUtil;
 import io.seata.core.context.RootContext;
 import io.seata.core.model.BranchType;
 import io.seata.spring.annotation.GlobalTransactional;
+import org.apache.rocketmq.client.producer.SendResult;
+import org.apache.rocketmq.client.producer.SendStatus;
+import org.apache.rocketmq.spring.core.RocketMQTemplate;
 import org.mybatis.dynamic.sql.render.RenderingStrategies;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -41,7 +44,6 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Validator;
-import org.apache.shardingsphere.sql.parser.mysql.parser.MySQLLexer;
 
 
 import javax.annotation.Resource;
@@ -54,7 +56,7 @@ import static org.mybatis.dynamic.sql.SqlBuilder.*;
 /**
  * @Author zhangyong
  * @Description //VaccineReleaseService接口实现类
- * @Date 2024/02/27 15:03
+ * @Date 2021/02/27 15:03
  * @Param
  * @return
  */
@@ -75,6 +77,8 @@ public class VaccineReleaseServiceImpl implements VaccineReleaseService {
     private final VaccineReleaseMapper vaccineReleaseMapper;
 
     private final TimeTaskMapper timeTaskMapper;
+
+    private final RocketMQTemplate rocketMQTemplate;
 
 
     @Override
@@ -387,36 +391,49 @@ public class VaccineReleaseServiceImpl implements VaccineReleaseService {
 
     /**
      * 库存扣减
-     * 库存扣减和orderServer中的创建订单是一组全局事务,要使用seata全局事务需要做以下二选一(此处选择方式(2)):
+     * 库存扣减和orderServer中的创建订单是一组全局事务,要使用shardingjdbc+seata全局事务需要做以下2步:
+     * 1.被调用的事务方法加本地事务注解@Transactional(rollbackFor = Exception.class)
+     * 2.被调用的事务出现异常以下二选一(此处选择方式(2)):
      * (1).在reduceDock方法上打上自定义注解@SeataExp，代码量少但逻辑更隐蔽(具体原因可参见com.jsxa.vapp.common.aop.SeataGlobalTransactionalAspect)
      * (2).在事务发起方即OrderService中处理微服务调用的结果，代码量增多但逻辑更清晰(具体原因可参见com.jsxa.vapp.common.aop.SeataGlobalTransactionalAspect)
      */
-    //@SeataExp
+    @Transactional(rollbackFor = Exception.class)
     @Override
     public Map<String, Object> reduceDock(Long vaccineReleaseId) {
         //获取当前事务的XID
         String xid = RootContext.getXID();
-        if(ObjUtil.isEmpty(xid)){
-            log.info("xid为空");
-        }
-        //BranchType branchType = RootContext.getBranchType();
-        //String branchTypeName = RootContext.getBranchType();
         log.info("Inventory--------------> threadId:{},threadName:{},Seata_XID:{}",Thread.currentThread().getId(),Thread.currentThread().getName(),xid);
 
-        //1.获取到疫苗发放活动信息
-        VaccineRelease vaccineRelease = vaccineReleaseMapper.selectByPrimaryKey(vaccineReleaseId);
-        if(ObjUtil.isEmpty(vaccineRelease)){
-            throw new IllegalArgumentException("id为:"+vaccineRelease+"的疫苗发放信息不存在");
-        }
 
-        //2.获取到扣减库存前的版本号
-        Integer version = vaccineRelease.getVersion();
+        //1.获取到扣减库存前的版本号
+        int version = vaccineReleaseMapper.selectVersionNum(vaccineReleaseId);
 
-        //3.采用乐观锁即版本(version)的方式再次防止超卖(sql详见reduceDock()方法)，使用版本version机制，需要在乐观锁控制的数据库表中增加一个字段 versison，字段类型使用int,
+
+        //2.采用乐观锁即版本(version)的方式再次防止超卖(sql详见reduceDock()方法)，使用版本version机制，需要在乐观锁控制的数据库表中增加一个字段 versison，字段类型使用int,
         //  原理是在提交更新的时候检查当前数据库中数据的版本号与自己更新前第一次获取到的版本号进行对比，如果一致则OK，
-        //  否则就是版本冲突，此时采用重试机制保证最终更新成功(重试机制步骤:间隔1秒更新3次，如果还是失败则放入rocketmq延迟队列去更新，直到最终更新成功)
-        vaccineReleaseMapper.reduceDock(vaccineReleaseId, 1, version);
-        //vaccineReleaseMapper.reduceDockWithNoVersion(vaccineReleaseId, 1);
+        //  否则就是版本冲突，此时采用重试机制保证最终更新成功(重试机制步骤:重新查询版本号执行一次，如果还是失败则放入rocketmq延迟队列去更新，直到最终更新成功)
+        int result = vaccineReleaseMapper.reduceDock(1,vaccineReleaseId, version);
+        if(result == 0){
+            //(1).更新不成功，记录的版本号有问题，说明有其他线程修改了版本好，重新查询一次
+            int versionAgain = vaccineReleaseMapper.selectVersionNum(vaccineReleaseId);
+            //(2).再次执行扣减
+            int resultAgain = vaccineReleaseMapper.reduceDock(1,vaccineReleaseId, versionAgain);
+            //(3).如果还不成功,发送给mq处理(mq自身有重试机制),防止更新丢失
+            if(resultAgain == 0){
+                Map<String,Object> stockMap = new HashMap<>();
+                stockMap.put("vaccineReleaseId",vaccineReleaseId);
+                stockMap.put("amount",1);
+                try {
+                    SendResult sendResult = rocketMQTemplate.syncSend("vaccination_stock", stockMap);
+                    if(!sendResult.getSendStatus().equals(SendStatus.SEND_OK)){
+                        throw new IllegalArgumentException("服务异常，请稍后再试!!");
+                    }
+                }catch (Exception e){
+                    e.printStackTrace();
+                    throw new IllegalArgumentException("服务异常，请稍后再试!!!");
+                }
+            }
+        }
 
         Map<String, Object> resultMap = new HashMap<>();
         resultMap.put("code", 200);

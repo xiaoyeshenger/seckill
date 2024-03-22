@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * @Author zhangyong
  * @Description //VaccineReleaseService接口
- * @Date 2024/02/27 15:03
+ * @Date 2021/02/27 15:03
  * @Param
  * @return
  */
@@ -23,55 +23,55 @@ public interface VaccineReleaseService {
 
     /**
      * @Description 添加疫苗发放
-     * @Date 2024/02/27 15:03
+     * @Date 2021/02/27 15:03
      */
     Map<String, Object> addVaccineRelease(VaccineReleaseReqDto vaccineReleaseReqDto);
 
     /**
      * @Description 通过id删除疫苗发放
-     * @Date 2024/02/27 15:03
+     * @Date 2021/02/27 15:03
      */
     Map<String, Object> deleteVaccineReleaseById(Long id);
 
     /**
      * @Description 更新疫苗发放
-     * @Date 2024/02/27 15:03
+     * @Date 2021/02/27 15:03
      */
     Map<String, Object> updateVaccineRelease(VaccineReleaseReqDto vaccineReleaseReqDto);
 
     /**
      * @Description 新增或更新疫苗发放
-     * @Date 2024/02/27 15:03
+     * @Date 2021/02/27 15:03
      */
     Map<String, Object> insertOrUpdateVaccineRelease(VaccineReleaseReqDto vaccineReleaseReqDto);
 
     /**
      * @Description 通过id查询疫苗发放
-     * @Date 2024/02/27 15:03
+     * @Date 2021/02/27 15:03
      */
     Map<String, Object> getVaccineReleaseById(Long id);
 
     /**
      * @Description 查询所有疫苗发放列表并分页
-     * @Date 2024/02/27 15:03
+     * @Date 2021/02/27 15:03
      */
     PageVo<Map<String, Object>> getVaccineReleaseListPageVo(VaccineReleasePageReqDto vaccineReleasePageReqDto);
 
     /**
     * @Description 下载标准上传模板
-    * @Date 2024/02/27 15:03
+    * @Date 2021/02/27 15:03
     */
     void downloadTemplateExcel(HttpServletResponse response);
 
     /**
      * @Description 通过excel导入疫苗发放
-     * @Date 2024/02/27 15:03
+     * @Date 2021/02/27 15:03
      */
     Map<String, Object> importByExcel(MultipartHttpServletRequest request);
 
     /**
      * @Description 导出疫苗发放到excel(easyExcel方式)
-     * @Date 2024/02/27 15:03
+     * @Date 2021/02/27 15:03
      */
     void exportToExcel(VaccineReleasePageReqDto vaccineReleasePageReqDto,HttpServletResponse response);
 

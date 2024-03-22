@@ -7,10 +7,7 @@ import org.springframework.web.servlet.HandlerMapping;
 import javax.servlet.http.HttpServletRequest;
 import java.io.*;
 import java.net.URLDecoder;
-import java.util.Enumeration;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.Map;
+import java.util.*;
 
 public class RequestHandleUtil {
 
@@ -19,6 +16,7 @@ public class RequestHandleUtil {
     public static final String CONTENT_TYPE_JSON = "application/json";
     public static final String CONTENT_TYPE_FORM_DATA = "multipart/form-data";
     public static final String CONTENT_TYPE_FORM_URLENCODED = "application/x-www-form-urlencoded";
+    public static final String CONTENT_TYPE_FORM_XML = "xml";
 
     /**
      * 获取请求参数
@@ -28,13 +26,13 @@ public class RequestHandleUtil {
     public static Map<String, Object> getReqParam(HttpServletRequest req){
 
         String method = req.getMethod();
-        Map<String, Object> reqMap;
+        Map<String, Object> reqMap = new HashMap<>();
         if(METHOD_GET.equals(method)){
             reqMap = doGet(req);
         }else if(METHOD_POST.equals(method)){
             reqMap = doPost(req);
         }else{
-            return null;//其他请求方式暂不处理
+            return reqMap;//其他请求方式暂不处理
         }
         return reqMap;
     }
@@ -50,6 +48,12 @@ public class RequestHandleUtil {
 
     private static Map<String, Object> doPost(HttpServletRequest req){
         String contentType = req.getContentType();
+        //1.contentType为空直接返回空参数
+        if(ObjUtil.isEmpty(contentType)){
+            return new HashMap<>();
+
+        }
+        //2.contentType不为空按照类型对应处理
         try {
             if (contentType.contains(CONTENT_TYPE_JSON)) {
                 StringBuffer sb = new StringBuffer();
@@ -76,13 +80,28 @@ public class RequestHandleUtil {
                 }
                 return map;
 
+            } else if(contentType.contains(CONTENT_TYPE_FORM_XML)){
+                StringBuffer sb = new StringBuffer();
+                InputStream is = req.getInputStream();
+                InputStreamReader isr = new InputStreamReader(is);
+                BufferedReader br = new BufferedReader(isr);
+                String s = "";
+                while ((s = br.readLine()) != null) {
+                    sb.append(s);
+                }
+                String str = sb.toString();
+                Map<String, Object> params = new HashMap<>();
+                params.put("xml",str);
+                return params;
+
             }else {
                 //其他内容格式的请求暂不处理
+                return new HashMap<>();
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return null;
+        return new HashMap<>();
     }
 
 
@@ -119,5 +138,22 @@ public class RequestHandleUtil {
             e.printStackTrace();
         }
         return "";
+    }
+
+
+    /**
+     * 判断是否为MultipartHttpServletRequest
+     */
+    public static boolean isMultipartContent(HttpServletRequest request) {
+        if(!"post".equals(request.getMethod().toLowerCase())) {
+            return false;
+        }
+
+        String contentType = request.getContentType();	//获取Content-Type
+        if((contentType != null) && (contentType.toLowerCase().startsWith("multipart/"))) {
+            return true;
+        }else {
+            return false;
+        }
     }
 }

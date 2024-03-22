@@ -46,10 +46,17 @@ spring:
     # 国际化资源文件路径
     basename: i18n/messages
 
-#feigin支持httpclient
+#feigin支持httpclient  支持sentinel熔断降级
 feign:
+  sentinel:
+    enabled: true
   httpclient:
     enabled: true
+  client:
+    config:
+      default:
+        connectTimeout: 5000
+        readTimeout: 5000
 
 #关闭请求超时重试
 ribbon:

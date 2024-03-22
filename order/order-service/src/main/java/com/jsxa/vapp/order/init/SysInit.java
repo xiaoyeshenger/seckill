@@ -37,15 +37,13 @@ public class SysInit {
 
     //(1).系统启动后，加载系统配置
     @EventListener(ContextRefreshedEvent.class)
-    @Transactional(rollbackFor = Exception.class)
     public void initSysConfig() {
 
         log.info("step1 ---> 开始从redis同步疫苗抢苗状态到本机内存");
-        Object startObj = (String)redisService.get("RuntimeVaccineStatus");
-        if(ObjUtil.isEmpty(startObj)){
-            startObj = "0";
+        Integer start = (Integer)redisService.get("RuntimeVaccineStatus");
+        if(ObjUtil.isEmpty(start)){
+            start = 0;
         }
-        String start = String.valueOf(startObj);
         VaccinationRecordServiceImpl.runtimeVaccineStockMap.put("start", start);
     }
 }

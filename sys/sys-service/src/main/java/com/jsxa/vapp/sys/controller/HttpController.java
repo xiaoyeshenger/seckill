@@ -19,6 +19,8 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.util.*;
 
+import static org.mybatis.dynamic.sql.SqlBuilder.isEqualTo;
+
 
 /**
  * @Author zhangyong
@@ -48,98 +50,113 @@ public class HttpController {
     private MinioUtil minioUtil;
 
 
+
     /**
      * 处理海康/大华/宇视事件告警
      */
-    @RequestMapping(value = "receiveEventData", produces = { "application/json" })
-    public Map<String, Object> receiveHikEventData(HttpServletRequest request, MultipartHttpServletRequest multipartHttpServletRequest){
+    @RequestMapping(value = "receiveEventDataHik", produces = { "application/json" })
+    public Map<String, Object> receiveHikEventData(HttpServletRequest request){
 
-        //1.获取http事件数据
+
+        //1.从request获取请求参数
         Map<String, Object> reqParam = RequestHandleUtil.getReqParam(request);
         String reqStr = JSONUtils.toJSONString(reqParam);
-        log.info("step1 ---> 请求路径:{},设备IP:{},方法类型:{}" ,request.getRequestURL(), request.getRemoteAddr(),request.getMethod());
-        log.info("step2 ---> 请求内容:{}",reqStr);
-        /*if(reqParam.isEmpty()){
-            getMultipartFileList(multipartHttpServletRequest,"MoveDetection.xml","moveAddr");
-        }*/
+        log.info("step1 ---> 设备IP:{},方法类型:{},数据类型:{},请求内容:{}",request.getRemoteAddr(),request.getMethod(),request.getContentType(),reqStr);
+        //2.判断请求参数是否为空,为空查看是否有文件上传，不为空则处理参数
+        //(1).参数为空,查看是否有文件上传
+        if(ObjUtil.isEmpty(reqParam)) {
+            if (request instanceof MultipartHttpServletRequest) {
+                //--1.HttpServletRequest转为MultipartHttpServletRequest
+                MultipartHttpServletRequest multipartHttpServletRequest = (MultipartHttpServletRequest) request;
+                //--2.获取所有的文件名
+                minioUtil.uploadMultipartFile(multipartHttpServletRequest,"eventdatafile");
+            }
+        }else {
+            //(2).参数不为空,处理参数
+            //1).从配置文件中获取监听的事件类型列表
+            String[] eventTypeArr = eventTypeList.split(",");
 
-        //2.从配置文件中获取监听的事件类型列表
-        //String[] eventTypeArr = {"facedetection","fielddetection","parking","smokeDetection","fireDetection","smokeAndFireDetection","regionEntrance","fielddetection","linedetection","safetyHelmetDetection","TMA","VMD"/*,"PTZFXYFinish"*/};
-        String[] eventTypeArr = eventTypeList.split(",");
+            //2).如果事件数据包含监听的事件类型则处理
+            for (int i = 0; i < eventTypeArr.length; i++) {
+                String eventType = eventTypeArr[i];
+                if(reqStr.contains(eventType)){
+                    //--1.获取到xml字符串并转为map(内容类型为xml，则需要从map中取出xml字符串，key为xml是因为RequestHandleUtil.doPost()自定义的)
+                    String contentType = request.getContentType();
+                    String xmlStr;
+                    if(contentType.contains("xml")){
+                        xmlStr = (String)reqParam.get("xml");
+                    }else {
+                        xmlStr = (String)reqParam.get(eventType);
+                    }
+                    Map<String, Object> stringObjectMap = XmlUtil.multilayerXmlToMap(xmlStr);
+                    Map<String, Object> eventNotificationAlertMap = (Map<String, Object>)stringObjectMap.get("EventNotificationAlert");
 
-        //3.如果事件数据包含监听的事件类型则处理
-        for (int i = 0; i < eventTypeArr.length; i++) {
-            String eventType = eventTypeArr[i];
-            if(reqStr.contains(eventType)){
 
-                //(1).获取到xml字符串并转为map
-                String xmlStr = (String)reqParam.get(eventType);
-                Map<String, Object> stringObjectMap = XmlUtil.multilayerXmlToMap(xmlStr);
-                Map<String, Object> eventNotificationAlertMap = (Map<String, Object>)stringObjectMap.get("EventNotificationAlert");
 
-                //(2).获取到mac地址
-                String macAddress = (String)eventNotificationAlertMap.get("macAddress");
-                macAddress = macAddress.replaceAll(":", "-");
+                    //--2.获取到mac地址
+                    String macAddress = (String)eventNotificationAlertMap.get("macAddress");
 
-                //(3).查询数据库中是否有该mac地址对应的设备，不为空再继续处理
-                if(true){
+                    //--3.查询数据库中是否有该mac地址对应的设备，不为空再继续处理
+                    /*DeviceMacSerial deviceMacSerial = deviceMacSerialMapper.selectByExampleOne()
+                            .where(DeviceMacSerialDynamicSqlSupport.macAddr, isEqualTo(macAddress))
+                            .build()
+                            .execute();*/
+                    //if(!ObjUtil.isEmpty(deviceMacSerial)){
+                    if(true){
+                        //a.通道(设备)名称
+                        String channelName = (String)eventNotificationAlertMap.get("channelName");
 
-                    //--1.设备(通道)名称
-                    String channelName = (String)eventNotificationAlertMap.get("channelName");
+                        //b.告警时间
+                        String dateTime = (String)eventNotificationAlertMap.get("dateTime");
+                        Long tvsec = DateUtil.getTimestampDateTime(dateTime) / 1000;
 
-                    //--2.告警时间
-                    String dateTime = (String)eventNotificationAlertMap.get("dateTime");
-                    Long tvsec = DateUtil.getTimestampDateTime(dateTime) / 1000;
+                        //c.如果请求中有文件上传则解析文件保存告警图片到文件服务器(minio)
+                        if (request instanceof MultipartHttpServletRequest) {
+                            MultipartHttpServletRequest multipartHttpServletRequest = (MultipartHttpServletRequest) request;
+                            //--1.构建文件存储桶名称
+                            String bucketName = "thermography";
+                            if(eventType.equals("linedetection") || eventType.equals("fielddetection")){
+                                bucketName = "outofline";
+                            }
+                            //--2.上传文件
+                            List<String> fileNameList = minioUtil.uploadMultipartFile(multipartHttpServletRequest, bucketName);
 
-                    log.info("step3 ---> eventType:{},macAddress:{},channelName:{}",eventType,macAddress,channelName);
+                            //--3.文件列表不为空，推送消息到kafka
+                            if(!ObjUtil.isEmpty(fileNameList)){
+                                String imgListStr = String.join(",", fileNameList);
+                                JSONObject jo = new JSONObject();
+                                jo.put("chnlid","51011399701327100052");
+                                jo.put("devname",channelName);
+                                jo.put("gid","1");
+                                jo.put("tvsec",tvsec);
+                                jo.put("img",imgListStr);
+                                jo.put("source","hikHttpPush");
 
-                    //--3.保存告警图片到文件服务器(minio)
-                    List<MultipartFile> hikEventMultipartFileList = getHikEventMultipartFileList(multipartHttpServletRequest, eventType);
-                    if(!ObjUtil.isEmpty(hikEventMultipartFileList)){
-                        //a.构建文件存储桶名称
-                        String bucketName = "thermography";
-                        if(eventType.equals("linedetection") || eventType.equals("fielddetection")){
-                            bucketName = "outofline";
-                        }
+                                if(eventType.equals("smokeDetection") || eventType.equals("fireDetection") || eventType.equals("smokeAndFireDetection")){
+                                    log.info("step2 ---> 发送烟火告警到kafka eventType:{},macAddress:{},channelName:{}",eventType,macAddress,channelName);
+                                    //kafkaConsumerService.processKafka(DeviceDataType.thermography, jo,deviceMacSerial.getSerialNum());
+                                }
 
-                        //b.遍历存储图片
-                        List<String> fileNameList = new ArrayList<>();
-                        for (int j = 0; j < hikEventMultipartFileList.size(); j++) {
-                            MultipartFile multipartFile = hikEventMultipartFileList.get(j);
-                            String name = multipartFile.getOriginalFilename() + ".jpg";
-                            Boolean upload = minioUtil.upload(bucketName, multipartFile, name);
-                            if(upload){
-                                fileNameList.add(name);
+                                if(eventType.equals("linedetection") || eventType.equals("fielddetection")){
+                                    log.info("step3 ---> 发送越界告警到kafka eventType:{},macAddress:{},channelName:{}",eventType,macAddress,channelName);
+                                    //kafkaConsumerService.processKafka(DeviceDataType.outOfLine, jo,deviceMacSerial.getSerialNum());
+                                }
                             }
                         }
-                        //c.告警图片列表
-                        String imgListStr = String.join(",", fileNameList);
-
-                        //d.构建告警数据
-                        JSONObject jo = new JSONObject();
-                        jo.put("chnlid","51011399701327100052");
-                        jo.put("devname",channelName);
-                        jo.put("gid","1");
-                        jo.put("tvsec",tvsec);
-                        jo.put("img",imgListStr);
-
-                        //f.发送数据到kafka
-                        if(eventType.equals("smokeDetection") || eventType.equals("fireDetection") || eventType.equals("smokeAndFireDetection")){
-                            log.info("step4 ---> 发送烟火告警");
-                        }
-
-                        if(eventType.equals("linedetection") || eventType.equals("fielddetection")){
-                            log.info("step5 ---> 发送越界告警");
-                        }
                     }
+                    //--4.事件每次都只发一种类型，匹配到一个类型，即结束当前循环
+                    break;
                 }
             }
         }
+
 
         Map<String, Object> map = new HashMap<>();
         map.put("data",reqParam);
         return map;
     }
+
+
 
     /**
      * 获取海康事件告警图片列表
@@ -153,123 +170,5 @@ public class HttpController {
         }
         List<MultipartFile> fileList = multipartHttpServletRequest.getFiles(fileKey);
         return fileList;
-    }
-
-
-    //@ApiIgnore("接收HTTP数据")
-    //@RequestMapping(value = "receiveEventDataOld", produces = { "application/json" })
-    public Map<String, Object> sendScanCarFormNew(HttpServletRequest request,MultipartHttpServletRequest multipartHttpServletRequest){
-
-        //log.info("step1 ---> 请求的路径:{}，远程设备ip:{}，方法类型:{}" ,request.getRequestURL(), request.getRemoteAddr(),request.getMethod());
-        //getMultipartFile(multipartHttpServletRequest,"MoveDetection.xml");
-        Map<String, Object> reqParam = RequestHandleUtil.getReqParam(request);
-        //Map<String, String[]> reqParam = convertFormData(request);
-        String reqStr = JSONUtils.toJSONString(reqParam);
-
-        String[] eventTypeArr = {"facedetection","fielddetection","parking","smokeDetection","fireDetection","smokeAndFireDetection","regionEntrance","fielddetection","linedetection","safetyHelmetDetection","TMA","VMD","PTZFXYFinish"};
-
-        for (int i = 0; i < eventTypeArr.length; i++) {
-            String eventType = eventTypeArr[i];
-            if(reqStr.contains(eventType)){
-                if(eventType.equals("PTZFXYFinish")){
-                    String ptzfxyFinishStr = (String)reqParam.get("PTZFXYFinish");
-                    JSONObject parse = JSONObject.parseObject(ptzfxyFinishStr);
-                    String macAddress = parse.getString("macAddress");
-                    macAddress = macAddress.replaceAll(":", "-");
-                    JSONObject pTZFXYFinishJSONObject = parse.getJSONObject("PTZFXYFinish");
-                    String presetName = pTZFXYFinishJSONObject.getString("presetName");
-                    redisService.hmSet("hik_alarm_presetName",macAddress,presetName);
-                }else{
-                    String xmlStr = (String)reqParam.get(eventType);
-                    Map<String, Object> stringObjectMap = XmlUtil.multilayerXmlToMap(xmlStr);
-                    Map<String, Object> eventNotificationAlertMap = (Map<String, Object>)stringObjectMap.get("EventNotificationAlert");
-                    if(eventType.equals("TMA")){
-                        Map<String, Object> detectionRegionListMap = (Map<String, Object>)eventNotificationAlertMap.get("DetectionRegionList");
-                        Map<String, Object> detectionRegionEntryMap = (Map<String, Object>)detectionRegionListMap.get("DetectionRegionEntry");
-                        Map<String, Object> tmaMap = (Map<String, Object>)detectionRegionEntryMap.get("TMA");
-                        String currTemperatureStr = (String)tmaMap.get("currTemperature");
-                        Double currTemperature = Double.valueOf(currTemperatureStr);
-                        if(currTemperature < 50.0){
-                            break;
-                        }
-                    }
-                    String macAddress = (String)eventNotificationAlertMap.get("macAddress");
-                    macAddress = macAddress.replaceAll(":", "-");
-                    String channelName = (String)eventNotificationAlertMap.get("channelName");
-                    log.info("eventType:{},macAddress:{},channelName:{}",eventType,macAddress,channelName);
-                    String address = channelName +"("+macAddress+")";
-
-                    String hikAlarmPresetName = (String)redisService.hmGet("hik_alarm_presetName", macAddress);
-                    if(!ObjUtil.isEmpty(hikAlarmPresetName)){
-                        address = address+"_"+hikAlarmPresetName;
-                    }
-
-                    //保存图片
-                    if(macAddress.equals("a4-4c-62-26-bf-2a")){
-                        getMultipartFileList(multipartHttpServletRequest,eventType,address);
-                    }
-                }
-            }
-        }
-
-
-        Map<String, Object> map = new HashMap<>();
-        map.put("data",reqParam);
-        return map;
-    }
-
-    public static void getMultipartFileList(MultipartHttpServletRequest multipartHttpServletRequest,String fileKey,String address) {
-        if(fileKey.equals("fielddetection")){
-            fileKey="intrusionImage";
-        }
-
-        if(fileKey.equals("linedetection")){
-            fileKey="lineCrossImage";
-        }
-
-
-        List<MultipartFile> fileList = multipartHttpServletRequest.getFiles(fileKey);
-        if(!ObjUtil.isEmpty(fileList)){
-            for (int i = 0; i < fileList.size(); i++) {
-                MultipartFile multipartFile = fileList.get(i);
-                if (multipartFile != null) {
-                    String name = multipartFile.getName();
-                    String originalFilename = multipartFile.getOriginalFilename();
-                    System.out.println("name:"+name);
-                    System.out.println("originalFilename:"+originalFilename);
-
-                    String fileUploadPathPrefix = "E:/staticResource/";
-                    String photoFileUploadPath = fileUploadPathPrefix + "hikEventImage/";
-                    try {
-                        String fileName = address+"_"+DateUtil.getCurTimeStr()+"_"+fileKey+"_"+(i+1)+"_"+multipartFile.getName()+".jpg";
-                        if(fileKey.contains(".xml")){
-                            fileName = address+"_"+DateUtil.getCurTimeStr()+"_"+fileKey+"_"+(i+1)+"_"+multipartFile.getName();
-                        }
-
-                        FileUploadUtils.uploadFile(multipartFile, photoFileUploadPath, fileName);
-                    } catch (IOException e) {
-                        throw new RuntimeException(e);
-                    }
-                }
-            }
-        }
-    }
-    public static Map<String, String[]> convertFormData(HttpServletRequest request) {
-        // 创建一个空的HashMap作为结果集合
-        HashMap<String, String[]> result = new HashMap<>();
-
-        // 遍历所有的表单字段名称
-        Enumeration<String> parameterNames = request.getParameterNames();
-        while (parameterNames.hasMoreElements()) {
-            String paramName = parameterNames.nextElement();
-
-            // 根据字段名称获取相应的参数值
-            String[] values = request.getParameterValues(paramName);
-
-            // 将参数名和参数值添加到结果集合中
-            result.put(paramName, values);
-        }
-
-        return result;
     }
 }

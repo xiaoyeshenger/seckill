@@ -2,8 +2,10 @@ package com.jsxa.vapp.order.controller;
 
 import com.jsxa.vapp.common.bo.vo.ResultVo;
 import com.jsxa.vapp.common.bo.vo.PageVo;
+import com.jsxa.vapp.inventory.api.InventoryServiceApi;
 import com.jsxa.vapp.order.bo.dto.VaccinationRecordReqDto;
 import com.jsxa.vapp.order.bo.dto.VaccinationRecordPageReqDto;
+import com.jsxa.vapp.order.feign.InventoryServiceFeignClient;
 import com.jsxa.vapp.order.service.VaccinationRecordService;
 import com.jsxa.vapp.common.enums.BusinessType;
 import com.jsxa.vapp.common.valid.ValidationGroup;
@@ -23,7 +25,7 @@ import java.util.Map;
 /**
  * @Author zhangyong
  * @Description VaccinationRecordController类
- * @Date 2024/02/27 15:20
+ * @Date 2021/02/27 15:20
  * @Param
  * @return
  */
@@ -37,10 +39,11 @@ public class VaccinationRecordController {
     private final VaccinationRecordService vaccinationRecordService;
 
 
+
     /**
      * @Author zhangyong
      * @Description //(1) 添加疫苗预约信息
-     * @Date 2024/02/27 15:20
+     * @Date 2021/02/27 15:20
      * @Param
      * @return
      */
@@ -56,7 +59,7 @@ public class VaccinationRecordController {
     /**
      * @Author zhangyong
      * @Description //(2) 通过id删除疫苗预约信息
-     * @Date 2024/02/27 15:20
+     * @Date 2021/02/27 15:20
      * @Param
      * @return
      */
@@ -74,7 +77,7 @@ public class VaccinationRecordController {
     /**
      * @Author zhangyong
      * @Description //(4) 通过id查询疫苗预约信息
-     * @Date 2024/02/27 15:20
+     * @Date 2021/02/27 15:20
      * @Param
      * @return
      */
@@ -90,7 +93,7 @@ public class VaccinationRecordController {
     /**
      * @Author zhangyong
      * @Description //(5) 查询所有的疫苗预约信息列表并分页(支持关键字查询)
-     * @Date 2024/02/27 15:20
+     * @Date 2021/02/27 15:20
      * @Param
      * @return
      */
@@ -105,7 +108,7 @@ public class VaccinationRecordController {
     /**
      * @Author zhangyong
      * @Description //(6) 下载疫苗预约标准上传模板
-     * @Date 2024/02/27 15:20
+     * @Date 2021/02/27 15:20
      * @Param
      * @return
      */
@@ -120,7 +123,7 @@ public class VaccinationRecordController {
     /**
      * @Author zhangyong
      * @Description //(6) 通过excel导入疫苗预约
-     * @Date 2024/02/27 15:20
+     * @Date 2021/02/27 15:20
      * @Param
      * @return
      */
@@ -135,7 +138,7 @@ public class VaccinationRecordController {
     /**
      * @Author zhangyong
      * @Description //(8) 导出疫苗预约到excel
-     * @Date 2024/02/27 15:20
+     * @Date 2021/02/27 15:20
      * @Param
      * @return
      */

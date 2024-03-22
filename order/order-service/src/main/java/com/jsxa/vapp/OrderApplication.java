@@ -1,7 +1,9 @@
 package com.jsxa.vapp;
 
+import org.apache.shardingsphere.shardingjdbc.spring.boot.SpringBootConfiguration;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.web.socket.config.annotation.EnableWebSocket;
 

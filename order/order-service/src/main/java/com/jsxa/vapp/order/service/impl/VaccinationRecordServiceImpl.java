@@ -1,5 +1,6 @@
 package com.jsxa.vapp.order.service.impl;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.github.pagehelper.PageHelper;
 import com.alibaba.excel.EasyExcel;
@@ -45,9 +46,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.validation.Validator;
 
 
-import javax.annotation.Resource;
 import java.io.*;
-import java.math.BigDecimal;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -67,7 +66,7 @@ public class VaccinationRecordServiceImpl implements VaccinationRecordService {
 
 
     //1.本机内存保存抢苗活动是否启用
-    public static Map<String, Object> runtimeVaccineStockMap = new HashMap<String, Object>(){{put("start", "0");}};
+    public static Map<String, Object> runtimeVaccineStockMap = new HashMap<String, Object>(){{put("start", 0);}};
 
     private final RedisService redisService;
 
@@ -86,12 +85,11 @@ public class VaccinationRecordServiceImpl implements VaccinationRecordService {
     private final RocketMQTemplate rocketMQTemplate;
 
 
-
     @Override
     public Map<String, Object> addVaccinationRecord(VaccinationRecordReqDto vaccinationRecordReqDto) {
         //1.判断是否能够开始预约抢苗(未开始/已结束(库存被抢空))
-        String start = (String) runtimeVaccineStockMap.get("start");
-        if(start.equals("0")){
+        Integer start = (Integer) runtimeVaccineStockMap.get("start");
+        if(start == 0){
             throw new IllegalArgumentException("暂不能预约，预约未开始或预约已结束");
         }
 
@@ -184,7 +182,7 @@ public class VaccinationRecordServiceImpl implements VaccinationRecordService {
         //速度比分布式锁快，并且不用考虑锁超时时间设置等问题，而悲观锁和乐观锁都会阻塞其他请求，所以redis+lua是无锁操作，速度更快
         Long reduseResult = (Long) redisTemplate.execute(defaultRedisScript, Collections.singletonList("RuntimeVaccineStock"), 1);
         if(reduseResult == -1){
-            runtimeVaccineStockMap.put("start","0");
+            runtimeVaccineStockMap.put("start",0);
             throw new IllegalArgumentException("疫苗已被约满,请到稍后再约!");
         }
 
@@ -247,7 +245,6 @@ public class VaccinationRecordServiceImpl implements VaccinationRecordService {
             throw new IllegalArgumentException("服务异常，请稍后再试!!!");
         }
 
-
         //6.预约成功，将该用户的预约信息存入redis，避免重复预约
         //redisService.hmSet("RushVaccineRecord", itemKey,String.valueOf(System.currentTimeMillis()));
 
@@ -256,6 +253,28 @@ public class VaccinationRecordServiceImpl implements VaccinationRecordService {
         resultMap.put("msg","预约成功,正在创建订单");
         return resultMap;
     }
+
+    /**
+     * 如果同步发送mq速度过慢，也可异步发送
+     */
+    private void asyncSendToMq(VaccinationRecord vaccinationRecord) {
+
+        rocketMQTemplate.asyncSend("vaccination_record",vaccinationRecord, new SendCallback() {
+            @Override
+            public void onSuccess(SendResult sendResult) {
+                log.info("预约订单入库消息写入rocketmq成功，消息ID:{}", sendResult.getMsgId());
+
+            }
+            @Override
+            public void onException(Throwable e) {
+                //如果与mq通信故障了，可以从日志文件里找到该条预约记录，手工执行写入mysql
+                log.error("预约订单写入rocketmq失败:{}, exception detail:{}" , vaccinationRecord.toString(), e.getMessage());
+            }
+
+        });
+    }
+
+
 
     @Override
     @Transactional

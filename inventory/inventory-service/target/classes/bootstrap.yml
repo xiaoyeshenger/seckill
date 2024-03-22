@@ -23,10 +23,14 @@ spring:
           group: common
           refresh: true
         ext‐config[4]:
-          data‐id: seata.yml
+          data‐id: rocketmq.yml
           group: common
           refresh: true
         ext‐config[5]:
+          data‐id: seata-ms.yml
+          group: common
+          refresh: true
+        ext‐config[6]:
           data‐id: canal.yml
           group: common
           refresh: true

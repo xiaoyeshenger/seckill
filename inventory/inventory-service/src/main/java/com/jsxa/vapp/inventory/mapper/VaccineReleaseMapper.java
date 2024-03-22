@@ -285,14 +285,13 @@ public interface VaccineReleaseMapper {
 
     @Update("update vaccine_release set dock_amount = dock_amount-#{amount},version = version+1 where id = #{vaccineReleaseId} and dock_amount-#{amount} >= 0 and version = #{version};")
     int reduceDock(
-            @Param("vaccineReleaseId") Long vaccineReleaseId,
             @Param("amount") Integer amount,
+            @Param("vaccineReleaseId") Long vaccineReleaseId,
             @Param("version") Integer version
     );
 
-    @Update("update vaccine_release set dock_amount = dock_amount-#{amount},version = version+1 where id = #{vaccineReleaseId} and dock_amount-#{amount} >= 0;")
-    int reduceDockWithNoVersion(
-            @Param("vaccineReleaseId") Long vaccineReleaseId,
-            @Param("amount") Integer amount
+    @Select("select version from vaccine_release where id=#{vaccineReleaseId};")
+    int selectVersionNum(
+            @Param("vaccineReleaseId") Long vaccineReleaseId
     );
 }
