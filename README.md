@@ -73,23 +73,35 @@ Orm框架：MyBatis3 Dynamic Sql
 #### 安装教程
 
 一.环境部署
+
 1.安装Mysql MGR集群
+
 sh doc/mysql/0_onekey_deploy.sh 通过docker-compose一键部署Mysql MGR集群实现主从复制
 
+
 2.安装Proxysql中间件
+
 sh doc/proxysql/0_onekey_deploy.sh 通过docker-compose一键部署proxysql中间件实现读写分离
 
+
 3.安装rocketmq
+
 sh doc/rocketmq/1_run_compose.sh.sh 通过docker-compose一键部署rocketmq
 
+
 4.安装canal
+
 sh doc/canal/1_run_compose.sh.sh 通过docker-compose一键部署cannal
 
+
 5.安装nacos
+
 sh doc/nacos/1_run_compose.sh.sh 通过docker-compose一键部署nacos
 
+
 6.安装openresty(nginx)
-sh doc/openresty/0_onekey_deploy.sh 通过docker-compose一键部署openresty
+
+sh doc/openresty/1_run_compose.sh.sh.sh 通过docker-compose一键部署openresty
 
 7.安装redis和mongo
 
