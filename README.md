@@ -31,7 +31,7 @@ Orm框架：MyBatis3 Dynamic Sql
 运行环境：Centos 7.4
 
 
-#### 系统能够支撑高并发的原因
+#### 本系统能够支撑高并发的原因，以下列举其中的一些要点:
 1.在Openresty(Nginx)层面
 (1).Nginx实现流量限制，防止机器作弊
     通过使用Nginx的limit_req_zone模块，实现流量限制为rate=3r/s，即每个客户端IP只能在1秒内请求不超过3次
