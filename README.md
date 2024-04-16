@@ -106,9 +106,13 @@ sh doc/openresty/1_run_compose.sh.sh.sh 通过docker-compose一键部署openrest
 7.安装redis和mongo
 
 二.创建数据库
+
 1.每个微服务对应自己的数据库，所以需要安装5个数据库 seckill_inventory、seckill_order、seckill_sys、seckill_task_center、seckill_seata
+
 2.执行 doc/sql目录下的sql文件
+
 3.在nacos中修改每个微服务对应的数据库连接地址
+
 
 #### 使用说明
 
@@ -130,5 +134,6 @@ sh doc/openresty/1_run_compose.sh.sh.sh 通过docker-compose一键部署openrest
 1.欢迎各位朋友参与讨论
 
 2.如需详细了解或帮助，可加我微信 ZZ449557260
+
 ![输入图片说明](https://foruda.gitee.com/images/1713264181441085014/54588ab1_8850735.jpeg "wei_xin.jpg")
 
