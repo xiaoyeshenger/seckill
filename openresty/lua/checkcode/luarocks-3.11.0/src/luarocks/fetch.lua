@@ -565,7 +565,7 @@ function fetch.fetch_sources(rockspec, extract, dest_dir)
    assert(type(dest_dir) == "string" or not dest_dir)
 
    -- auto-convert git://github.com URLs to use git+https
-   -- see https://github.blog/2021-09-01-improving-git-protocol-security-github/
+   -- see https://github.blog/xxxx-09-01-improving-git-protocol-security-github/
    if rockspec.source.url:match("^git://github%.com/")
    or rockspec.source.url:match("^git://www%.github%.com/") then
       rockspec.source.url = rockspec.source.url:gsub("^git://", "git+https://")

@@ -1,0 +1,12 @@
+props:
+  sql-show: true
+  sql-simple: true
+mode:
+  type: Memory
+dataSources:
+  ds-0:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    dataSourceClassName: com.zaxxer.hikari.HikariDataSource
+    jdbcUrl: jdbc:mysql://192.168.2.241:6033/vapp_sys?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai
+    username: proxysql_test
+    password: my888555

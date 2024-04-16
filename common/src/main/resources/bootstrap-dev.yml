@@ -2,11 +2,10 @@ spring:
   cloud:
     nacos:
       config:
-        server-addr: 192.168.2.241:8848
+        server-addr: 192.168.2.243:8848
         file-extension: yml
         group: ${spring.application.name}
-        namespace: a4e3d3db-c95f-49ed-82fa-92d05a9d6673
-        timeout: 60000
+        namespace: 1b5ae8e4-a999-4b76-9219-a51f20bbc1b2
       discovery:
-        server-addr: 192.168.2.241:8848
-        namespace: a4e3d3db-c95f-49ed-82fa-92d05a9d6673
+        server-addr: 192.168.2.243:8848
+        namespace: 1b5ae8e4-a999-4b76-9219-a51f20bbc1b2

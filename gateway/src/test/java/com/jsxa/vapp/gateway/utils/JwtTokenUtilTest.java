@@ -1,4 +1,4 @@
-package com.jsxa.vapp.gateway.utils;
+package com.zy.seckill.gateway.utils;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

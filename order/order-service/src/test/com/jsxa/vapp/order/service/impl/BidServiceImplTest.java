@@ -1,6 +1,6 @@
-package com.jsxa.vapp.bid.service.impl;
+package com.zy.seckill.bid.service.impl;
 
-import com.jsxa.vapp.common.redis.RedisService;
+import com.zy.seckill.common.redis.RedisService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -7,13 +7,13 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="codeGen" />
         <module name="taskCenter-service" />
+        <module name="codeGen" />
         <module name="inventory-service" />
         <module name="common" />
         <module name="inventory-api" />
-        <module name="sys-api" />
         <module name="order-service" />
+        <module name="sys-api" />
         <module name="sys-service" />
         <module name="order-api" />
         <module name="taskCenter-api" />
@@ -21,6 +21,22 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="codeGen" target="1.8" />
+      <module name="common" target="1.8" />
+      <module name="gateway" target="1.8" />
+      <module name="inventory" target="1.8" />
+      <module name="inventory-api" target="1.8" />
+      <module name="inventory-service" target="1.8" />
+      <module name="order" target="1.8" />
+      <module name="order-api" target="1.8" />
+      <module name="order-service" target="1.8" />
+      <module name="seckill" target="1.8" />
+      <module name="sys" target="1.8" />
+      <module name="sys-api" target="1.8" />
+      <module name="sys-service" target="1.8" />
+      <module name="taskCenter" target="1.8" />
+      <module name="taskCenter-api" target="1.8" />
+      <module name="taskCenter-service" target="1.8" />
       <module name="vapp-api" target="1.8" />
       <module name="vapp-service" target="1.8" />
     </bytecodeTargetLevel>

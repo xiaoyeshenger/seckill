@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/codeGen/codeGen.iml" filepath="$PROJECT_DIR$/codeGen/codeGen.iml" />
+      <module fileurl="file://$PROJECT_DIR$/common/common.iml" filepath="$PROJECT_DIR$/common/common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gateway/gateway.iml" filepath="$PROJECT_DIR$/gateway/gateway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/inventory/inventory.iml" filepath="$PROJECT_DIR$/inventory/inventory.iml" />
+      <module fileurl="file://$PROJECT_DIR$/inventory/inventory-api/inventory-api.iml" filepath="$PROJECT_DIR$/inventory/inventory-api/inventory-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/inventory/inventory-service/inventory-service.iml" filepath="$PROJECT_DIR$/inventory/inventory-service/inventory-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/order/order.iml" filepath="$PROJECT_DIR$/order/order.iml" />
+      <module fileurl="file://$PROJECT_DIR$/order/order-api/order-api.iml" filepath="$PROJECT_DIR$/order/order-api/order-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/order/order-service/order-service.iml" filepath="$PROJECT_DIR$/order/order-service/order-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/seckill.iml" filepath="$PROJECT_DIR$/seckill.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sys/sys.iml" filepath="$PROJECT_DIR$/sys/sys.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sys/sys-api/sys-api.iml" filepath="$PROJECT_DIR$/sys/sys-api/sys-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sys/sys-service/sys-service.iml" filepath="$PROJECT_DIR$/sys/sys-service/sys-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/taskCenter/taskCenter.iml" filepath="$PROJECT_DIR$/taskCenter/taskCenter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/taskCenter/taskCenter-api/taskCenter-api.iml" filepath="$PROJECT_DIR$/taskCenter/taskCenter-api/taskCenter-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/taskCenter/taskCenter-service/taskCenter-service.iml" filepath="$PROJECT_DIR$/taskCenter/taskCenter-service/taskCenter-service.iml" />
+    </modules>
+  </component>
+</project>

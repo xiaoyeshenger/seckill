@@ -3,8 +3,8 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>vapp</artifactId>
-        <groupId>com.jsxa.vapp</groupId>
+        <artifactId>seckill</artifactId>
+        <groupId>com.zy.seckill</groupId>
         <version>1.0.0</version>
     </parent>
 
@@ -14,7 +14,7 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.jsxa.vapp</groupId>
+            <groupId>com.zy.seckill</groupId>
             <artifactId>inventory-api</artifactId>
             <version>1.0.0</version>
         </dependency>

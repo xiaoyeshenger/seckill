@@ -4,8 +4,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.jsxa.vapp</groupId>
-    <artifactId>vapp</artifactId>
+    <groupId>com.zy.seckill</groupId>
+    <artifactId>seckill</artifactId>
     <version>1.0.0</version>
     <modules>
         <module>common</module>
@@ -18,8 +18,8 @@
     </modules>
 
     <packaging>pom</packaging>
-    <name>vapp</name>
-    <description>疫苗预约-微服务版</description>
+    <name>seckill</name>
+    <description>秒杀系统-高并发微服务版</description>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -85,37 +85,27 @@
 
     <dependencyManagement>
         <dependencies>
-            <!--ip相关模块-->
+    
             <dependency>
-                <groupId>com.jsxa.vapp</groupId>
+                <groupId>com.zy.seckill</groupId>
                 <artifactId>common</artifactId>
                 <version>${common.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.jsxa.vapp</groupId>
+                <groupId>com.zy.seckill</groupId>
                 <artifactId>sys-api</artifactId>
                 <version>${sys-api.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.jsxa.vapp</groupId>
+                <groupId>com.zy.seckill</groupId>
                 <artifactId>order-api</artifactId>
                 <version>${order-api.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.jsxa.vapp</groupId>
+                <groupId>com.zy.seckills</groupId>
                 <artifactId>inventory-api</artifactId>
                 <version>${inventory-api.version}</version>
             </dependency>
-
-            <!--在2.2.0.RELEASE里有一行注释描述，feign的SentinelContractHolder接口方法名parseAndValidatateMetadata拼写错误，
-          在2.2.2.RELEASE方法已修正了，即方法名发生了改变。
-          在spring-cloud-alibaba-sentinel中的SentinelContractHolder类，用到了该接口的这个方法
-          所以，要么降低SpringCloud版本，要么单独指定openfeign版本，否则启动报错
-          java.lang.AbstractMethodError:
-          com.alibaba.cloud.sentinel.feign.SentinelContractHolder.
-          parseAndValidateMetadata(Ljava/lang/Class;)Ljava/utils/List
-          注意spring-cloud-openfeign-dependencies写在spring-cloud-dependencies前面，
-          因为dependency前面的优先生效。-->
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-openfeign-dependencies</artifactId>

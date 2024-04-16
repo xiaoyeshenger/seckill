@@ -1,0 +1,30 @@
+package com.zy.seckill.sys.bo.dto;
+
+
+import com.zy.seckill.common.bo.dto.BaseDto;
+import io.swagger.annotations.ApiModelProperty;
+import lombok.*;
+import lombok.experimental.Accessors;
+
+import javax.validation.constraints.NotNull;
+
+
+/*
+ * @Author 张勇
+ * @Description //UserReqDto
+ * @Date xxxx/05/21 18:43
+ * @Param
+ * @return
+ **/
+@Getter
+@Setter
+@Builder
+@Accessors(chain=true)
+@AllArgsConstructor
+@NoArgsConstructor
+public class UsernameReqDto extends BaseDto {
+
+    @ApiModelProperty(name = "username", value = "登录名", example = "test",dataType="String")
+    @NotNull(message = "登录名不能为空")
+    private String username;
+}

@@ -25,4 +25,4 @@ rules:
         type: CLASS_BASED
         props:
           strategy: complex
-          algorithmClassName: com.jsxa.vapp.common.shardingJdbc.MyTableComplexKeysShardingAlgorithm
+          algorithmClassName: com.zy.seckill.common.shardingJdbc.MyTableComplexKeysShardingAlgorithm

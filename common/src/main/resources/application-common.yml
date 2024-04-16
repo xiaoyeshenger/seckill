@@ -15,7 +15,7 @@ mybatis:
     #自动将数据库带下划线的表字段值映射到Java类的驼峰字段上
     map-underscore-to-camel-case: true
   mapper-locations: classpath*:mybatis-mapper/*.xml
-  type-aliases-package: com.jsxa.vapp.*.po
+  type-aliases-package: com.zy.seckill.*.po
 
 logging:
   config: classpath:logback-boot.xml
