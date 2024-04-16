@@ -1,0 +1,24 @@
+version: '3.3'
+ 
+services: 
+  canal-server: 
+    image: canal/canal-server:v1.1.7
+    container_name: canal-server
+    ports: 
+      - 11111:11111
+    environment: 
+      # cannl的从库id，不能与主库id相冲突
+      - canal.instance.mysql.slaveId=1231
+      - canal.auto.scan=false
+      # 创建一个destinations对应一个文件夹，每个文件夹下都有一个instance.properties文件，对应监听的数据库
+      - canal.destinations=vapp
+      - canal.instance.master.address=192.168.2.241:6033
+      # mysql 复制账号
+      - canal.instance.dbUsername=canal
+      - canal.instance.dbPassword=canal888555
+      - canal.mq.topic=vapp
+      # 需要监听的数据库和表，多个使用英文逗号隔开dbname.tablename1,dbname.tablename2,一般在instance.properties中配置，此处暂不配置
+      #- canal.instance.filter.regex=vapp_inventory.vaccine,vapp_inventory.vaccination_site
+    volumes: 
+      - /home/docker/canal/conf/:/home/admin/canal-server/conf/
+      - /home/docker/canal/logs/:/home/admin/canal-server/logs/

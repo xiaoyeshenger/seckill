@@ -1,0 +1,1304 @@
+2024-03-07 07:56:31.979 [main] INFO  c.a.otter.canal.instance.spring.CanalInstanceWithSpring - start CannalInstance for 1-vapp 
+2024-03-07 07:56:32.685 [main] WARN  c.a.o.canal.parse.inbound.mysql.dbsync.LogEventConvert - --> init table filter : ^vapp_inventory.vaccination_site$|^vapp_inventory.vaccine$
+2024-03-07 07:56:32.685 [main] WARN  c.a.o.canal.parse.inbound.mysql.dbsync.LogEventConvert - --> init table black filter : ^mysql\.slave_.*$
+2024-03-07 07:56:32.691 [main] INFO  c.a.otter.canal.instance.core.AbstractCanalInstance - start successful....
+2024-03-07 07:56:32.784 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ---> begin to find start position, it will be long time for reset or first position
+2024-03-07 07:56:32.784 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - prepare to find start position just show master status
+2024-03-07 07:56:32.816 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR c.a.o.canal.parse.inbound.mysql.dbsync.DirectLogFetcher - I/O error while reading from client socket
+java.io.IOException: Received error packet: errno = 1236, sqlstate = HY000 errmsg = Could not find first log file name in binary log index file
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:102)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.seek(MysqlConnection.java:150)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlEventParser.findAsPerTimestampInSpecificLogFile(MysqlEventParser.java:775)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlEventParser.findEndPositionWithMasterIdAndTimestamp(MysqlEventParser.java:386)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlEventParser.findStartPositionInternal(MysqlEventParser.java:442)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlEventParser.findStartPosition(MysqlEventParser.java:360)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:186)
+	at java.lang.Thread.run(Thread.java:750)
+2024-03-07 07:56:32.817 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ERROR ## findAsPerTimestampInSpecificLogFile has an error
+java.io.IOException: Received error packet: errno = 1236, sqlstate = HY000 errmsg = Could not find first log file name in binary log index file
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:102)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.seek(MysqlConnection.java:150)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlEventParser.findAsPerTimestampInSpecificLogFile(MysqlEventParser.java:775)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlEventParser.findEndPositionWithMasterIdAndTimestamp(MysqlEventParser.java:386)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlEventParser.findStartPositionInternal(MysqlEventParser.java:442)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlEventParser.findStartPosition(MysqlEventParser.java:360)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:186)
+	at java.lang.Thread.run(Thread.java:750)
+2024-03-07 07:56:32.818 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - dump address /192.168.2.241:6033 has an error, retrying. caused by 
+com.alibaba.otter.canal.parse.exception.PositionNotFoundException: can't find start position for vapp
+2024-03-07 07:56:32.821 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR com.alibaba.otter.canal.common.alarm.LogAlarmHandler - destination:vapp[com.alibaba.otter.canal.parse.exception.PositionNotFoundException: can't find start position for vapp
+]
+2024-03-07 07:56:48.052 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ---> begin to find start position, it will be long time for reset or first position
+2024-03-07 07:56:48.052 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - prepare to find start position just show master status
+2024-03-07 07:57:09.329 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ---> find start position successfully, EntryPosition[included=false,journalName=mysql-bin.000002,position=13793670,serverId=31,gtid=,timestamp=1709798201000] cost : 21268ms , the next step is binlog dump
+2024-03-07 07:57:36.442 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR c.a.o.canal.parse.inbound.mysql.dbsync.DirectLogFetcher - Socket timeout expired, closing connection
+java.net.SocketTimeoutException: Timeout occurred, failed to read total 4 bytes in 25000 milliseconds, actual read only 0 bytes
+	at com.alibaba.otter.canal.parse.driver.mysql.socket.BioSocketChannel.read(BioSocketChannel.java:124)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch0(DirectLogFetcher.java:170)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:77)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+2024-03-07 07:57:36.443 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - dump address /192.168.2.241:6033 has an error, retrying. caused by 
+java.net.SocketTimeoutException: Timeout occurred, failed to read total 4 bytes in 25000 milliseconds, actual read only 0 bytes
+	at com.alibaba.otter.canal.parse.driver.mysql.socket.BioSocketChannel.read(BioSocketChannel.java:124)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch0(DirectLogFetcher.java:170)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:77)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+2024-03-07 07:57:36.443 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR com.alibaba.otter.canal.common.alarm.LogAlarmHandler - destination:vapp[java.net.SocketTimeoutException: Timeout occurred, failed to read total 4 bytes in 25000 milliseconds, actual read only 0 bytes
+	at com.alibaba.otter.canal.parse.driver.mysql.socket.BioSocketChannel.read(BioSocketChannel.java:124)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch0(DirectLogFetcher.java:170)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:77)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+]
+2024-03-07 07:57:52.936 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ---> begin to find start position, it will be long time for reset or first position
+2024-03-07 07:57:53.029 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - prepare to find start position just last position
+ {"identity":{"slaveId":-1,"sourceAddress":{"address":"192.168.2.241","port":6033}},"postion":{"gtid":"","included":false,"journalName":"mysql-bin.000002","position":13794948,"serverId":31,"timestamp":1709798231000}}
+2024-03-07 07:57:53.048 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ---> find start position successfully, EntryPosition[included=false,journalName=mysql-bin.000002,position=13794948,serverId=31,gtid=,timestamp=1709798231000] cost : 112ms , the next step is binlog dump
+2024-03-07 08:00:04.013 [main] INFO  c.a.otter.canal.instance.spring.CanalInstanceWithSpring - start CannalInstance for 1-vapp 
+2024-03-07 08:00:04.727 [main] WARN  c.a.o.canal.parse.inbound.mysql.dbsync.LogEventConvert - --> init table filter : ^vapp_inventory.vaccination_site$|^vapp_inventory.vaccine$
+2024-03-07 08:00:04.727 [main] WARN  c.a.o.canal.parse.inbound.mysql.dbsync.LogEventConvert - --> init table black filter : ^mysql\.slave_.*$
+2024-03-07 08:00:04.732 [main] INFO  c.a.otter.canal.instance.core.AbstractCanalInstance - start successful....
+2024-03-07 08:00:04.841 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ---> begin to find start position, it will be long time for reset or first position
+2024-03-07 08:00:04.842 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - prepare to find start position just show master status
+2024-03-07 08:00:04.868 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR c.a.o.canal.parse.inbound.mysql.dbsync.DirectLogFetcher - I/O error while reading from client socket
+java.io.IOException: Received error packet: errno = 1236, sqlstate = HY000 errmsg = Could not find first log file name in binary log index file
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:102)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.seek(MysqlConnection.java:150)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlEventParser.findAsPerTimestampInSpecificLogFile(MysqlEventParser.java:775)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlEventParser.findEndPositionWithMasterIdAndTimestamp(MysqlEventParser.java:386)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlEventParser.findStartPositionInternal(MysqlEventParser.java:442)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlEventParser.findStartPosition(MysqlEventParser.java:360)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:186)
+	at java.lang.Thread.run(Thread.java:750)
+2024-03-07 08:00:04.868 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ERROR ## findAsPerTimestampInSpecificLogFile has an error
+java.io.IOException: Received error packet: errno = 1236, sqlstate = HY000 errmsg = Could not find first log file name in binary log index file
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:102)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.seek(MysqlConnection.java:150)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlEventParser.findAsPerTimestampInSpecificLogFile(MysqlEventParser.java:775)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlEventParser.findEndPositionWithMasterIdAndTimestamp(MysqlEventParser.java:386)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlEventParser.findStartPositionInternal(MysqlEventParser.java:442)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlEventParser.findStartPosition(MysqlEventParser.java:360)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:186)
+	at java.lang.Thread.run(Thread.java:750)
+2024-03-07 08:00:04.869 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - dump address /192.168.2.241:6033 has an error, retrying. caused by 
+com.alibaba.otter.canal.parse.exception.PositionNotFoundException: can't find start position for vapp
+2024-03-07 08:00:04.872 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR com.alibaba.otter.canal.common.alarm.LogAlarmHandler - destination:vapp[com.alibaba.otter.canal.parse.exception.PositionNotFoundException: can't find start position for vapp
+]
+2024-03-07 08:00:20.899 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ---> begin to find start position, it will be long time for reset or first position
+2024-03-07 08:00:20.899 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - prepare to find start position just show master status
+2024-03-07 08:00:20.906 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR c.a.o.canal.parse.inbound.mysql.dbsync.DirectLogFetcher - I/O error while reading from client socket
+java.io.IOException: Received error packet: errno = 1236, sqlstate = HY000 errmsg = Could not find first log file name in binary log index file
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:102)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.seek(MysqlConnection.java:150)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlEventParser.findAsPerTimestampInSpecificLogFile(MysqlEventParser.java:775)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlEventParser.findEndPositionWithMasterIdAndTimestamp(MysqlEventParser.java:386)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlEventParser.findStartPositionInternal(MysqlEventParser.java:442)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlEventParser.findStartPosition(MysqlEventParser.java:360)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:186)
+	at java.lang.Thread.run(Thread.java:750)
+2024-03-07 08:00:20.907 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ERROR ## findAsPerTimestampInSpecificLogFile has an error
+java.io.IOException: Received error packet: errno = 1236, sqlstate = HY000 errmsg = Could not find first log file name in binary log index file
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:102)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.seek(MysqlConnection.java:150)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlEventParser.findAsPerTimestampInSpecificLogFile(MysqlEventParser.java:775)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlEventParser.findEndPositionWithMasterIdAndTimestamp(MysqlEventParser.java:386)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlEventParser.findStartPositionInternal(MysqlEventParser.java:442)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlEventParser.findStartPosition(MysqlEventParser.java:360)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:186)
+	at java.lang.Thread.run(Thread.java:750)
+2024-03-07 08:00:20.907 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - dump address /192.168.2.241:6033 has an error, retrying. caused by 
+com.alibaba.otter.canal.parse.exception.PositionNotFoundException: can't find start position for vapp
+2024-03-07 08:00:20.908 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR com.alibaba.otter.canal.common.alarm.LogAlarmHandler - destination:vapp[com.alibaba.otter.canal.parse.exception.PositionNotFoundException: can't find start position for vapp
+]
+2024-03-07 08:00:40.511 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ---> begin to find start position, it will be long time for reset or first position
+2024-03-07 08:00:40.511 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - prepare to find start position just show master status
+2024-03-07 08:00:40.522 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR c.a.o.canal.parse.inbound.mysql.dbsync.DirectLogFetcher - I/O error while reading from client socket
+java.io.IOException: EOF encountered.
+	at com.alibaba.otter.canal.parse.driver.mysql.socket.BioSocketChannel.read(BioSocketChannel.java:113)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch0(DirectLogFetcher.java:170)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:77)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.seek(MysqlConnection.java:150)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlEventParser.findAsPerTimestampInSpecificLogFile(MysqlEventParser.java:775)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlEventParser.findEndPositionWithMasterIdAndTimestamp(MysqlEventParser.java:386)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlEventParser.findStartPositionInternal(MysqlEventParser.java:442)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlEventParser.findStartPosition(MysqlEventParser.java:360)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:186)
+	at java.lang.Thread.run(Thread.java:750)
+2024-03-07 08:00:40.522 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ERROR ## findAsPerTimestampInSpecificLogFile has an error
+java.io.IOException: EOF encountered.
+	at com.alibaba.otter.canal.parse.driver.mysql.socket.BioSocketChannel.read(BioSocketChannel.java:113)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch0(DirectLogFetcher.java:170)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:77)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.seek(MysqlConnection.java:150)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlEventParser.findAsPerTimestampInSpecificLogFile(MysqlEventParser.java:775)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlEventParser.findEndPositionWithMasterIdAndTimestamp(MysqlEventParser.java:386)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlEventParser.findStartPositionInternal(MysqlEventParser.java:442)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlEventParser.findStartPosition(MysqlEventParser.java:360)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:186)
+	at java.lang.Thread.run(Thread.java:750)
+2024-03-07 08:00:40.523 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - dump address /192.168.2.241:6033 has an error, retrying. caused by 
+com.alibaba.otter.canal.parse.exception.PositionNotFoundException: can't find start position for vapp
+2024-03-07 08:00:40.523 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR com.alibaba.otter.canal.common.alarm.LogAlarmHandler - destination:vapp[com.alibaba.otter.canal.parse.exception.PositionNotFoundException: can't find start position for vapp
+]
+2024-03-07 08:00:59.377 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ---> begin to find start position, it will be long time for reset or first position
+2024-03-07 08:00:59.377 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - prepare to find start position just show master status
+2024-03-07 08:01:11.582 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ---> find start position successfully, EntryPosition[included=false,journalName=mysql-bin.000002,position=13804110,serverId=31,gtid=,timestamp=1709798442000] cost : 12196ms , the next step is binlog dump
+2024-03-07 08:01:11.618 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR c.a.o.canal.parse.inbound.mysql.dbsync.DirectLogFetcher - I/O error while reading from client socket
+java.io.IOException: EOF encountered.
+	at com.alibaba.otter.canal.parse.driver.mysql.socket.BioSocketChannel.read(BioSocketChannel.java:113)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch0(DirectLogFetcher.java:170)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:77)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+2024-03-07 08:01:11.618 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - dump address /192.168.2.241:6033 has an error, retrying. caused by 
+java.io.IOException: EOF encountered.
+	at com.alibaba.otter.canal.parse.driver.mysql.socket.BioSocketChannel.read(BioSocketChannel.java:113)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch0(DirectLogFetcher.java:170)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:77)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+2024-03-07 08:01:11.618 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR com.alibaba.otter.canal.common.alarm.LogAlarmHandler - destination:vapp[java.io.IOException: EOF encountered.
+	at com.alibaba.otter.canal.parse.driver.mysql.socket.BioSocketChannel.read(BioSocketChannel.java:113)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch0(DirectLogFetcher.java:170)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:77)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+]
+2024-03-07 08:01:29.988 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ---> begin to find start position, it will be long time for reset or first position
+2024-03-07 08:01:29.988 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - prepare to find start position just show master status
+2024-03-07 08:01:36.683 [Thread-6] INFO  c.a.otter.canal.instance.core.AbstractCanalInstance - stop CannalInstance for null-vapp 
+2024-03-07 08:01:37.198 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ERROR ## findAsPerTimestampInSpecificLogFile has an error
+java.nio.channels.ClosedByInterruptException: null
+	at com.alibaba.otter.canal.parse.driver.mysql.socket.BioSocketChannel.read(BioSocketChannel.java:117)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch0(DirectLogFetcher.java:170)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:77)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.seek(MysqlConnection.java:150)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlEventParser.findAsPerTimestampInSpecificLogFile(MysqlEventParser.java:775)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlEventParser.findEndPositionWithMasterIdAndTimestamp(MysqlEventParser.java:386)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlEventParser.findStartPositionInternal(MysqlEventParser.java:442)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlEventParser.findStartPosition(MysqlEventParser.java:360)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:186)
+	at java.lang.Thread.run(Thread.java:750)
+2024-03-07 08:01:37.198 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ---> find start position successfully, EntryPosition[included=false,journalName=mysql-bin.000002,position=13805415,serverId=31,gtid=,timestamp=1709798473000] cost : 7210ms , the next step is binlog dump
+2024-03-07 08:01:37.215 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR c.a.o.canal.parse.inbound.mysql.dbsync.DirectLogFetcher - I/O error while reading from client socket
+java.io.IOException: Received error packet: errno = 1236, sqlstate = HY000 errmsg = Could not find first log file name in binary log index file
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:102)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+2024-03-07 08:01:37.217 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - parse events has an error
+com.alibaba.otter.canal.parse.exception.CanalParseException: dump address /192.168.2.241:6033 has an error, retrying. 
+Caused by: java.io.IOException: Received error packet: errno = 1236, sqlstate = HY000 errmsg = Could not find first log file name in binary log index file
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:102)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+2024-03-07 08:01:37.222 [Thread-6] INFO  c.a.otter.canal.instance.core.AbstractCanalInstance - stop successful....
+2024-03-07 08:01:40.702 [main] INFO  c.a.otter.canal.instance.spring.CanalInstanceWithSpring - start CannalInstance for 1-vapp 
+2024-03-07 08:01:41.389 [main] WARN  c.a.o.canal.parse.inbound.mysql.dbsync.LogEventConvert - --> init table filter : ^vapp_inventory.vaccination_site$|^vapp_inventory.vaccine$
+2024-03-07 08:01:41.390 [main] WARN  c.a.o.canal.parse.inbound.mysql.dbsync.LogEventConvert - --> init table black filter : ^mysql\.slave_.*$
+2024-03-07 08:01:41.394 [main] INFO  c.a.otter.canal.instance.core.AbstractCanalInstance - start successful....
+2024-03-07 08:01:41.493 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ---> begin to find start position, it will be long time for reset or first position
+2024-03-07 08:01:41.493 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - prepare to find start position just show master status
+2024-03-07 08:01:43.774 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ---> find start position successfully, EntryPosition[included=false,journalName=mysql-bin.000002,position=13805852,serverId=31,gtid=,timestamp=1709798501000] cost : 2271ms , the next step is binlog dump
+2024-03-07 08:01:43.803 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR c.a.o.canal.parse.inbound.mysql.dbsync.DirectLogFetcher - I/O error while reading from client socket
+java.io.IOException: Received error packet: errno = 1236, sqlstate = HY000 errmsg = Could not find first log file name in binary log index file
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:102)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+2024-03-07 08:01:43.803 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - dump address /192.168.2.241:6033 has an error, retrying. caused by 
+java.io.IOException: Received error packet: errno = 1236, sqlstate = HY000 errmsg = Could not find first log file name in binary log index file
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:102)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+2024-03-07 08:01:43.805 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR com.alibaba.otter.canal.common.alarm.LogAlarmHandler - destination:vapp[java.io.IOException: Received error packet: errno = 1236, sqlstate = HY000 errmsg = Could not find first log file name in binary log index file
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:102)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+]
+2024-03-07 08:01:54.795 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ---> begin to find start position, it will be long time for reset or first position
+2024-03-07 08:01:54.795 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - prepare to find start position just show master status
+2024-03-07 08:02:11.404 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ---> find start position successfully, EntryPosition[included=false,journalName=mysql-bin.000002,position=13806720,serverId=31,gtid=,timestamp=1709798503000] cost : 16609ms , the next step is binlog dump
+2024-03-07 08:02:11.419 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR c.a.o.canal.parse.inbound.mysql.dbsync.DirectLogFetcher - I/O error while reading from client socket
+java.io.IOException: EOF encountered.
+	at com.alibaba.otter.canal.parse.driver.mysql.socket.BioSocketChannel.read(BioSocketChannel.java:113)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch0(DirectLogFetcher.java:170)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:77)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+2024-03-07 08:02:11.419 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - dump address /192.168.2.241:6033 has an error, retrying. caused by 
+java.io.IOException: EOF encountered.
+	at com.alibaba.otter.canal.parse.driver.mysql.socket.BioSocketChannel.read(BioSocketChannel.java:113)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch0(DirectLogFetcher.java:170)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:77)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+2024-03-07 08:02:11.420 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR com.alibaba.otter.canal.common.alarm.LogAlarmHandler - destination:vapp[java.io.IOException: EOF encountered.
+	at com.alibaba.otter.canal.parse.driver.mysql.socket.BioSocketChannel.read(BioSocketChannel.java:113)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch0(DirectLogFetcher.java:170)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:77)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+]
+2024-03-07 08:02:30.834 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ---> begin to find start position, it will be long time for reset or first position
+2024-03-07 08:02:30.834 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - prepare to find start position just show master status
+2024-03-07 08:02:30.843 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR c.a.o.canal.parse.inbound.mysql.dbsync.DirectLogFetcher - I/O error while reading from client socket
+java.io.IOException: Received error packet: errno = 1236, sqlstate = HY000 errmsg = Could not find first log file name in binary log index file
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:102)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.seek(MysqlConnection.java:150)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlEventParser.findAsPerTimestampInSpecificLogFile(MysqlEventParser.java:775)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlEventParser.findEndPositionWithMasterIdAndTimestamp(MysqlEventParser.java:386)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlEventParser.findStartPositionInternal(MysqlEventParser.java:442)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlEventParser.findStartPosition(MysqlEventParser.java:360)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:186)
+	at java.lang.Thread.run(Thread.java:750)
+2024-03-07 08:02:30.844 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ERROR ## findAsPerTimestampInSpecificLogFile has an error
+java.io.IOException: Received error packet: errno = 1236, sqlstate = HY000 errmsg = Could not find first log file name in binary log index file
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:102)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.seek(MysqlConnection.java:150)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlEventParser.findAsPerTimestampInSpecificLogFile(MysqlEventParser.java:775)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlEventParser.findEndPositionWithMasterIdAndTimestamp(MysqlEventParser.java:386)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlEventParser.findStartPositionInternal(MysqlEventParser.java:442)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlEventParser.findStartPosition(MysqlEventParser.java:360)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:186)
+	at java.lang.Thread.run(Thread.java:750)
+2024-03-07 08:02:30.846 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - dump address /192.168.2.241:6033 has an error, retrying. caused by 
+com.alibaba.otter.canal.parse.exception.PositionNotFoundException: can't find start position for vapp
+2024-03-07 08:02:30.846 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR com.alibaba.otter.canal.common.alarm.LogAlarmHandler - destination:vapp[com.alibaba.otter.canal.parse.exception.PositionNotFoundException: can't find start position for vapp
+]
+2024-03-07 08:02:46.493 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ---> begin to find start position, it will be long time for reset or first position
+2024-03-07 08:02:46.494 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - prepare to find start position just show master status
+2024-03-07 08:02:46.504 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR c.a.o.canal.parse.inbound.mysql.dbsync.DirectLogFetcher - I/O error while reading from client socket
+java.io.IOException: EOF encountered.
+	at com.alibaba.otter.canal.parse.driver.mysql.socket.BioSocketChannel.read(BioSocketChannel.java:113)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch0(DirectLogFetcher.java:170)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:77)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.seek(MysqlConnection.java:150)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlEventParser.findAsPerTimestampInSpecificLogFile(MysqlEventParser.java:775)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlEventParser.findEndPositionWithMasterIdAndTimestamp(MysqlEventParser.java:386)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlEventParser.findStartPositionInternal(MysqlEventParser.java:442)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlEventParser.findStartPosition(MysqlEventParser.java:360)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:186)
+	at java.lang.Thread.run(Thread.java:750)
+2024-03-07 08:02:46.504 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ERROR ## findAsPerTimestampInSpecificLogFile has an error
+java.io.IOException: EOF encountered.
+	at com.alibaba.otter.canal.parse.driver.mysql.socket.BioSocketChannel.read(BioSocketChannel.java:113)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch0(DirectLogFetcher.java:170)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:77)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.seek(MysqlConnection.java:150)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlEventParser.findAsPerTimestampInSpecificLogFile(MysqlEventParser.java:775)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlEventParser.findEndPositionWithMasterIdAndTimestamp(MysqlEventParser.java:386)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlEventParser.findStartPositionInternal(MysqlEventParser.java:442)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlEventParser.findStartPosition(MysqlEventParser.java:360)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:186)
+	at java.lang.Thread.run(Thread.java:750)
+2024-03-07 08:02:46.504 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - dump address /192.168.2.241:6033 has an error, retrying. caused by 
+com.alibaba.otter.canal.parse.exception.PositionNotFoundException: can't find start position for vapp
+2024-03-07 08:02:46.505 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR com.alibaba.otter.canal.common.alarm.LogAlarmHandler - destination:vapp[com.alibaba.otter.canal.parse.exception.PositionNotFoundException: can't find start position for vapp
+]
+2024-03-07 08:03:05.941 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ---> begin to find start position, it will be long time for reset or first position
+2024-03-07 08:03:05.941 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - prepare to find start position just show master status
+2024-03-07 08:03:11.495 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ---> find start position successfully, EntryPosition[included=false,journalName=mysql-bin.000002,position=13809330,serverId=31,gtid=,timestamp=1709798564000] cost : 5554ms , the next step is binlog dump
+2024-03-07 08:03:40.189 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR c.a.o.canal.parse.inbound.mysql.dbsync.DirectLogFetcher - Socket timeout expired, closing connection
+java.net.SocketTimeoutException: Timeout occurred, failed to read total 4 bytes in 25000 milliseconds, actual read only 0 bytes
+	at com.alibaba.otter.canal.parse.driver.mysql.socket.BioSocketChannel.read(BioSocketChannel.java:124)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch0(DirectLogFetcher.java:170)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:77)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+2024-03-07 08:03:40.189 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - dump address /192.168.2.241:6033 has an error, retrying. caused by 
+java.net.SocketTimeoutException: Timeout occurred, failed to read total 4 bytes in 25000 milliseconds, actual read only 0 bytes
+	at com.alibaba.otter.canal.parse.driver.mysql.socket.BioSocketChannel.read(BioSocketChannel.java:124)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch0(DirectLogFetcher.java:170)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:77)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+2024-03-07 08:03:40.190 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR com.alibaba.otter.canal.common.alarm.LogAlarmHandler - destination:vapp[java.net.SocketTimeoutException: Timeout occurred, failed to read total 4 bytes in 25000 milliseconds, actual read only 0 bytes
+	at com.alibaba.otter.canal.parse.driver.mysql.socket.BioSocketChannel.read(BioSocketChannel.java:124)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch0(DirectLogFetcher.java:170)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:77)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+]
+2024-03-07 08:03:59.277 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ---> begin to find start position, it will be long time for reset or first position
+2024-03-07 08:03:59.337 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - prepare to find start position just last position
+ {"identity":{"slaveId":-1,"sourceAddress":{"address":"192.168.2.241","port":6033}},"postion":{"gtid":"","included":false,"journalName":"mysql-bin.000002","position":13810608,"serverId":31,"timestamp":1709798594000}}
+2024-03-07 08:03:59.341 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ---> find start position successfully, EntryPosition[included=false,journalName=mysql-bin.000002,position=13810608,serverId=31,gtid=,timestamp=1709798594000] cost : 64ms , the next step is binlog dump
+2024-03-07 08:04:41.258 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR c.a.o.canal.parse.inbound.mysql.dbsync.DirectLogFetcher - Socket timeout expired, closing connection
+java.net.SocketTimeoutException: Timeout occurred, failed to read total 4 bytes in 25000 milliseconds, actual read only 0 bytes
+	at com.alibaba.otter.canal.parse.driver.mysql.socket.BioSocketChannel.read(BioSocketChannel.java:124)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch0(DirectLogFetcher.java:170)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:77)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+2024-03-07 08:04:41.258 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - dump address 192.168.2.241/192.168.2.241:6033 has an error, retrying. caused by 
+java.net.SocketTimeoutException: Timeout occurred, failed to read total 4 bytes in 25000 milliseconds, actual read only 0 bytes
+	at com.alibaba.otter.canal.parse.driver.mysql.socket.BioSocketChannel.read(BioSocketChannel.java:124)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch0(DirectLogFetcher.java:170)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:77)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+2024-03-07 08:04:41.259 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR com.alibaba.otter.canal.common.alarm.LogAlarmHandler - destination:vapp[java.net.SocketTimeoutException: Timeout occurred, failed to read total 4 bytes in 25000 milliseconds, actual read only 0 bytes
+	at com.alibaba.otter.canal.parse.driver.mysql.socket.BioSocketChannel.read(BioSocketChannel.java:124)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch0(DirectLogFetcher.java:170)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:77)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+]
+2024-03-07 08:04:57.930 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ---> begin to find start position, it will be long time for reset or first position
+2024-03-07 08:04:57.931 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - prepare to find start position just last position
+ {"identity":{"slaveId":-1,"sourceAddress":{"address":"192.168.2.241","port":6033}},"postion":{"gtid":"","included":false,"journalName":"mysql-bin.000002","position":13813218,"serverId":31,"timestamp":1709798655000}}
+2024-03-07 08:04:57.935 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ---> find start position successfully, EntryPosition[included=false,journalName=mysql-bin.000002,position=13813218,serverId=31,gtid=,timestamp=1709798655000] cost : 5ms , the next step is binlog dump
+2024-03-07 08:05:59.388 [Thread-6] INFO  c.a.otter.canal.instance.core.AbstractCanalInstance - stop CannalInstance for null-vapp 
+2024-03-07 08:05:59.422 [Thread-6] INFO  c.a.otter.canal.instance.core.AbstractCanalInstance - stop successful....
+2024-03-07 08:06:02.984 [main] INFO  c.a.otter.canal.instance.spring.CanalInstanceWithSpring - start CannalInstance for 1-vapp 
+2024-03-07 08:06:03.754 [main] WARN  c.a.o.canal.parse.inbound.mysql.dbsync.LogEventConvert - --> init table filter : ^vapp_inventory.vaccination_site$|^vapp_inventory.vaccine$
+2024-03-07 08:06:03.755 [main] WARN  c.a.o.canal.parse.inbound.mysql.dbsync.LogEventConvert - --> init table black filter : ^mysql\.slave_.*$
+2024-03-07 08:06:03.761 [main] INFO  c.a.otter.canal.instance.core.AbstractCanalInstance - start successful....
+2024-03-07 08:06:03.860 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ---> begin to find start position, it will be long time for reset or first position
+2024-03-07 08:06:03.860 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - prepare to find start position just show master status
+2024-03-07 08:06:11.986 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ---> find start position successfully, EntryPosition[included=false,journalName=mysql-bin.000002,position=13817160,serverId=31,gtid=,timestamp=1709798748000] cost : 8117ms , the next step is binlog dump
+2024-03-07 08:06:12.017 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR c.a.o.canal.parse.inbound.mysql.dbsync.DirectLogFetcher - I/O error while reading from client socket
+java.io.IOException: Received error packet: errno = 1236, sqlstate = HY000 errmsg = Could not find first log file name in binary log index file
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:102)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+2024-03-07 08:06:12.017 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - dump address /192.168.2.241:6033 has an error, retrying. caused by 
+java.io.IOException: Received error packet: errno = 1236, sqlstate = HY000 errmsg = Could not find first log file name in binary log index file
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:102)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+2024-03-07 08:06:12.019 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR com.alibaba.otter.canal.common.alarm.LogAlarmHandler - destination:vapp[java.io.IOException: Received error packet: errno = 1236, sqlstate = HY000 errmsg = Could not find first log file name in binary log index file
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:102)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+]
+2024-03-07 08:06:22.973 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ---> begin to find start position, it will be long time for reset or first position
+2024-03-07 08:06:22.973 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - prepare to find start position just show master status
+2024-03-07 08:06:41.616 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ---> find start position successfully, EntryPosition[included=false,journalName=mysql-bin.000002,position=13818465,serverId=31,gtid=,timestamp=1709798778000] cost : 18643ms , the next step is binlog dump
+2024-03-07 08:06:41.632 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR c.a.o.canal.parse.inbound.mysql.dbsync.DirectLogFetcher - I/O error while reading from client socket
+java.io.IOException: EOF encountered.
+	at com.alibaba.otter.canal.parse.driver.mysql.socket.BioSocketChannel.read(BioSocketChannel.java:113)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch0(DirectLogFetcher.java:170)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:77)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+2024-03-07 08:06:41.632 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - dump address /192.168.2.241:6033 has an error, retrying. caused by 
+java.io.IOException: EOF encountered.
+	at com.alibaba.otter.canal.parse.driver.mysql.socket.BioSocketChannel.read(BioSocketChannel.java:113)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch0(DirectLogFetcher.java:170)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:77)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+2024-03-07 08:06:41.633 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR com.alibaba.otter.canal.common.alarm.LogAlarmHandler - destination:vapp[java.io.IOException: EOF encountered.
+	at com.alibaba.otter.canal.parse.driver.mysql.socket.BioSocketChannel.read(BioSocketChannel.java:113)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch0(DirectLogFetcher.java:170)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:77)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+]
+2024-03-07 08:06:54.189 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ---> begin to find start position, it will be long time for reset or first position
+2024-03-07 08:06:54.190 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - prepare to find start position just show master status
+2024-03-07 08:07:11.479 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ---> find start position successfully, EntryPosition[included=false,journalName=mysql-bin.000002,position=13819770,serverId=31,gtid=,timestamp=1709798809000] cost : 17290ms , the next step is binlog dump
+2024-03-07 08:09:16.062 [Thread-6] INFO  c.a.otter.canal.instance.core.AbstractCanalInstance - stop CannalInstance for null-vapp 
+2024-03-07 08:09:16.599 [Thread-6] INFO  c.a.otter.canal.instance.core.AbstractCanalInstance - stop successful....
+2024-03-07 08:09:19.833 [main] INFO  c.a.otter.canal.instance.spring.CanalInstanceWithSpring - start CannalInstance for 1-vapp 
+2024-03-07 08:09:20.536 [main] WARN  c.a.o.canal.parse.inbound.mysql.dbsync.LogEventConvert - --> init table filter : ^vapp_inventory.vaccination_site$|^vapp_inventory.vaccine$
+2024-03-07 08:09:20.536 [main] WARN  c.a.o.canal.parse.inbound.mysql.dbsync.LogEventConvert - --> init table black filter : ^mysql\.slave_.*$
+2024-03-07 08:09:20.540 [main] INFO  c.a.otter.canal.instance.core.AbstractCanalInstance - start successful....
+2024-03-07 08:09:20.633 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ---> begin to find start position, it will be long time for reset or first position
+2024-03-07 08:09:20.633 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - prepare to find start position just show master status
+2024-03-07 08:09:22.332 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ---> find start position successfully, EntryPosition[included=false,journalName=mysql-bin.000002,position=13825427,serverId=31,gtid=,timestamp=1709798951000] cost : 1689ms , the next step is binlog dump
+2024-03-07 08:12:15.743 [Thread-6] INFO  c.a.otter.canal.instance.core.AbstractCanalInstance - stop CannalInstance for null-vapp 
+2024-03-07 08:12:16.011 [Thread-6] INFO  c.a.otter.canal.instance.core.AbstractCanalInstance - stop successful....
+2024-03-07 08:12:19.578 [main] INFO  c.a.otter.canal.instance.spring.CanalInstanceWithSpring - start CannalInstance for 1-vapp 
+2024-03-07 08:12:20.309 [main] WARN  c.a.o.canal.parse.inbound.mysql.dbsync.LogEventConvert - --> init table filter : ^vapp_inventory.vaccination_site$|^vapp_inventory.vaccine$
+2024-03-07 08:12:20.309 [main] WARN  c.a.o.canal.parse.inbound.mysql.dbsync.LogEventConvert - --> init table black filter : ^mysql\.slave_.*$
+2024-03-07 08:12:20.313 [main] INFO  c.a.otter.canal.instance.core.AbstractCanalInstance - start successful....
+2024-03-07 08:12:20.435 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ---> begin to find start position, it will be long time for reset or first position
+2024-03-07 08:12:20.436 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - prepare to find start position just show master status
+2024-03-07 08:12:26.023 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ---> find start position successfully, EntryPosition[included=false,journalName=mysql-bin.000002,position=13833835,serverId=31,gtid=,timestamp=1709799131000] cost : 5579ms , the next step is binlog dump
+2024-03-07 08:23:07.160 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR c.a.o.canal.parse.inbound.mysql.dbsync.DirectLogFetcher - Socket timeout expired, closing connection
+java.net.SocketTimeoutException: Timeout occurred, failed to read total 4 bytes in 25000 milliseconds, actual read only 0 bytes
+	at com.alibaba.otter.canal.parse.driver.mysql.socket.BioSocketChannel.read(BioSocketChannel.java:124)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch0(DirectLogFetcher.java:170)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:77)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+2024-03-07 08:23:07.161 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - dump address /192.168.2.241:6033 has an error, retrying. caused by 
+java.net.SocketTimeoutException: Timeout occurred, failed to read total 4 bytes in 25000 milliseconds, actual read only 0 bytes
+	at com.alibaba.otter.canal.parse.driver.mysql.socket.BioSocketChannel.read(BioSocketChannel.java:124)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch0(DirectLogFetcher.java:170)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:77)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+2024-03-07 08:23:07.165 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR com.alibaba.otter.canal.common.alarm.LogAlarmHandler - destination:vapp[java.net.SocketTimeoutException: Timeout occurred, failed to read total 4 bytes in 25000 milliseconds, actual read only 0 bytes
+	at com.alibaba.otter.canal.parse.driver.mysql.socket.BioSocketChannel.read(BioSocketChannel.java:124)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch0(DirectLogFetcher.java:170)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:77)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+]
+2024-03-07 08:23:21.597 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ---> begin to find start position, it will be long time for reset or first position
+2024-03-07 08:23:21.653 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - prepare to find start position just last position
+ {"identity":{"slaveId":-1,"sourceAddress":{"address":"192.168.2.241","port":6033}},"postion":{"gtid":"","included":false,"journalName":"mysql-bin.000002","position":13861791,"serverId":31,"timestamp":1709799761000}}
+2024-03-07 08:23:21.660 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ---> find start position successfully, EntryPosition[included=false,journalName=mysql-bin.000002,position=13861791,serverId=31,gtid=,timestamp=1709799761000] cost : 63ms , the next step is binlog dump
+2024-03-07 08:23:21.671 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR c.a.o.canal.parse.inbound.mysql.dbsync.DirectLogFetcher - I/O error while reading from client socket
+java.io.IOException: Received error packet: errno = 1236, sqlstate = HY000 errmsg = Could not find first log file name in binary log index file
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:102)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+2024-03-07 08:23:21.672 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - dump address 192.168.2.241/192.168.2.241:6033 has an error, retrying. caused by 
+java.io.IOException: Received error packet: errno = 1236, sqlstate = HY000 errmsg = Could not find first log file name in binary log index file
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:102)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+2024-03-07 08:23:21.672 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR com.alibaba.otter.canal.common.alarm.LogAlarmHandler - destination:vapp[java.io.IOException: Received error packet: errno = 1236, sqlstate = HY000 errmsg = Could not find first log file name in binary log index file
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:102)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+]
+2024-03-07 08:23:32.701 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ---> begin to find start position, it will be long time for reset or first position
+2024-03-07 08:23:32.702 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - prepare to find start position just last position
+ {"identity":{"slaveId":-1,"sourceAddress":{"address":"192.168.2.241","port":6033}},"postion":{"gtid":"","included":false,"journalName":"mysql-bin.000002","position":13861791,"serverId":31,"timestamp":1709799761000}}
+2024-03-07 08:23:32.707 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ---> find start position successfully, EntryPosition[included=false,journalName=mysql-bin.000002,position=13861791,serverId=31,gtid=,timestamp=1709799761000] cost : 6ms , the next step is binlog dump
+2024-03-07 08:24:07.224 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR c.a.o.canal.parse.inbound.mysql.dbsync.DirectLogFetcher - Socket timeout expired, closing connection
+java.net.SocketTimeoutException: Timeout occurred, failed to read total 4 bytes in 25000 milliseconds, actual read only 0 bytes
+	at com.alibaba.otter.canal.parse.driver.mysql.socket.BioSocketChannel.read(BioSocketChannel.java:124)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch0(DirectLogFetcher.java:170)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:77)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+2024-03-07 08:24:07.225 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - dump address 192.168.2.241/192.168.2.241:6033 has an error, retrying. caused by 
+java.net.SocketTimeoutException: Timeout occurred, failed to read total 4 bytes in 25000 milliseconds, actual read only 0 bytes
+	at com.alibaba.otter.canal.parse.driver.mysql.socket.BioSocketChannel.read(BioSocketChannel.java:124)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch0(DirectLogFetcher.java:170)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:77)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+2024-03-07 08:24:07.225 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR com.alibaba.otter.canal.common.alarm.LogAlarmHandler - destination:vapp[java.net.SocketTimeoutException: Timeout occurred, failed to read total 4 bytes in 25000 milliseconds, actual read only 0 bytes
+	at com.alibaba.otter.canal.parse.driver.mysql.socket.BioSocketChannel.read(BioSocketChannel.java:124)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch0(DirectLogFetcher.java:170)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:77)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+]
+2024-03-07 08:24:22.028 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ---> begin to find start position, it will be long time for reset or first position
+2024-03-07 08:24:22.028 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - prepare to find start position just last position
+ {"identity":{"slaveId":-1,"sourceAddress":{"address":"192.168.2.241","port":6033}},"postion":{"gtid":"","included":false,"journalName":"mysql-bin.000002","position":13864401,"serverId":31,"timestamp":1709799821000}}
+2024-03-07 08:24:22.032 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ---> find start position successfully, EntryPosition[included=false,journalName=mysql-bin.000002,position=13864401,serverId=31,gtid=,timestamp=1709799821000] cost : 4ms , the next step is binlog dump
+2024-03-07 08:24:22.044 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR c.a.o.canal.parse.inbound.mysql.dbsync.DirectLogFetcher - I/O error while reading from client socket
+java.io.IOException: Received error packet: errno = 1236, sqlstate = HY000 errmsg = Could not find first log file name in binary log index file
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:102)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+2024-03-07 08:24:22.045 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - dump address 192.168.2.241/192.168.2.241:6033 has an error, retrying. caused by 
+java.io.IOException: Received error packet: errno = 1236, sqlstate = HY000 errmsg = Could not find first log file name in binary log index file
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:102)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+2024-03-07 08:24:22.045 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR com.alibaba.otter.canal.common.alarm.LogAlarmHandler - destination:vapp[java.io.IOException: Received error packet: errno = 1236, sqlstate = HY000 errmsg = Could not find first log file name in binary log index file
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:102)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+]
+2024-03-07 08:24:34.401 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ---> begin to find start position, it will be long time for reset or first position
+2024-03-07 08:24:34.401 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - prepare to find start position just last position
+ {"identity":{"slaveId":-1,"sourceAddress":{"address":"192.168.2.241","port":6033}},"postion":{"gtid":"","included":false,"journalName":"mysql-bin.000002","position":13864401,"serverId":31,"timestamp":1709799821000}}
+2024-03-07 08:24:34.406 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ---> find start position successfully, EntryPosition[included=false,journalName=mysql-bin.000002,position=13864401,serverId=31,gtid=,timestamp=1709799821000] cost : 5ms , the next step is binlog dump
+2024-03-07 08:25:07.160 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR c.a.o.canal.parse.inbound.mysql.dbsync.DirectLogFetcher - Socket timeout expired, closing connection
+java.net.SocketTimeoutException: Timeout occurred, failed to read total 4 bytes in 25000 milliseconds, actual read only 0 bytes
+	at com.alibaba.otter.canal.parse.driver.mysql.socket.BioSocketChannel.read(BioSocketChannel.java:124)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch0(DirectLogFetcher.java:170)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:77)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+2024-03-07 08:25:07.161 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - dump address 192.168.2.241/192.168.2.241:6033 has an error, retrying. caused by 
+java.net.SocketTimeoutException: Timeout occurred, failed to read total 4 bytes in 25000 milliseconds, actual read only 0 bytes
+	at com.alibaba.otter.canal.parse.driver.mysql.socket.BioSocketChannel.read(BioSocketChannel.java:124)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch0(DirectLogFetcher.java:170)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:77)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+2024-03-07 08:25:07.162 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR com.alibaba.otter.canal.common.alarm.LogAlarmHandler - destination:vapp[java.net.SocketTimeoutException: Timeout occurred, failed to read total 4 bytes in 25000 milliseconds, actual read only 0 bytes
+	at com.alibaba.otter.canal.parse.driver.mysql.socket.BioSocketChannel.read(BioSocketChannel.java:124)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch0(DirectLogFetcher.java:170)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:77)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+]
+2024-03-07 08:25:26.173 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ---> begin to find start position, it will be long time for reset or first position
+2024-03-07 08:25:26.174 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - prepare to find start position just last position
+ {"identity":{"slaveId":-1,"sourceAddress":{"address":"192.168.2.241","port":6033}},"postion":{"gtid":"","included":false,"journalName":"mysql-bin.000002","position":13867011,"serverId":31,"timestamp":1709799881000}}
+2024-03-07 08:25:26.177 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ---> find start position successfully, EntryPosition[included=false,journalName=mysql-bin.000002,position=13867011,serverId=31,gtid=,timestamp=1709799881000] cost : 4ms , the next step is binlog dump
+2024-03-07 08:26:07.143 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR c.a.o.canal.parse.inbound.mysql.dbsync.DirectLogFetcher - Socket timeout expired, closing connection
+java.net.SocketTimeoutException: Timeout occurred, failed to read total 4 bytes in 25000 milliseconds, actual read only 0 bytes
+	at com.alibaba.otter.canal.parse.driver.mysql.socket.BioSocketChannel.read(BioSocketChannel.java:124)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch0(DirectLogFetcher.java:170)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:77)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+2024-03-07 08:26:07.144 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - dump address 192.168.2.241/192.168.2.241:6033 has an error, retrying. caused by 
+java.net.SocketTimeoutException: Timeout occurred, failed to read total 4 bytes in 25000 milliseconds, actual read only 0 bytes
+	at com.alibaba.otter.canal.parse.driver.mysql.socket.BioSocketChannel.read(BioSocketChannel.java:124)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch0(DirectLogFetcher.java:170)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:77)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+2024-03-07 08:26:07.145 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR com.alibaba.otter.canal.common.alarm.LogAlarmHandler - destination:vapp[java.net.SocketTimeoutException: Timeout occurred, failed to read total 4 bytes in 25000 milliseconds, actual read only 0 bytes
+	at com.alibaba.otter.canal.parse.driver.mysql.socket.BioSocketChannel.read(BioSocketChannel.java:124)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch0(DirectLogFetcher.java:170)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:77)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+]
+2024-03-07 08:26:23.100 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ---> begin to find start position, it will be long time for reset or first position
+2024-03-07 08:26:23.100 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - prepare to find start position just last position
+ {"identity":{"slaveId":-1,"sourceAddress":{"address":"192.168.2.241","port":6033}},"postion":{"gtid":"","included":false,"journalName":"mysql-bin.000002","position":13869621,"serverId":31,"timestamp":1709799941000}}
+2024-03-07 08:26:23.105 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ---> find start position successfully, EntryPosition[included=false,journalName=mysql-bin.000002,position=13869621,serverId=31,gtid=,timestamp=1709799941000] cost : 5ms , the next step is binlog dump
+2024-03-07 08:27:07.041 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR c.a.o.canal.parse.inbound.mysql.dbsync.DirectLogFetcher - Socket timeout expired, closing connection
+java.net.SocketTimeoutException: Timeout occurred, failed to read total 4 bytes in 25000 milliseconds, actual read only 0 bytes
+	at com.alibaba.otter.canal.parse.driver.mysql.socket.BioSocketChannel.read(BioSocketChannel.java:124)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch0(DirectLogFetcher.java:170)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:77)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+2024-03-07 08:27:07.042 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - dump address 192.168.2.241/192.168.2.241:6033 has an error, retrying. caused by 
+java.net.SocketTimeoutException: Timeout occurred, failed to read total 4 bytes in 25000 milliseconds, actual read only 0 bytes
+	at com.alibaba.otter.canal.parse.driver.mysql.socket.BioSocketChannel.read(BioSocketChannel.java:124)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch0(DirectLogFetcher.java:170)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:77)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+2024-03-07 08:27:07.043 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR com.alibaba.otter.canal.common.alarm.LogAlarmHandler - destination:vapp[java.net.SocketTimeoutException: Timeout occurred, failed to read total 4 bytes in 25000 milliseconds, actual read only 0 bytes
+	at com.alibaba.otter.canal.parse.driver.mysql.socket.BioSocketChannel.read(BioSocketChannel.java:124)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch0(DirectLogFetcher.java:170)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:77)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+]
+2024-03-07 08:27:22.283 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ---> begin to find start position, it will be long time for reset or first position
+2024-03-07 08:27:22.283 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - prepare to find start position just last position
+ {"identity":{"slaveId":-1,"sourceAddress":{"address":"192.168.2.241","port":6033}},"postion":{"gtid":"","included":false,"journalName":"mysql-bin.000002","position":13872231,"serverId":31,"timestamp":1709800001000}}
+2024-03-07 08:27:22.288 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ---> find start position successfully, EntryPosition[included=false,journalName=mysql-bin.000002,position=13872231,serverId=31,gtid=,timestamp=1709800001000] cost : 5ms , the next step is binlog dump
+2024-03-07 08:27:22.300 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR c.a.o.canal.parse.inbound.mysql.dbsync.DirectLogFetcher - I/O error while reading from client socket
+java.io.IOException: Received error packet: errno = 1236, sqlstate = HY000 errmsg = Could not find first log file name in binary log index file
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:102)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+2024-03-07 08:27:22.300 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - dump address 192.168.2.241/192.168.2.241:6033 has an error, retrying. caused by 
+java.io.IOException: Received error packet: errno = 1236, sqlstate = HY000 errmsg = Could not find first log file name in binary log index file
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:102)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+2024-03-07 08:27:22.301 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR com.alibaba.otter.canal.common.alarm.LogAlarmHandler - destination:vapp[java.io.IOException: Received error packet: errno = 1236, sqlstate = HY000 errmsg = Could not find first log file name in binary log index file
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:102)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+]
+2024-03-07 08:27:33.045 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ---> begin to find start position, it will be long time for reset or first position
+2024-03-07 08:27:33.048 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - prepare to find start position just last position
+ {"identity":{"slaveId":-1,"sourceAddress":{"address":"192.168.2.241","port":6033}},"postion":{"gtid":"","included":false,"journalName":"mysql-bin.000002","position":13872231,"serverId":31,"timestamp":1709800001000}}
+2024-03-07 08:27:33.051 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ---> find start position successfully, EntryPosition[included=false,journalName=mysql-bin.000002,position=13872231,serverId=31,gtid=,timestamp=1709800001000] cost : 6ms , the next step is binlog dump
+2024-03-07 08:27:33.061 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR c.a.o.canal.parse.inbound.mysql.dbsync.DirectLogFetcher - I/O error while reading from client socket
+java.io.IOException: Received error packet: errno = 1236, sqlstate = HY000 errmsg = Could not find first log file name in binary log index file
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:102)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+2024-03-07 08:27:33.061 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - dump address 192.168.2.241/192.168.2.241:6033 has an error, retrying. caused by 
+java.io.IOException: Received error packet: errno = 1236, sqlstate = HY000 errmsg = Could not find first log file name in binary log index file
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:102)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+2024-03-07 08:27:33.062 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR com.alibaba.otter.canal.common.alarm.LogAlarmHandler - destination:vapp[java.io.IOException: Received error packet: errno = 1236, sqlstate = HY000 errmsg = Could not find first log file name in binary log index file
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:102)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+]
+2024-03-07 08:27:47.678 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ---> begin to find start position, it will be long time for reset or first position
+2024-03-07 08:27:47.681 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - prepare to find start position just last position
+ {"identity":{"slaveId":-1,"sourceAddress":{"address":"192.168.2.241","port":6033}},"postion":{"gtid":"","included":false,"journalName":"mysql-bin.000002","position":13872231,"serverId":31,"timestamp":1709800001000}}
+2024-03-07 08:27:47.685 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ---> find start position successfully, EntryPosition[included=false,journalName=mysql-bin.000002,position=13872231,serverId=31,gtid=,timestamp=1709800001000] cost : 7ms , the next step is binlog dump
+2024-03-07 08:28:37.495 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR c.a.o.canal.parse.inbound.mysql.dbsync.DirectLogFetcher - Socket timeout expired, closing connection
+java.net.SocketTimeoutException: Timeout occurred, failed to read total 4 bytes in 25000 milliseconds, actual read only 0 bytes
+	at com.alibaba.otter.canal.parse.driver.mysql.socket.BioSocketChannel.read(BioSocketChannel.java:124)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch0(DirectLogFetcher.java:170)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:77)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+2024-03-07 08:28:37.495 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - dump address 192.168.2.241/192.168.2.241:6033 has an error, retrying. caused by 
+java.net.SocketTimeoutException: Timeout occurred, failed to read total 4 bytes in 25000 milliseconds, actual read only 0 bytes
+	at com.alibaba.otter.canal.parse.driver.mysql.socket.BioSocketChannel.read(BioSocketChannel.java:124)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch0(DirectLogFetcher.java:170)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:77)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+2024-03-07 08:28:37.496 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR com.alibaba.otter.canal.common.alarm.LogAlarmHandler - destination:vapp[java.net.SocketTimeoutException: Timeout occurred, failed to read total 4 bytes in 25000 milliseconds, actual read only 0 bytes
+	at com.alibaba.otter.canal.parse.driver.mysql.socket.BioSocketChannel.read(BioSocketChannel.java:124)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch0(DirectLogFetcher.java:170)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:77)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+]
+2024-03-07 08:28:50.033 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ---> begin to find start position, it will be long time for reset or first position
+2024-03-07 08:28:50.035 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - prepare to find start position just last position
+ {"identity":{"slaveId":-1,"sourceAddress":{"address":"192.168.2.241","port":6033}},"postion":{"gtid":"","included":false,"journalName":"mysql-bin.000002","position":13876146,"serverId":31,"timestamp":1709800092000}}
+2024-03-07 08:28:50.039 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ---> find start position successfully, EntryPosition[included=false,journalName=mysql-bin.000002,position=13876146,serverId=31,gtid=,timestamp=1709800092000] cost : 6ms , the next step is binlog dump
+2024-03-07 08:28:50.047 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR c.a.o.canal.parse.inbound.mysql.dbsync.DirectLogFetcher - I/O error while reading from client socket
+java.io.IOException: Received error packet: errno = 1236, sqlstate = HY000 errmsg = Could not find first log file name in binary log index file
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:102)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+2024-03-07 08:28:50.047 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - dump address 192.168.2.241/192.168.2.241:6033 has an error, retrying. caused by 
+java.io.IOException: Received error packet: errno = 1236, sqlstate = HY000 errmsg = Could not find first log file name in binary log index file
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:102)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+2024-03-07 08:28:50.048 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR com.alibaba.otter.canal.common.alarm.LogAlarmHandler - destination:vapp[java.io.IOException: Received error packet: errno = 1236, sqlstate = HY000 errmsg = Could not find first log file name in binary log index file
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:102)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+]
+2024-03-07 08:29:01.522 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ---> begin to find start position, it will be long time for reset or first position
+2024-03-07 08:29:01.524 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - prepare to find start position just last position
+ {"identity":{"slaveId":-1,"sourceAddress":{"address":"192.168.2.241","port":6033}},"postion":{"gtid":"","included":false,"journalName":"mysql-bin.000002","position":13876146,"serverId":31,"timestamp":1709800092000}}
+2024-03-07 08:29:01.528 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ---> find start position successfully, EntryPosition[included=false,journalName=mysql-bin.000002,position=13876146,serverId=31,gtid=,timestamp=1709800092000] cost : 6ms , the next step is binlog dump
+2024-03-07 08:29:38.455 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR c.a.o.canal.parse.inbound.mysql.dbsync.DirectLogFetcher - Socket timeout expired, closing connection
+java.net.SocketTimeoutException: Timeout occurred, failed to read total 4 bytes in 25000 milliseconds, actual read only 0 bytes
+	at com.alibaba.otter.canal.parse.driver.mysql.socket.BioSocketChannel.read(BioSocketChannel.java:124)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch0(DirectLogFetcher.java:170)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:77)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+2024-03-07 08:29:38.455 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - dump address 192.168.2.241/192.168.2.241:6033 has an error, retrying. caused by 
+java.net.SocketTimeoutException: Timeout occurred, failed to read total 4 bytes in 25000 milliseconds, actual read only 0 bytes
+	at com.alibaba.otter.canal.parse.driver.mysql.socket.BioSocketChannel.read(BioSocketChannel.java:124)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch0(DirectLogFetcher.java:170)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:77)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+2024-03-07 08:29:38.456 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR com.alibaba.otter.canal.common.alarm.LogAlarmHandler - destination:vapp[java.net.SocketTimeoutException: Timeout occurred, failed to read total 4 bytes in 25000 milliseconds, actual read only 0 bytes
+	at com.alibaba.otter.canal.parse.driver.mysql.socket.BioSocketChannel.read(BioSocketChannel.java:124)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch0(DirectLogFetcher.java:170)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:77)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+]
+2024-03-07 08:29:52.225 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ---> begin to find start position, it will be long time for reset or first position
+2024-03-07 08:29:52.228 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - prepare to find start position just last position
+ {"identity":{"slaveId":-1,"sourceAddress":{"address":"192.168.2.241","port":6033}},"postion":{"gtid":"","included":false,"journalName":"mysql-bin.000002","position":13878756,"serverId":31,"timestamp":1709800153000}}
+2024-03-07 08:29:52.230 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ---> find start position successfully, EntryPosition[included=false,journalName=mysql-bin.000002,position=13878756,serverId=31,gtid=,timestamp=1709800153000] cost : 5ms , the next step is binlog dump
+2024-03-07 08:30:39.300 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR c.a.o.canal.parse.inbound.mysql.dbsync.DirectLogFetcher - Socket timeout expired, closing connection
+java.net.SocketTimeoutException: Timeout occurred, failed to read total 4 bytes in 25000 milliseconds, actual read only 0 bytes
+	at com.alibaba.otter.canal.parse.driver.mysql.socket.BioSocketChannel.read(BioSocketChannel.java:124)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch0(DirectLogFetcher.java:170)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:77)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+2024-03-07 08:30:39.301 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - dump address 192.168.2.241/192.168.2.241:6033 has an error, retrying. caused by 
+java.net.SocketTimeoutException: Timeout occurred, failed to read total 4 bytes in 25000 milliseconds, actual read only 0 bytes
+	at com.alibaba.otter.canal.parse.driver.mysql.socket.BioSocketChannel.read(BioSocketChannel.java:124)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch0(DirectLogFetcher.java:170)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:77)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+2024-03-07 08:30:39.301 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR com.alibaba.otter.canal.common.alarm.LogAlarmHandler - destination:vapp[java.net.SocketTimeoutException: Timeout occurred, failed to read total 4 bytes in 25000 milliseconds, actual read only 0 bytes
+	at com.alibaba.otter.canal.parse.driver.mysql.socket.BioSocketChannel.read(BioSocketChannel.java:124)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch0(DirectLogFetcher.java:170)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:77)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+]
+2024-03-07 08:30:50.440 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ---> begin to find start position, it will be long time for reset or first position
+2024-03-07 08:30:50.443 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - prepare to find start position just last position
+ {"identity":{"slaveId":-1,"sourceAddress":{"address":"192.168.2.241","port":6033}},"postion":{"gtid":"","included":false,"journalName":"mysql-bin.000002","position":13881366,"serverId":31,"timestamp":1709800213000}}
+2024-03-07 08:30:50.447 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ---> find start position successfully, EntryPosition[included=false,journalName=mysql-bin.000002,position=13881366,serverId=31,gtid=,timestamp=1709800213000] cost : 6ms , the next step is binlog dump
+2024-03-07 08:30:50.458 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR c.a.o.canal.parse.inbound.mysql.dbsync.DirectLogFetcher - I/O error while reading from client socket
+java.io.IOException: EOF encountered.
+	at com.alibaba.otter.canal.parse.driver.mysql.socket.BioSocketChannel.read(BioSocketChannel.java:113)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch0(DirectLogFetcher.java:170)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:77)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+2024-03-07 08:30:50.459 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - dump address 192.168.2.241/192.168.2.241:6033 has an error, retrying. caused by 
+java.io.IOException: EOF encountered.
+	at com.alibaba.otter.canal.parse.driver.mysql.socket.BioSocketChannel.read(BioSocketChannel.java:113)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch0(DirectLogFetcher.java:170)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:77)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+2024-03-07 08:30:50.459 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR com.alibaba.otter.canal.common.alarm.LogAlarmHandler - destination:vapp[java.io.IOException: EOF encountered.
+	at com.alibaba.otter.canal.parse.driver.mysql.socket.BioSocketChannel.read(BioSocketChannel.java:113)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch0(DirectLogFetcher.java:170)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:77)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+]
+2024-03-07 08:31:02.648 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ---> begin to find start position, it will be long time for reset or first position
+2024-03-07 08:31:02.651 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - prepare to find start position just last position
+ {"identity":{"slaveId":-1,"sourceAddress":{"address":"192.168.2.241","port":6033}},"postion":{"gtid":"","included":false,"journalName":"mysql-bin.000002","position":13881366,"serverId":31,"timestamp":1709800213000}}
+2024-03-07 08:31:02.654 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ---> find start position successfully, EntryPosition[included=false,journalName=mysql-bin.000002,position=13881366,serverId=31,gtid=,timestamp=1709800213000] cost : 6ms , the next step is binlog dump
+2024-03-07 08:31:02.665 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR c.a.o.canal.parse.inbound.mysql.dbsync.DirectLogFetcher - I/O error while reading from client socket
+java.io.IOException: Received error packet: errno = 1236, sqlstate = HY000 errmsg = Could not find first log file name in binary log index file
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:102)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+2024-03-07 08:31:02.666 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - dump address 192.168.2.241/192.168.2.241:6033 has an error, retrying. caused by 
+java.io.IOException: Received error packet: errno = 1236, sqlstate = HY000 errmsg = Could not find first log file name in binary log index file
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:102)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+2024-03-07 08:31:02.666 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR com.alibaba.otter.canal.common.alarm.LogAlarmHandler - destination:vapp[java.io.IOException: Received error packet: errno = 1236, sqlstate = HY000 errmsg = Could not find first log file name in binary log index file
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:102)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+]
+2024-03-07 08:31:22.561 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ---> begin to find start position, it will be long time for reset or first position
+2024-03-07 08:31:22.564 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - prepare to find start position just last position
+ {"identity":{"slaveId":-1,"sourceAddress":{"address":"192.168.2.241","port":6033}},"postion":{"gtid":"","included":false,"journalName":"mysql-bin.000002","position":13881366,"serverId":31,"timestamp":1709800213000}}
+2024-03-07 08:31:22.574 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ---> find start position successfully, EntryPosition[included=false,journalName=mysql-bin.000002,position=13881366,serverId=31,gtid=,timestamp=1709800213000] cost : 13ms , the next step is binlog dump
+2024-03-07 08:32:10.890 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR c.a.o.canal.parse.inbound.mysql.dbsync.DirectLogFetcher - Socket timeout expired, closing connection
+java.net.SocketTimeoutException: Timeout occurred, failed to read total 4 bytes in 25000 milliseconds, actual read only 0 bytes
+	at com.alibaba.otter.canal.parse.driver.mysql.socket.BioSocketChannel.read(BioSocketChannel.java:124)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch0(DirectLogFetcher.java:170)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:77)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+2024-03-07 08:32:10.890 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - dump address 192.168.2.241/192.168.2.241:6033 has an error, retrying. caused by 
+java.net.SocketTimeoutException: Timeout occurred, failed to read total 4 bytes in 25000 milliseconds, actual read only 0 bytes
+	at com.alibaba.otter.canal.parse.driver.mysql.socket.BioSocketChannel.read(BioSocketChannel.java:124)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch0(DirectLogFetcher.java:170)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:77)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+2024-03-07 08:32:10.891 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR com.alibaba.otter.canal.common.alarm.LogAlarmHandler - destination:vapp[java.net.SocketTimeoutException: Timeout occurred, failed to read total 4 bytes in 25000 milliseconds, actual read only 0 bytes
+	at com.alibaba.otter.canal.parse.driver.mysql.socket.BioSocketChannel.read(BioSocketChannel.java:124)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch0(DirectLogFetcher.java:170)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:77)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+]
+2024-03-07 08:32:22.392 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ---> begin to find start position, it will be long time for reset or first position
+2024-03-07 08:32:22.394 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - prepare to find start position just last position
+ {"identity":{"slaveId":-1,"sourceAddress":{"address":"192.168.2.241","port":6033}},"postion":{"gtid":"","included":false,"journalName":"mysql-bin.000002","position":13885281,"serverId":31,"timestamp":1709800305000}}
+2024-03-07 08:32:22.399 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ---> find start position successfully, EntryPosition[included=false,journalName=mysql-bin.000002,position=13885281,serverId=31,gtid=,timestamp=1709800305000] cost : 6ms , the next step is binlog dump
+2024-03-07 08:33:11.756 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR c.a.o.canal.parse.inbound.mysql.dbsync.DirectLogFetcher - Socket timeout expired, closing connection
+java.net.SocketTimeoutException: Timeout occurred, failed to read total 4 bytes in 25000 milliseconds, actual read only 0 bytes
+	at com.alibaba.otter.canal.parse.driver.mysql.socket.BioSocketChannel.read(BioSocketChannel.java:124)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch0(DirectLogFetcher.java:170)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:77)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+2024-03-07 08:33:11.757 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - dump address 192.168.2.241/192.168.2.241:6033 has an error, retrying. caused by 
+java.net.SocketTimeoutException: Timeout occurred, failed to read total 4 bytes in 25000 milliseconds, actual read only 0 bytes
+	at com.alibaba.otter.canal.parse.driver.mysql.socket.BioSocketChannel.read(BioSocketChannel.java:124)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch0(DirectLogFetcher.java:170)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:77)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+2024-03-07 08:33:11.757 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR com.alibaba.otter.canal.common.alarm.LogAlarmHandler - destination:vapp[java.net.SocketTimeoutException: Timeout occurred, failed to read total 4 bytes in 25000 milliseconds, actual read only 0 bytes
+	at com.alibaba.otter.canal.parse.driver.mysql.socket.BioSocketChannel.read(BioSocketChannel.java:124)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch0(DirectLogFetcher.java:170)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:77)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+]
+2024-03-07 08:33:25.539 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ---> begin to find start position, it will be long time for reset or first position
+2024-03-07 08:33:25.542 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - prepare to find start position just last position
+ {"identity":{"slaveId":-1,"sourceAddress":{"address":"192.168.2.241","port":6033}},"postion":{"gtid":"","included":false,"journalName":"mysql-bin.000002","position":13887796,"serverId":31,"timestamp":1709800366000}}
+2024-03-07 08:33:25.546 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ---> find start position successfully, EntryPosition[included=false,journalName=mysql-bin.000002,position=13887796,serverId=31,gtid=,timestamp=1709800366000] cost : 7ms , the next step is binlog dump
+2024-03-07 08:34:12.919 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR c.a.o.canal.parse.inbound.mysql.dbsync.DirectLogFetcher - Socket timeout expired, closing connection
+java.net.SocketTimeoutException: Timeout occurred, failed to read total 4 bytes in 25000 milliseconds, actual read only 0 bytes
+	at com.alibaba.otter.canal.parse.driver.mysql.socket.BioSocketChannel.read(BioSocketChannel.java:124)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch0(DirectLogFetcher.java:170)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:77)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+2024-03-07 08:34:12.920 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - dump address 192.168.2.241/192.168.2.241:6033 has an error, retrying. caused by 
+java.net.SocketTimeoutException: Timeout occurred, failed to read total 4 bytes in 25000 milliseconds, actual read only 0 bytes
+	at com.alibaba.otter.canal.parse.driver.mysql.socket.BioSocketChannel.read(BioSocketChannel.java:124)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch0(DirectLogFetcher.java:170)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:77)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+2024-03-07 08:34:12.920 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR com.alibaba.otter.canal.common.alarm.LogAlarmHandler - destination:vapp[java.net.SocketTimeoutException: Timeout occurred, failed to read total 4 bytes in 25000 milliseconds, actual read only 0 bytes
+	at com.alibaba.otter.canal.parse.driver.mysql.socket.BioSocketChannel.read(BioSocketChannel.java:124)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch0(DirectLogFetcher.java:170)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:77)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+]
+2024-03-07 08:34:32.717 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ---> begin to find start position, it will be long time for reset or first position
+2024-03-07 08:34:32.719 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - prepare to find start position just last position
+ {"identity":{"slaveId":-1,"sourceAddress":{"address":"192.168.2.241","port":6033}},"postion":{"gtid":"","included":false,"journalName":"mysql-bin.000002","position":13889420,"serverId":31,"timestamp":1709800427000}}
+2024-03-07 08:34:32.725 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ---> find start position successfully, EntryPosition[included=false,journalName=mysql-bin.000002,position=13889420,serverId=31,gtid=,timestamp=1709800427000] cost : 8ms , the next step is binlog dump
+2024-03-07 08:34:32.738 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR c.a.o.canal.parse.inbound.mysql.dbsync.DirectLogFetcher - I/O error while reading from client socket
+java.io.IOException: EOF encountered.
+	at com.alibaba.otter.canal.parse.driver.mysql.socket.BioSocketChannel.read(BioSocketChannel.java:113)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch0(DirectLogFetcher.java:170)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:77)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+2024-03-07 08:34:32.738 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - dump address 192.168.2.241/192.168.2.241:6033 has an error, retrying. caused by 
+java.io.IOException: EOF encountered.
+	at com.alibaba.otter.canal.parse.driver.mysql.socket.BioSocketChannel.read(BioSocketChannel.java:113)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch0(DirectLogFetcher.java:170)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:77)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+2024-03-07 08:34:32.738 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR com.alibaba.otter.canal.common.alarm.LogAlarmHandler - destination:vapp[java.io.IOException: EOF encountered.
+	at com.alibaba.otter.canal.parse.driver.mysql.socket.BioSocketChannel.read(BioSocketChannel.java:113)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch0(DirectLogFetcher.java:170)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:77)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+]
+2024-03-07 08:34:43.639 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ---> begin to find start position, it will be long time for reset or first position
+2024-03-07 08:34:43.642 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - prepare to find start position just last position
+ {"identity":{"slaveId":-1,"sourceAddress":{"address":"192.168.2.241","port":6033}},"postion":{"gtid":"","included":false,"journalName":"mysql-bin.000002","position":13889420,"serverId":31,"timestamp":1709800427000}}
+2024-03-07 08:34:43.645 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ---> find start position successfully, EntryPosition[included=false,journalName=mysql-bin.000002,position=13889420,serverId=31,gtid=,timestamp=1709800427000] cost : 6ms , the next step is binlog dump
+2024-03-07 08:34:43.656 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR c.a.o.canal.parse.inbound.mysql.dbsync.DirectLogFetcher - I/O error while reading from client socket
+java.io.IOException: Received error packet: errno = 1236, sqlstate = HY000 errmsg = Could not find first log file name in binary log index file
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:102)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+2024-03-07 08:34:43.657 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - dump address 192.168.2.241/192.168.2.241:6033 has an error, retrying. caused by 
+java.io.IOException: Received error packet: errno = 1236, sqlstate = HY000 errmsg = Could not find first log file name in binary log index file
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:102)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+2024-03-07 08:34:43.657 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR com.alibaba.otter.canal.common.alarm.LogAlarmHandler - destination:vapp[java.io.IOException: Received error packet: errno = 1236, sqlstate = HY000 errmsg = Could not find first log file name in binary log index file
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:102)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+]
+2024-03-07 08:34:55.091 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ---> begin to find start position, it will be long time for reset or first position
+2024-03-07 08:34:55.093 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - prepare to find start position just last position
+ {"identity":{"slaveId":-1,"sourceAddress":{"address":"192.168.2.241","port":6033}},"postion":{"gtid":"","included":false,"journalName":"mysql-bin.000002","position":13889420,"serverId":31,"timestamp":1709800427000}}
+2024-03-07 08:34:55.096 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ---> find start position successfully, EntryPosition[included=false,journalName=mysql-bin.000002,position=13889420,serverId=31,gtid=,timestamp=1709800427000] cost : 5ms , the next step is binlog dump
+2024-03-07 08:35:44.285 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR c.a.o.canal.parse.inbound.mysql.dbsync.DirectLogFetcher - Socket timeout expired, closing connection
+java.net.SocketTimeoutException: Timeout occurred, failed to read total 4 bytes in 25000 milliseconds, actual read only 0 bytes
+	at com.alibaba.otter.canal.parse.driver.mysql.socket.BioSocketChannel.read(BioSocketChannel.java:124)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch0(DirectLogFetcher.java:170)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:77)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+2024-03-07 08:35:44.286 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - dump address 192.168.2.241/192.168.2.241:6033 has an error, retrying. caused by 
+java.net.SocketTimeoutException: Timeout occurred, failed to read total 4 bytes in 25000 milliseconds, actual read only 0 bytes
+	at com.alibaba.otter.canal.parse.driver.mysql.socket.BioSocketChannel.read(BioSocketChannel.java:124)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch0(DirectLogFetcher.java:170)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:77)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+2024-03-07 08:35:44.286 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR com.alibaba.otter.canal.common.alarm.LogAlarmHandler - destination:vapp[java.net.SocketTimeoutException: Timeout occurred, failed to read total 4 bytes in 25000 milliseconds, actual read only 0 bytes
+	at com.alibaba.otter.canal.parse.driver.mysql.socket.BioSocketChannel.read(BioSocketChannel.java:124)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch0(DirectLogFetcher.java:170)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:77)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+]
+2024-03-07 08:35:58.421 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ---> begin to find start position, it will be long time for reset or first position
+2024-03-07 08:35:58.423 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - prepare to find start position just last position
+ {"identity":{"slaveId":-1,"sourceAddress":{"address":"192.168.2.241","port":6033}},"postion":{"gtid":"","included":false,"journalName":"mysql-bin.000002","position":13891856,"serverId":31,"timestamp":1709800518000}}
+2024-03-07 08:35:58.427 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ---> find start position successfully, EntryPosition[included=false,journalName=mysql-bin.000002,position=13891856,serverId=31,gtid=,timestamp=1709800518000] cost : 6ms , the next step is binlog dump
+2024-03-07 08:35:58.437 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR c.a.o.canal.parse.inbound.mysql.dbsync.DirectLogFetcher - I/O error while reading from client socket
+java.io.IOException: Received error packet: errno = 1236, sqlstate = HY000 errmsg = Could not find first log file name in binary log index file
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:102)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+2024-03-07 08:35:58.438 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - dump address 192.168.2.241/192.168.2.241:6033 has an error, retrying. caused by 
+java.io.IOException: Received error packet: errno = 1236, sqlstate = HY000 errmsg = Could not find first log file name in binary log index file
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:102)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+2024-03-07 08:35:58.438 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR com.alibaba.otter.canal.common.alarm.LogAlarmHandler - destination:vapp[java.io.IOException: Received error packet: errno = 1236, sqlstate = HY000 errmsg = Could not find first log file name in binary log index file
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:102)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+]
+2024-03-07 08:36:12.297 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ---> begin to find start position, it will be long time for reset or first position
+2024-03-07 08:36:12.300 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - prepare to find start position just last position
+ {"identity":{"slaveId":-1,"sourceAddress":{"address":"192.168.2.241","port":6033}},"postion":{"gtid":"","included":false,"journalName":"mysql-bin.000002","position":13891856,"serverId":31,"timestamp":1709800518000}}
+2024-03-07 08:36:12.303 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ---> find start position successfully, EntryPosition[included=false,journalName=mysql-bin.000002,position=13891856,serverId=31,gtid=,timestamp=1709800518000] cost : 6ms , the next step is binlog dump
+2024-03-07 08:36:45.220 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR c.a.o.canal.parse.inbound.mysql.dbsync.DirectLogFetcher - Socket timeout expired, closing connection
+java.net.SocketTimeoutException: Timeout occurred, failed to read total 4 bytes in 25000 milliseconds, actual read only 0 bytes
+	at com.alibaba.otter.canal.parse.driver.mysql.socket.BioSocketChannel.read(BioSocketChannel.java:124)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch0(DirectLogFetcher.java:170)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:77)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+2024-03-07 08:36:45.220 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - dump address 192.168.2.241/192.168.2.241:6033 has an error, retrying. caused by 
+java.net.SocketTimeoutException: Timeout occurred, failed to read total 4 bytes in 25000 milliseconds, actual read only 0 bytes
+	at com.alibaba.otter.canal.parse.driver.mysql.socket.BioSocketChannel.read(BioSocketChannel.java:124)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch0(DirectLogFetcher.java:170)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:77)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+2024-03-07 08:36:45.221 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR com.alibaba.otter.canal.common.alarm.LogAlarmHandler - destination:vapp[java.net.SocketTimeoutException: Timeout occurred, failed to read total 4 bytes in 25000 milliseconds, actual read only 0 bytes
+	at com.alibaba.otter.canal.parse.driver.mysql.socket.BioSocketChannel.read(BioSocketChannel.java:124)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch0(DirectLogFetcher.java:170)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:77)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+]
+2024-03-07 08:37:03.931 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ---> begin to find start position, it will be long time for reset or first position
+2024-03-07 08:37:03.933 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - prepare to find start position just last position
+ {"identity":{"slaveId":-1,"sourceAddress":{"address":"192.168.2.241","port":6033}},"postion":{"gtid":"","included":false,"journalName":"mysql-bin.000002","position":13893480,"serverId":31,"timestamp":1709800579000}}
+2024-03-07 08:37:03.936 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ---> find start position successfully, EntryPosition[included=false,journalName=mysql-bin.000002,position=13893480,serverId=31,gtid=,timestamp=1709800579000] cost : 5ms , the next step is binlog dump
+2024-03-07 08:37:03.950 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR c.a.o.canal.parse.inbound.mysql.dbsync.DirectLogFetcher - I/O error while reading from client socket
+java.io.IOException: Received error packet: errno = 1236, sqlstate = HY000 errmsg = Could not find first log file name in binary log index file
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:102)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+2024-03-07 08:37:03.951 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - dump address 192.168.2.241/192.168.2.241:6033 has an error, retrying. caused by 
+java.io.IOException: Received error packet: errno = 1236, sqlstate = HY000 errmsg = Could not find first log file name in binary log index file
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:102)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+2024-03-07 08:37:03.951 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR com.alibaba.otter.canal.common.alarm.LogAlarmHandler - destination:vapp[java.io.IOException: Received error packet: errno = 1236, sqlstate = HY000 errmsg = Could not find first log file name in binary log index file
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:102)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+]
+2024-03-07 08:37:17.894 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ---> begin to find start position, it will be long time for reset or first position
+2024-03-07 08:37:17.897 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - prepare to find start position just last position
+ {"identity":{"slaveId":-1,"sourceAddress":{"address":"192.168.2.241","port":6033}},"postion":{"gtid":"","included":false,"journalName":"mysql-bin.000002","position":13893480,"serverId":31,"timestamp":1709800579000}}
+2024-03-07 08:37:17.901 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ---> find start position successfully, EntryPosition[included=false,journalName=mysql-bin.000002,position=13893480,serverId=31,gtid=,timestamp=1709800579000] cost : 6ms , the next step is binlog dump
+2024-03-07 08:37:45.854 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR c.a.o.canal.parse.inbound.mysql.dbsync.DirectLogFetcher - Socket timeout expired, closing connection
+java.net.SocketTimeoutException: Timeout occurred, failed to read total 4 bytes in 25000 milliseconds, actual read only 0 bytes
+	at com.alibaba.otter.canal.parse.driver.mysql.socket.BioSocketChannel.read(BioSocketChannel.java:124)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch0(DirectLogFetcher.java:170)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:77)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+2024-03-07 08:37:45.854 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - dump address 192.168.2.241/192.168.2.241:6033 has an error, retrying. caused by 
+java.net.SocketTimeoutException: Timeout occurred, failed to read total 4 bytes in 25000 milliseconds, actual read only 0 bytes
+	at com.alibaba.otter.canal.parse.driver.mysql.socket.BioSocketChannel.read(BioSocketChannel.java:124)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch0(DirectLogFetcher.java:170)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:77)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+2024-03-07 08:37:45.855 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR com.alibaba.otter.canal.common.alarm.LogAlarmHandler - destination:vapp[java.net.SocketTimeoutException: Timeout occurred, failed to read total 4 bytes in 25000 milliseconds, actual read only 0 bytes
+	at com.alibaba.otter.canal.parse.driver.mysql.socket.BioSocketChannel.read(BioSocketChannel.java:124)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch0(DirectLogFetcher.java:170)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:77)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+]
+2024-03-07 08:38:01.528 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ---> begin to find start position, it will be long time for reset or first position
+2024-03-07 08:38:01.531 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - prepare to find start position just last position
+ {"identity":{"slaveId":-1,"sourceAddress":{"address":"192.168.2.241","port":6033}},"postion":{"gtid":"","included":false,"journalName":"mysql-bin.000002","position":13895104,"serverId":31,"timestamp":1709800640000}}
+2024-03-07 08:38:01.535 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ---> find start position successfully, EntryPosition[included=false,journalName=mysql-bin.000002,position=13895104,serverId=31,gtid=,timestamp=1709800640000] cost : 7ms , the next step is binlog dump
+2024-03-07 08:38:47.207 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR c.a.o.canal.parse.inbound.mysql.dbsync.DirectLogFetcher - Socket timeout expired, closing connection
+java.net.SocketTimeoutException: Timeout occurred, failed to read total 4 bytes in 25000 milliseconds, actual read only 0 bytes
+	at com.alibaba.otter.canal.parse.driver.mysql.socket.BioSocketChannel.read(BioSocketChannel.java:124)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch0(DirectLogFetcher.java:170)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:77)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+2024-03-07 08:38:47.208 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - dump address 192.168.2.241/192.168.2.241:6033 has an error, retrying. caused by 
+java.net.SocketTimeoutException: Timeout occurred, failed to read total 4 bytes in 25000 milliseconds, actual read only 0 bytes
+	at com.alibaba.otter.canal.parse.driver.mysql.socket.BioSocketChannel.read(BioSocketChannel.java:124)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch0(DirectLogFetcher.java:170)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:77)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+2024-03-07 08:38:47.209 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR com.alibaba.otter.canal.common.alarm.LogAlarmHandler - destination:vapp[java.net.SocketTimeoutException: Timeout occurred, failed to read total 4 bytes in 25000 milliseconds, actual read only 0 bytes
+	at com.alibaba.otter.canal.parse.driver.mysql.socket.BioSocketChannel.read(BioSocketChannel.java:124)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch0(DirectLogFetcher.java:170)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:77)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+]
+2024-03-07 08:39:01.108 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ---> begin to find start position, it will be long time for reset or first position
+2024-03-07 08:39:01.110 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - prepare to find start position just last position
+ {"identity":{"slaveId":-1,"sourceAddress":{"address":"192.168.2.241","port":6033}},"postion":{"gtid":"","included":false,"journalName":"mysql-bin.000002","position":13896728,"serverId":31,"timestamp":1709800702000}}
+2024-03-07 08:39:01.115 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ---> find start position successfully, EntryPosition[included=false,journalName=mysql-bin.000002,position=13896728,serverId=31,gtid=,timestamp=1709800702000] cost : 6ms , the next step is binlog dump
+2024-03-07 08:39:01.126 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR c.a.o.canal.parse.inbound.mysql.dbsync.DirectLogFetcher - I/O error while reading from client socket
+java.io.IOException: EOF encountered.
+	at com.alibaba.otter.canal.parse.driver.mysql.socket.BioSocketChannel.read(BioSocketChannel.java:113)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch0(DirectLogFetcher.java:170)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:77)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+2024-03-07 08:39:01.127 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - dump address 192.168.2.241/192.168.2.241:6033 has an error, retrying. caused by 
+java.io.IOException: EOF encountered.
+	at com.alibaba.otter.canal.parse.driver.mysql.socket.BioSocketChannel.read(BioSocketChannel.java:113)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch0(DirectLogFetcher.java:170)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:77)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+2024-03-07 08:39:01.127 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR com.alibaba.otter.canal.common.alarm.LogAlarmHandler - destination:vapp[java.io.IOException: EOF encountered.
+	at com.alibaba.otter.canal.parse.driver.mysql.socket.BioSocketChannel.read(BioSocketChannel.java:113)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch0(DirectLogFetcher.java:170)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:77)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+]
+2024-03-07 08:39:17.036 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ---> begin to find start position, it will be long time for reset or first position
+2024-03-07 08:39:17.038 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - prepare to find start position just last position
+ {"identity":{"slaveId":-1,"sourceAddress":{"address":"192.168.2.241","port":6033}},"postion":{"gtid":"","included":false,"journalName":"mysql-bin.000002","position":13896728,"serverId":31,"timestamp":1709800702000}}
+2024-03-07 08:39:17.042 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ---> find start position successfully, EntryPosition[included=false,journalName=mysql-bin.000002,position=13896728,serverId=31,gtid=,timestamp=1709800702000] cost : 5ms , the next step is binlog dump
+2024-03-07 08:39:50.292 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR c.a.o.canal.parse.inbound.mysql.dbsync.DirectLogFetcher - Socket timeout expired, closing connection
+java.net.SocketTimeoutException: Timeout occurred, failed to read total 4 bytes in 25000 milliseconds, actual read only 0 bytes
+	at com.alibaba.otter.canal.parse.driver.mysql.socket.BioSocketChannel.read(BioSocketChannel.java:124)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch0(DirectLogFetcher.java:170)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:77)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+2024-03-07 08:39:50.292 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - dump address 192.168.2.241/192.168.2.241:6033 has an error, retrying. caused by 
+java.net.SocketTimeoutException: Timeout occurred, failed to read total 4 bytes in 25000 milliseconds, actual read only 0 bytes
+	at com.alibaba.otter.canal.parse.driver.mysql.socket.BioSocketChannel.read(BioSocketChannel.java:124)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch0(DirectLogFetcher.java:170)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:77)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+2024-03-07 08:39:50.293 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR com.alibaba.otter.canal.common.alarm.LogAlarmHandler - destination:vapp[java.net.SocketTimeoutException: Timeout occurred, failed to read total 4 bytes in 25000 milliseconds, actual read only 0 bytes
+	at com.alibaba.otter.canal.parse.driver.mysql.socket.BioSocketChannel.read(BioSocketChannel.java:124)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch0(DirectLogFetcher.java:170)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:77)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+]
+2024-03-07 08:40:05.217 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ---> begin to find start position, it will be long time for reset or first position
+2024-03-07 08:40:05.220 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - prepare to find start position just last position
+ {"identity":{"slaveId":-1,"sourceAddress":{"address":"192.168.2.241","port":6033}},"postion":{"gtid":"","included":false,"journalName":"mysql-bin.000002","position":13898722,"serverId":31,"timestamp":1709800765000}}
+2024-03-07 08:40:05.223 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ---> find start position successfully, EntryPosition[included=false,journalName=mysql-bin.000002,position=13898722,serverId=31,gtid=,timestamp=1709800765000] cost : 6ms , the next step is binlog dump
+2024-03-07 08:40:05.234 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR c.a.o.canal.parse.inbound.mysql.dbsync.DirectLogFetcher - I/O error while reading from client socket
+java.io.IOException: Received error packet: errno = 1236, sqlstate = HY000 errmsg = Could not find first log file name in binary log index file
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:102)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+2024-03-07 08:40:05.235 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - dump address 192.168.2.241/192.168.2.241:6033 has an error, retrying. caused by 
+java.io.IOException: Received error packet: errno = 1236, sqlstate = HY000 errmsg = Could not find first log file name in binary log index file
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:102)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+2024-03-07 08:40:05.235 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR com.alibaba.otter.canal.common.alarm.LogAlarmHandler - destination:vapp[java.io.IOException: Received error packet: errno = 1236, sqlstate = HY000 errmsg = Could not find first log file name in binary log index file
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:102)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+]
+2024-03-07 08:40:22.729 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ---> begin to find start position, it will be long time for reset or first position
+2024-03-07 08:40:22.731 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - prepare to find start position just last position
+ {"identity":{"slaveId":-1,"sourceAddress":{"address":"192.168.2.241","port":6033}},"postion":{"gtid":"","included":false,"journalName":"mysql-bin.000002","position":13898722,"serverId":31,"timestamp":1709800765000}}
+2024-03-07 08:40:22.734 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ---> find start position successfully, EntryPosition[included=false,journalName=mysql-bin.000002,position=13898722,serverId=31,gtid=,timestamp=1709800765000] cost : 5ms , the next step is binlog dump
+2024-03-07 08:40:50.254 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR c.a.o.canal.parse.inbound.mysql.dbsync.DirectLogFetcher - Socket timeout expired, closing connection
+java.net.SocketTimeoutException: Timeout occurred, failed to read total 4 bytes in 25000 milliseconds, actual read only 0 bytes
+	at com.alibaba.otter.canal.parse.driver.mysql.socket.BioSocketChannel.read(BioSocketChannel.java:124)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch0(DirectLogFetcher.java:170)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:77)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+2024-03-07 08:40:50.254 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - dump address 192.168.2.241/192.168.2.241:6033 has an error, retrying. caused by 
+java.net.SocketTimeoutException: Timeout occurred, failed to read total 4 bytes in 25000 milliseconds, actual read only 0 bytes
+	at com.alibaba.otter.canal.parse.driver.mysql.socket.BioSocketChannel.read(BioSocketChannel.java:124)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch0(DirectLogFetcher.java:170)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:77)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+2024-03-07 08:40:50.255 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR com.alibaba.otter.canal.common.alarm.LogAlarmHandler - destination:vapp[java.net.SocketTimeoutException: Timeout occurred, failed to read total 4 bytes in 25000 milliseconds, actual read only 0 bytes
+	at com.alibaba.otter.canal.parse.driver.mysql.socket.BioSocketChannel.read(BioSocketChannel.java:124)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch0(DirectLogFetcher.java:170)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:77)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+]
+2024-03-07 08:41:04.022 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ---> begin to find start position, it will be long time for reset or first position
+2024-03-07 08:41:04.023 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - prepare to find start position just last position
+ {"identity":{"slaveId":-1,"sourceAddress":{"address":"192.168.2.241","port":6033}},"postion":{"gtid":"","included":false,"journalName":"mysql-bin.000002","position":13901882,"serverId":31,"timestamp":1709800825000}}
+2024-03-07 08:41:04.026 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ---> find start position successfully, EntryPosition[included=false,journalName=mysql-bin.000002,position=13901882,serverId=31,gtid=,timestamp=1709800825000] cost : 3ms , the next step is binlog dump
+2024-03-07 08:41:04.033 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR c.a.o.canal.parse.inbound.mysql.dbsync.DirectLogFetcher - I/O error while reading from client socket
+java.io.IOException: Received error packet: errno = 1236, sqlstate = HY000 errmsg = Could not find first log file name in binary log index file
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:102)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+2024-03-07 08:41:04.033 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - dump address 192.168.2.241/192.168.2.241:6033 has an error, retrying. caused by 
+java.io.IOException: Received error packet: errno = 1236, sqlstate = HY000 errmsg = Could not find first log file name in binary log index file
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:102)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+2024-03-07 08:41:04.034 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR com.alibaba.otter.canal.common.alarm.LogAlarmHandler - destination:vapp[java.io.IOException: Received error packet: errno = 1236, sqlstate = HY000 errmsg = Could not find first log file name in binary log index file
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:102)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+]
+2024-03-07 08:41:16.528 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ---> begin to find start position, it will be long time for reset or first position
+2024-03-07 08:41:16.531 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - prepare to find start position just last position
+ {"identity":{"slaveId":-1,"sourceAddress":{"address":"192.168.2.241","port":6033}},"postion":{"gtid":"","included":false,"journalName":"mysql-bin.000002","position":13901882,"serverId":31,"timestamp":1709800825000}}
+2024-03-07 08:41:16.535 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ---> find start position successfully, EntryPosition[included=false,journalName=mysql-bin.000002,position=13901882,serverId=31,gtid=,timestamp=1709800825000] cost : 7ms , the next step is binlog dump
+2024-03-07 08:41:50.392 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR c.a.o.canal.parse.inbound.mysql.dbsync.DirectLogFetcher - Socket timeout expired, closing connection
+java.net.SocketTimeoutException: Timeout occurred, failed to read total 4 bytes in 25000 milliseconds, actual read only 0 bytes
+	at com.alibaba.otter.canal.parse.driver.mysql.socket.BioSocketChannel.read(BioSocketChannel.java:124)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch0(DirectLogFetcher.java:170)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:77)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+2024-03-07 08:41:50.392 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - dump address 192.168.2.241/192.168.2.241:6033 has an error, retrying. caused by 
+java.net.SocketTimeoutException: Timeout occurred, failed to read total 4 bytes in 25000 milliseconds, actual read only 0 bytes
+	at com.alibaba.otter.canal.parse.driver.mysql.socket.BioSocketChannel.read(BioSocketChannel.java:124)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch0(DirectLogFetcher.java:170)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:77)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+2024-03-07 08:41:50.393 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR com.alibaba.otter.canal.common.alarm.LogAlarmHandler - destination:vapp[java.net.SocketTimeoutException: Timeout occurred, failed to read total 4 bytes in 25000 milliseconds, actual read only 0 bytes
+	at com.alibaba.otter.canal.parse.driver.mysql.socket.BioSocketChannel.read(BioSocketChannel.java:124)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch0(DirectLogFetcher.java:170)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:77)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+]
+2024-03-07 08:42:06.594 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ---> begin to find start position, it will be long time for reset or first position
+2024-03-07 08:42:06.596 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - prepare to find start position just last position
+ {"identity":{"slaveId":-1,"sourceAddress":{"address":"192.168.2.241","port":6033}},"postion":{"gtid":"","included":false,"journalName":"mysql-bin.000002","position":13904492,"serverId":31,"timestamp":1709800885000}}
+2024-03-07 08:42:06.599 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ---> find start position successfully, EntryPosition[included=false,journalName=mysql-bin.000002,position=13904492,serverId=31,gtid=,timestamp=1709800885000] cost : 5ms , the next step is binlog dump
+2024-03-07 08:42:06.610 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR c.a.o.canal.parse.inbound.mysql.dbsync.DirectLogFetcher - I/O error while reading from client socket
+java.io.IOException: EOF encountered.
+	at com.alibaba.otter.canal.parse.driver.mysql.socket.BioSocketChannel.read(BioSocketChannel.java:113)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch0(DirectLogFetcher.java:170)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:77)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+2024-03-07 08:42:06.611 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - dump address 192.168.2.241/192.168.2.241:6033 has an error, retrying. caused by 
+java.io.IOException: EOF encountered.
+	at com.alibaba.otter.canal.parse.driver.mysql.socket.BioSocketChannel.read(BioSocketChannel.java:113)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch0(DirectLogFetcher.java:170)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:77)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+2024-03-07 08:42:06.611 [destination = vapp , address = /192.168.2.241:6033 , EventParser] ERROR com.alibaba.otter.canal.common.alarm.LogAlarmHandler - destination:vapp[java.io.IOException: EOF encountered.
+	at com.alibaba.otter.canal.parse.driver.mysql.socket.BioSocketChannel.read(BioSocketChannel.java:113)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch0(DirectLogFetcher.java:170)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:77)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:247)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:257)
+	at java.lang.Thread.run(Thread.java:750)
+]
+2024-03-07 08:42:22.140 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ---> begin to find start position, it will be long time for reset or first position
+2024-03-07 08:42:22.144 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - prepare to find start position just last position
+ {"identity":{"slaveId":-1,"sourceAddress":{"address":"192.168.2.241","port":6033}},"postion":{"gtid":"","included":false,"journalName":"mysql-bin.000002","position":13904492,"serverId":31,"timestamp":1709800885000}}
+2024-03-07 08:42:22.147 [destination = vapp , address = /192.168.2.241:6033 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ---> find start position successfully, EntryPosition[included=false,journalName=mysql-bin.000002,position=13904492,serverId=31,gtid=,timestamp=1709800885000] cost : 7ms , the next step is binlog dump

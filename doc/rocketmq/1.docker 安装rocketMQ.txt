@@ -1,0 +1,80 @@
+
+1.执行./2_run_compose.sh通过docker-compose.yml安装rocketmq
+
+2.运行成功后访问管理页面
+
+http://192.168.2.241:8080
+ip:192.168.2.241 配置文件中的Ip
+端口:8080 为docker-compose.yam中配置的 rmqconsole端口
+
+
+3.进入rmqbroker可以执行 rocketmq 的相关命令
+
+(1).docker exec -it rmqbroker /bin/bash  //进入rmqbroker
+
+(2). sh mqadmin clusterList -n 192.168.2.241:9876  //查看集群信息，如果报错则按下面步骤操作后再重新运行命令:
+      修改tools.sh文件以修改jar包引用目录(不然执行命令时会报错org.apache.rocketmq.tools.command.SubCommandException: ClusterListSubCommand command failed )
+    --1.如果不在bin目录则先进入bin目录，cd /home/rocketmq/rocketmq-4.5.2/bin
+    --2. ls  /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.222.b10-0.el7_6.x86_64/jre/lib/ext/   //查看额外引入的jar包路径是否存在
+    --3.vi tools.sh  //将${JAVA_HOME}/jre/lib/ext后加上ext文件夹的绝对路径（jdk路径）
+         修改第40行为:
+         JAVA_OPT="${JAVA_OPT} -Djava.ext.dirs=${BASE_DIR}/lib:${JAVA_HOME}/jre/lib/ext:${JAVA_HOME}/lib/ext:/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.222.b10-0.el7_6.x86_64/jre/lib/ext"
+   --4.保存文件，退出容器 
+   --5.docker restart rmqbroker  //重启rmqbroker
+   --6.docker exec -it rmqbroker /bin/bash  //重新进入rmqbroker
+
+(3).rocketmq命令
+
+    sh mqbroker -m  //查看broker配置
+
+    sh mqadmin clusterList -n 192.168.10.10:9876  //查看集群信息
+   
+    sh mqadmin updateTopic -c DefaultCluster -n localhost:9876 -t testtopic  //创建topic，    sh mqadmin updateTopic -c DefaultCluster -n 192.168.2.241:9876 -t vaccination_record 
+
+    sh mqadmin topicList -n 192.168.10.10:9876  //查看topic列表
+
+    sh mqadmin topicRoute -n 192.168.10.10:9876 -t testtopic1  //查看指定topic路由信息
+
+    sh mqadmin topicStatus -n 192.168.10.10:9876 -t testtopic1  //查看指定topic状态
+
+    sh mqadmin queryMsgByOffset -b broker-b -i 1  -o 0 -t NewUpt_PsgEventTopic -n localhost:9876  //查看指定topic的消息
+
+    sh mqadmin updateSubGroup -n localhost:9876 -c DefaultCluster -g push-consumer-group1  //创建消费者组
+
+    sh mqadmin consumerProgress -n localhost:9876  //查看消费者组
+
+    sh mqadmin brokerStatus -b 192.168.10.10:10911 -n 192.168.10.10:9876  //查看broker状态
+
+    sh mqadmin updateSubGroup -c DefaultCluster -g subgroup1 -n 192.168.10.10:9876  //创建订阅组.如果是对集群扩容，则可以通过指定新的broker地址在扩容的机器上创建一份新的订阅组信息
+
+    sh mqadmin queryMsgByKey -k test100 -t testtopic1  -n 192.168.10.10:9876  //根据key查消息
+
+    sh mqadmin queryMsgByUniqueKey  -i  0B0D308C16C418B4AAC236B77FFB03E3  -n 192.168.10.10:9876 -t testtopic1  //根据unique key查：(非msgid )
+
+(4).tool.sh工具测试收发消息,自动创建开启后，可以利用mq自动的tool.sh工具测试收发消息。（注意是开启了自动创建topic后才行。）在bin目录下执行：
+--1.生产者发送消息：
+    export NAMESRV_ADDR=127.0.0.1:9876
+    sh tools.sh org.apache.rocketmq.example.quickstart.Producer
+
+--2.消费者接受消息：
+    export NAMESRV_ADDR=127.0.0.1:9876
+    sh tools.sh org.apache.rocketmq.example.quickstart.Consumer
+
+4.rocketmq需开启的端口号
+rocketmq :9876    非vip通道端口:10911    vip通道端口:10909
+10909是VIP通道对应的端口，在JAVA中的消费者对象或者是生产者对象中关闭VIP通道即可无需开放10909端口
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

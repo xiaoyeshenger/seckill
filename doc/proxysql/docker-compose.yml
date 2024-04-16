@@ -1,0 +1,18 @@
+version: '3.3'
+services:
+    proxysql:
+      image: proxysql/proxysql:latest
+      container_name: proxysql
+      ports:
+        - "6032:6032"
+        - "6033:6033"
+      volumes:
+        - "/home/docker/proxysql/conf/proxysql.cnf:/etc/proxysql.cnf"
+        - "/home/docker/proxysql/data:/var/lib/proxysql"
+      restart: always
+      privileged: true
+      logging: 
+        driver: "json-file"
+        options: 
+          max-size: "500m"
+

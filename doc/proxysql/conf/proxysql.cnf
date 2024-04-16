@@ -1,0 +1,75 @@
+datadir="/var/lib/proxysql"
+
+#proxysql的管理配置,包括端口和账户,所有的配置信息均可查询proxysql sqlite对应的表结构
+#docker exec -it proxysql mysql -h127.0.0.1 -P6032 -uradmin -pradmin --prompt "ProxySQL Admin>" 进入proxysql命令行 ，show tables 查看所有的表
+#PRAGMA table_info(admin_variables); 查看表结构
+admin_variables=
+{
+    admin_credentials="admin:admin;radmin:radmin"
+    mysql_ifaces="0.0.0.0:6032"
+}
+
+#配置Mysql变量，主要包括proxysql连接Mysql的账户密码 monitor_username="xxx"，monitor_password="xxx",该用户密码需要提前在MGR集群的mysql服务器上添加并授权，可见create_proxysql_monitor_user.sh
+mysql_variables=
+{
+    threads=4
+    max_connections=2048
+    default_query_delay=0
+    default_query_timeout=36000000
+    have_compress=true
+    poll_timeout=2000
+    interfaces="0.0.0.0:6033"
+    default_schema="information_schema"
+    stacksize=1048576
+    server_version="8.0.27"
+    connect_timeout_server=3000
+    monitor_username="monitor"
+    monitor_password="my555888"
+    monitor_history=600000
+    monitor_connect_interval=60000
+    monitor_ping_interval=10000
+    monitor_read_only_interval=1500
+    monitor_read_only_timeout=500
+    ping_interval_server_msec=120000
+    ping_timeout_server=500
+    commands_stats=true
+    sessions_sort=true
+    connect_retries_on_failure=10
+}
+
+#配置对外访问用户,proxusql的对外访问用户即Mysql的一个用户,需要提前在MGR集群的mysql服务器上添加并授权，可见create_proxysql_monitor_user.sh
+mysql_users=
+(
+  {username="proxysql_test", password="my888555", default_hostgroup=1, active=1},
+  {username="root", password="jskjmy666999", default_hostgroup=1, active=1}
+)
+
+#配置Mysql MGR 组复制集群的读写分组，读的组type配置为3，写的组type配置为1,该配置信息存储在proxysql数据库中的mysql_group_replication_hostgroups表;
+mysql_group_replication_hostgroups=
+(
+  {writer_hostgroup=1, backup_writer_hostgroup=2, reader_hostgroup=3, offline_hostgroup=4}
+)
+
+#配置读写分离规则(高性能),读操作的组为reader_hostgroup=3，写操作的组为writer_hostgroup=1
+mysql_query_rules=
+(
+  {rule_id=1, active=1, match_digest="^SELECT .* FOR UPDATE$", destination_hostgroup=1, apply=1},
+  {rule_id=2, active=1, match_digest="^SELECT", destination_hostgroup=3, apply=1}
+)
+
+#配置Mysql MGR 组复制集群的节点列表,配置后可通过在proxysql命令行执行select * from mysql_servers查看配置信息，
+##所有节点的hostgroup均默认配置为1，然后proxysql会根据节点状态再次进行动态分组，服务器实时状态通过select * from runtime_mysql_servers查看
+mysql_servers=
+(
+  {address="192.168.2.241", port=3331, hostgroup=1, max_connections=1000},
+  {address="192.168.2.241", port=3332, hostgroup=3, max_connections=1000},
+  {address="192.168.2.241", port=3333, hostgroup=3, max_connections=1000}
+)
+
+#配置自动故障切换(高可用)，定时器实时监听MGR节点的状态,arg1=写组writer_hostgroup的id即1, arg2=读组reader_hostgroup的id即3, arg3=主节点的个数，此处使用MGR 1主多从架构,所以主节点个数为1，arg4=写节点是否可以用于读, 1(YES, the default value), 0(NO), arg5=日志文件路径
+scheduler=
+(
+  {id=1, active=1, interval_ms=10000, filename="/var/lib/proxysql/gr_sw_mode_checker.sh", arg1="1", arg2="3", arg3="1", arg4="0", arg5="/var/lib/proxysql/gr_sw_mode_checker.log"}
+)
+
+

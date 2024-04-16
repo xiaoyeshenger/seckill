@@ -1,0 +1,17 @@
+version: '3'
+services:
+  nacos:
+    restart: always
+    image: nacos/nacos-server:v2.1.0
+    container_name: nacos
+    environment::
+      MODE: standalone
+      SPRING_DATASOURCE_PLATFORM: mysql
+      MYSQL_SERVICE_HOST: mysql8
+      MYSQL_SERVICE_PORT: 3306
+      MYSQL_SERVICE_DB_NAME: nacos_dev
+      MYSQL_SERVICE_USER: root
+      MYSQL_SERVICE_PASSWORD: root
+    ports:
+      - 8848:8848
+      - 9848:9848

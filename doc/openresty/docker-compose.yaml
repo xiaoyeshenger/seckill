@@ -1,0 +1,18 @@
+version: '3.3'
+services:
+  openresty:
+    restart: always
+    image: openresty/openresty:leaest
+    container_name: openresty
+    ports:
+      - "6060:80"
+      - "6063:443"
+    volumes:
+      - "/usr/share/zoneinfo/Asia/Shanghai:/etc/localtime"
+      - "/usr/share/zoneinfo/Asia/Shanghai:/etc/timezone"
+      - "/home/docker/openresty/conf/nginx.conf:/usr/local/openresty/nginx/conf/nginx.conf"
+      - "/home/docker/openresty/conf/default.conf:/etc/nginx/conf.d/default.conf"
+      - "/home/docker/openresty/lua:/usr/local/openresty/nginx/lua"
+      - "/home/docker/openresty/html:/usr/local/openresty/nginx/html"
+      - "/home/docker/openresty/ssl:/usr/local/openresty/nginx/ssl"
+      - "/home/docker/openresty/logs:/usr/local/openresty/nginx/logs"

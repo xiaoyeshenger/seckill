@@ -1,0 +1,72 @@
+version: '3.3'
+services:
+    mysqlmgr01:
+      image: mysql:8.0.27
+      container_name: mysqlmgr01
+      network_mode: host #网络使用host模式即使用宿主机网络，以便安装在不同物理服务器的MGR节点能够通过group_replication.so插件相互访问
+      #ports:
+        #- "3331:3331"
+        #- "33031:33031"
+      environment:
+        MYSQL_ROOT_PASSWORD: jskjmy666999
+      volumes:
+        - "/home/docker/mysqlmgr/mysqlmgr01/conf/my.cnf:/etc/mysql/my.cnf"
+        - "/home/docker/mysqlmgr/mysqlmgr01/conf/conf.d:/etc/mysql/conf.d"
+        - "/home/docker/mysqlmgr/mysqlmgr01/data:/var/lib/mysql"
+        - "/home/docker/mysqlmgr/mysqlmgr01/mysql-files:/var/lib/mysql-files"
+        - "/home/docker/mysqlmgr/mysqlmgr01/log:/var/log/mysql"
+      restart: always
+      privileged: true
+      security_opt:
+        - seccomp:unconfined
+      logging: 
+        driver: "json-file"
+        options: 
+          max-size: "500m"
+    mysqlmgr02:
+      image: mysql:8.0.27
+      container_name: mysqlmgr02
+      network_mode: host
+      #ports:
+        #- "3332:3332"
+        #- "33032:33032"
+      environment:
+        MYSQL_ROOT_PASSWORD: jskjmy666999
+      volumes:
+        - "/home/docker/mysqlmgr/mysqlmgr02/conf/my.cnf:/etc/mysql/my.cnf"
+        - "/home/docker/mysqlmgr/mysqlmgr02/conf/conf.d:/etc/mysql/conf.d"
+        - "/home/docker/mysqlmgr/mysqlmgr02/data:/var/lib/mysql"
+        - "/home/docker/mysqlmgr/mysqlmgr02/mysql-files:/var/lib/mysql-files"
+        - "/home/docker/mysqlmgr/mysqlmgr02/log:/var/log/mysql"
+      restart: always
+      privileged: true
+      security_opt:
+        - seccomp:unconfined
+      logging:
+        driver: "json-file"
+        options:
+          max-size: "500m"
+    mysqlmgr03:
+      image: mysql:8.0.27
+      container_name: mysqlmgr03
+      network_mode: host
+      #ports:
+        #- "3333:3333"
+        #- "33033:33033"
+      environment:
+        MYSQL_ROOT_PASSWORD: jskjmy666999
+      volumes:
+        - "/home/docker/mysqlmgr/mysqlmgr03/conf/my.cnf:/etc/mysql/my.cnf"
+        - "/home/docker/mysqlmgr/mysqlmgr03/conf/conf.d:/etc/mysql/conf.d"
+        - "/home/docker/mysqlmgr/mysqlmgr03/data:/var/lib/mysql"
+        - "/home/docker/mysqlmgr/mysqlmgr03/mysql-files:/var/lib/mysql-files"
+        - "/home/docker/mysqlmgr/mysqlmgr03/log:/var/log/mysql"
+      restart: always
+      privileged: true
+      security_opt:
+        - seccomp:unconfined
+      logging:
+        driver: "json-file"
+        options:
+          max-size: "500m"
+

@@ -1,0 +1,28 @@
+1.在3台服务器上分别建立文件夹  
+
+mkdir -p /home/docker/mysqlmgr/mysqlmgr01
+
+mkdir -p /home/docker/mysqlmgr/mysqlmgr02
+
+mkdir -p /home/docker/mysqlmgr/mysqlmgr03
+
+2.将0_onekey_deploy.sh , 1_run_compose.sh ,  2_config_master_node.sh 3个文件拷贝至 主(master)服务器的 /home/docker/mysqlmgr 目录下
+    (1).编辑docker-compose.yml 根据情况做实际修改
+    (2). 执行0_onekey_deploy.sh 一键部署master节点并自动化完成配置
+
+3.将0_onekey_deploy.sh , 1_run_compose.sh ,  3_config_slave_node.sh 3个文件拷贝至 从(slave)服务器的 /home/docker/mysqlmgr 目录下
+    (1).编辑docker-compose.yml 根据情况做实际修改
+    (2). 执行0_onekey_deploy.sh 一键部署slave节点并自动化完成配置
+
+
+4.如果单个节点挂掉，重启后需要重新开启同步复制
+
+SELECT * FROM performance_schema.replication_group_members;
+START GROUP_REPLICATION;
+
+5.如果所有节点同时挂掉，重启后需要重新开启同步复制，首先是开启组节点引导，然后再开启读节点。
+ --1.在选定的写节点上执行引导
+set global group_replication_bootstrap_group = ON;
+START GROUP_REPLICATION;
+set global group_replication_bootstrap_group = OFF;
+SELECT * FROM performance_schema.replication_group_members;

@@ -1,0 +1,85 @@
+
+1.canal各个组件的用途
+
+canal-deploy:可将其看做canal server。它负责伪装成mysql从库，接收、解析binlog并投递（不做处理）到指定的目标端（RDS、MQ 或 canal adapter）
+
+canal-adapter:是canal的客户端适配器，可将其看作canal client。能够直接将canal同步的数据写入到目标数据库（hbase,rdb,es），
+rdb是关系型数据库比如MySQL、Oracle、PostgresSQL和SQLServer等，比较的快捷方便。
+
+canal-admin：为canal提供整体配置管理、节点运维等面向运维的功能，提供相对友好的WebUI操作界面，方便更多用户快速和安全的操作。
+
+canal api客户端：canal 特别设计了 client-server 模式，交互协议使用 protobuf 3.0 , client 端可采用不同语言实现不同的消费逻辑
+
+
+
+2.docker-compose安装docker server
+
+
+3.配置
+canal.destinations = example就是指定instance实例的查找位置，如果我们一个canal server需要监听多个instance(平时各个业务线的数据库都是独立的如商品product，仓库warehouse)，
+一个instance监听一个数据库，这是最常见的需求了，这时候我就需要配置多个instance，可以直接把example文件夹拷贝两份，分别用数据库命名新文件夹这样方便我们快速了解该文件夹
+对应的instance是哪个业务线的。然后就是调整canal.properties
+
+
+
+4.sprinngboot项目中使用 
+
+原始的版本(该版本有Bug):
+<dependency>
+    <groupId>top.javatool</groupId>
+    <artifactId>canal-spring-boot-starter</artifactId>
+    <version>1.2.1-RELEASE</version>
+</dependency>
+
+注意:
+(1).1.2.1的版本有一些bug，可参见 https://zhuanlan.zhihu.com/p/375923274  
+
+(2).该依赖在1.2.1-RELEASE后原作者就没再维护了，但是jar包有一些Bug(比如java对象的字段不是string去接收canal字段时会报错)，所以需要使用另一个作者在1.2.1上的封装的1.2.6，
+https://github.com/NormanGyllenhaal/canal-client ，使用方法是需要下载源码下来(源码在本文件同级目录)然后打包成私包再引入使用，首先执行 mvn clean install 打包项目，然后将jar拷贝到本地的maven仓库
+(C:\Users\Administrator\.m2\repository\top\javatool\canal-spring-boot-starter\1.2.6-RELEASE)，
+
+(3).源码需要修改top.javatool.canal.client.util.StringConvertUtil.convertType(方法);
+根据java bean使用的字段类型添加转换规则，比如java bean的字段有byte类型则需要添加如下:
+else if (type.equals(Byte.class)) {
+            return Byte.parseByte(columnValue);
+        }
+
+
+其他项目引用:
+<dependency>
+    <groupId>top.javatool</groupId>
+    <artifactId>canal-spring-boot-starter</artifactId>
+    <version>1.2.6-RELEASE</version>
+</dependency>
+
+
+
+5.新建canal.yml，微服务引入该依赖即可
+canal:
+  server: 192.168.2.243:11111
+  destination: vapp
+logging:
+  level:
+    top.javatool.canal.client: warn
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
