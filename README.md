@@ -61,6 +61,7 @@ Orm框架：MyBatis3 Dynamic Sql
    通过使用Nginx + lua脚本在Ningx启动时获取redis中的库存数量并保存到Nginx本地内存，当疫苗预约接口请求过来时，首先在本地内存判断是否有库存，有的话直接减1，不用再查找redis判断库存，实现极致性能
 
 2).SpringCloud层面
+
 (1).gateway + sentinel实现限流
   在Nginx做了限流后，在系统的网关层利用SpringCloud Gateway + Sentinel也做了同样的限流，每个客户端IP只能在1秒内请求不超过3次
 
