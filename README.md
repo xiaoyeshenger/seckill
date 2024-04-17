@@ -11,25 +11,45 @@
 ![输入图片说明](https://foruda.gitee.com/images/1713264245530081241/eceea6c2_8850735.jpeg "arc_dig.jpg")
 
 2.技术栈
+
 开发环境：IDEA、JDK1.8、Maven、Gitlab
+
 软件架构：Nginx+SpringCloud + Vue + MyBatis3 Dynamic Sql
+
 Web框架：SpringCloudAlibaba 微服务框架
+
 Orm框架：MyBatis3 Dynamic Sql
+
 数据库：Mysql、Redis、MongoDB、RocksDB
+
 分库分表：Sharding-Jdbc
+
 权限控制：Shiro+Jwt
+
 限流组件：Sentinel
+
 实时数据传输：WebSocket
+
 分布式定时：XXX-JOB
+
 分布式事务：Seata
+
 消息队列：RocketMQ
+
 同步组件：Canal
+
 对象存储：Minio
+
 在线文档：Swagger
+
 短信推送：极光推送
+
 反向代理：Nginx (OpenResty)
+
 部署环境：Docker
+
 集群管理：K8s
+
 运行环境：Centos 7.4
 
 
