@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c279343d-db5b-4355-afd3-6fd2d31ea7a8" name="Changes" comment="修改OpenResty">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-    </list>
+    <list default="true" id="c279343d-db5b-4355-afd3-6fd2d31ea7a8" name="Changes" comment="修改README.md" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -285,7 +282,7 @@
       <workItem from="1713235664936" duration="17000" />
       <workItem from="1713235689304" duration="31179000" />
       <workItem from="1713325990724" duration="340000" />
-      <workItem from="1713333912811" duration="634000" />
+      <workItem from="1713333912811" duration="684000" />
     </task>
     <task id="LOCAL-00001" summary="first">
       <created>1709512318474</created>
@@ -441,7 +438,21 @@
       <option name="project" value="LOCAL" />
       <updated>1713326321957</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="修改README.md">
+      <created>1713335133222</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1713335133222</updated>
+    </task>
+    <task id="LOCAL-00024" summary="修改README.md">
+      <created>1713335144670</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1713335144670</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -465,9 +476,9 @@
     <MESSAGE value="doc" />
     <MESSAGE value="高并发秒杀" />
     <MESSAGE value="修改部分k8s文件" />
-    <MESSAGE value="修改README.md" />
     <MESSAGE value="修改OpenResty" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改OpenResty" />
+    <MESSAGE value="修改README.md" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改README.md" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
