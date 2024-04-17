@@ -4,8 +4,31 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c279343d-db5b-4355-afd3-6fd2d31ea7a8" name="Changes" comment="doc">
+    <list default="true" id="c279343d-db5b-4355-afd3-6fd2d31ea7a8" name="Changes" comment="高并发秒杀">
+      <change afterPath="$PROJECT_DIR$/doc/docker/0_onekey_deploy.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/k8s/0_onekey_deploy.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/k8s/1_env-init.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/k8s/2_install_k8s.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/k8s/3_set_resolv_conf.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/k8s/4_set_docker_cgroup.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/k8s/5_init_k8s.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/k8s/6_install_flannel.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/k8s/7_install_ingress_nginx.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/k8s/flannel/cni-plugins-linux-amd64-v0.8.6.tgz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/k8s/flannel/flanneld-v0.12.0-amd64.docker" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/k8s/flannel/install_flannel.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/k8s/flannel/kube-flannel.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/k8s/ingress/ingress-nginx.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/k8s/ingress/ingress.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/k8s/ingress/install_ingress_nginx.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/mongodb/1_run_compose.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/mongodb/docker-compose.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/nacos/nacos_config_export.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/redis/1_run_compose.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/redis/docker-compose.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/debug.2024-04-16.0.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/openresty/lua/seckill/test_init_stock.lua" beforeDir="false" afterPath="$PROJECT_DIR$/doc/openresty/lua/seckill/test_init_stock.lua" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/inventory-service.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/inventory-service.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -52,7 +75,7 @@
     "WebServerToolWindowFactoryState": "false",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "last_opened_file_path": "E:/ideaGitPro/seckill/doc",
+    "last_opened_file_path": "E:/ideaGitPro/seckill/doc/docker",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -71,11 +94,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\ideaGitPro\seckill\doc" />
-      <recent name="E:\ideaGitPro\seckill\doc\mysql" />
-      <recent name="E:\ideaGitPro\seckill\doc\proxysql" />
+      <recent name="E:\ideaGitPro\seckill\doc\docker" />
+      <recent name="E:\ideaGitPro\seckill\doc\redis" />
+      <recent name="E:\ideaGitPro\seckill\doc\mongodb" />
+      <recent name="E:\ideaGitPro\seckill\doc\k8s" />
       <recent name="E:\ideaGitPro\seckill\doc\nacos" />
-      <recent name="E:\ideaGitPro\vapp\codeGen\src\main\java\com\jsxa\vapp\codeGen\po" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -278,7 +301,7 @@
       <workItem from="1713229069998" duration="1601000" />
       <workItem from="1713235510691" duration="143000" />
       <workItem from="1713235664936" duration="17000" />
-      <workItem from="1713235689304" duration="19830000" />
+      <workItem from="1713235689304" duration="25695000" />
     </task>
     <task id="LOCAL-00001" summary="first">
       <created>1709512318474</created>
@@ -336,18 +359,51 @@
       <option name="project" value="LOCAL" />
       <updated>1713265714475</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="高并发秒杀">
+      <created>1713266180870</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1713266180870</updated>
+    </task>
+    <task id="LOCAL-00010" summary="高并发秒杀">
+      <created>1713266206012</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1713266206012</updated>
+    </task>
+    <task id="LOCAL-00011" summary="高并发秒杀">
+      <created>1713266358655</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1713266358655</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first" />
     <MESSAGE value="second" />
     <MESSAGE value="高并发秒杀系统v1" />
     <MESSAGE value="doc" />
-    <option name="LAST_COMMIT_MESSAGE" value="doc" />
+    <MESSAGE value="高并发秒杀" />
+    <option name="LAST_COMMIT_MESSAGE" value="高并发秒杀" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

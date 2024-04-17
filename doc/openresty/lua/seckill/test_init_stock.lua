@@ -39,7 +39,7 @@ if stock_status ~= nil and stock_status ~= "" and stock_status ~= ngx.null then
 end
 
 --(2).预约活动开启状态
-local stock_amount = red:get("RuntimeVaccineStock");
+local stock_amount = red:get("RuntimeProductStock");
 ngx.log(ngx.ERR, "step2--> stock_amount ",stock_amount);
 if stock_amount ~= nil and stock_amount ~= "" and stock_amount ~= ngx.null then
   ngx_cache:set("stock_".. 1 , stock_amount);

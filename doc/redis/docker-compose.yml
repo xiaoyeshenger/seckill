@@ -1,0 +1,17 @@
+version: '3.3'
+services:
+    redis:
+        image: redis:latest
+        restart: always
+        hostname: redis
+        container_name: redis
+        privileged: true
+        ports:
+          - 6379:6379
+        environment:
+          TZ: Asia/Shanghai
+        volumes:
+          - /home/docker/redis/data:/usr/local/redis/data
+          - /home/docker/redis/conf/redis.conf:/usr/local/redis/conf/redis.conf
+          - /home/docker/redis/logs:/usr/local/redis/logs
+        command: ["redis-server","/usr/local/redis/conf/redis.conf"]

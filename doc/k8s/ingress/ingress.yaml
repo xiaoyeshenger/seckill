@@ -1,0 +1,34 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: appjar
+  namespace: develop
+  labels:
+    nginx-ingress: "true"
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    ingress.kubernetes.io/rewrite-target: /
+     #开启use-regex，启用path的正则匹配 
+    nginx.ingress.kubernetes.io/use-regex: "true"
+    #nginx.ingress.kubernetes.io/permanent-redirect-code: '301'
+spec:
+  rules:
+     #定义域名,互联网固定IP就做域名转发，如果是局域网内网IP，则修改/etc/hosts文件 增加域名映射即可
+    - host: qbjks.jszhcs.cn
+      http:
+        paths:
+         #不同path转发到不同端口
+          - path: /hello
+            backend:
+              serviceName: helloworld-svc
+              servicePort: 8080
+          - path: /pm
+            backend:
+              serviceName: pm-svc
+              servicePort: 9619
+
+  #如果使用https访问则放开tls
+  #tls:
+  #- hosts:
+    #- qbjks.jszhcs.cn
+    #secretName: ingress-secret
