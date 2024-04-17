@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c279343d-db5b-4355-afd3-6fd2d31ea7a8" name="Changes" comment="修改部分k8s文件">
+    <list default="true" id="c279343d-db5b-4355-afd3-6fd2d31ea7a8" name="Changes" comment="修改README.md">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/inventory-service.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/inventory-service.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -284,7 +283,7 @@
       <workItem from="1713229069998" duration="1601000" />
       <workItem from="1713235510691" duration="143000" />
       <workItem from="1713235664936" duration="17000" />
-      <workItem from="1713235689304" duration="27883000" />
+      <workItem from="1713235689304" duration="29992000" />
     </task>
     <task id="LOCAL-00001" summary="first">
       <created>1709512318474</created>
@@ -370,7 +369,35 @@
       <option name="project" value="LOCAL" />
       <updated>1713319778516</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="修改README.md">
+      <created>1713322083964</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1713322083964</updated>
+    </task>
+    <task id="LOCAL-00014" summary="修改README.md">
+      <created>1713322161156</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1713322161156</updated>
+    </task>
+    <task id="LOCAL-00015" summary="修改README.md">
+      <created>1713322226323</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1713322226323</updated>
+    </task>
+    <task id="LOCAL-00016" summary="修改README.md">
+      <created>1713322257426</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1713322257426</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -394,7 +421,8 @@
     <MESSAGE value="doc" />
     <MESSAGE value="高并发秒杀" />
     <MESSAGE value="修改部分k8s文件" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改部分k8s文件" />
+    <MESSAGE value="修改README.md" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改README.md" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
