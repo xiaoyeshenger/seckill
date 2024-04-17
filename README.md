@@ -1,8 +1,6 @@
-# seckill 高并发秒杀系统——与京东淘宝同样架构的高并发系统
+# seckill 基于K8s+Docker+Openresty+Lua+SpringCloudAlibaba的高并发秒杀系统——与京东淘宝同样架构
 
 #### 介绍
-seckill 基于K8s+Docker+Openresty+Lua+SpringCloudAlibaba的高并发秒杀系统——与京东淘宝同样架构
-
 基于K8s+Docker+Openresty+Lua+SpringCloudAlibaba的高并发高性能商品秒杀系统，本系统实测单台(16核 32G 主频2.2GHz)openresty(nginx) 的QPS可高达6w并发，如果您需要应对100w的并发，则需要100w/6w=17台openresty服务器，17台服务器同时接收并处理这100w的并发流量呢？当然是商业CDN，您需要结合实际业务考虑是否购买CDN服务，阿里、腾讯、华为、亚马逊均有该服务。
 
 
