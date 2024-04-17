@@ -193,6 +193,8 @@ sh doc/k8s/0_onekey_deploy.sh 一键部署k8s实现docker容器的集群管理
 #### 参与讨论
 
 1.欢迎各位朋友参与讨论
+github地址： https://github.com/xiaoyeshenger/seckill
+gitee地址： https://gitee.com/qj-zye/seckill
 
 2.如需详细了解或帮助，可加我微信 ZZ449557260
 
