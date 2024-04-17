@@ -46,7 +46,7 @@ Orm框架：MyBatis3 Dynamic Sql
 
 4.系统中开展的一些实际工作:
 
-aaa.在Openresty(Nginx)层面
+1).在Openresty(Nginx)层面
 
 (1).Nginx实现流量限制，防止机器作弊
     通过使用Nginx的limit_req_zone模块，实现流量限制为rate=3r/s，即每个客户端IP只能在1秒内请求不超过3次
@@ -60,7 +60,7 @@ aaa.在Openresty(Nginx)层面
 (4).Nginx本地内存实现库存更新和库存感知
    通过使用Nginx + lua脚本在Ningx启动时获取redis中的库存数量并保存到Nginx本地内存，当疫苗预约接口请求过来时，首先在本地内存判断是否有库存，有的话直接减1，不用再查找redis判断库存，实现极致性能
 
-bbb.SpringCloud层面
+2).SpringCloud层面
 (1).gateway + sentinel实现限流
   在Nginx做了限流后，在系统的网关层利用SpringCloud Gateway + Sentinel也做了同样的限流，每个客户端IP只能在1秒内请求不超过3次
 
