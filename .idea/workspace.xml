@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c279343d-db5b-4355-afd3-6fd2d31ea7a8" name="Changes" comment="修改README.md">
+    <list default="true" id="c279343d-db5b-4355-afd3-6fd2d31ea7a8" name="Changes" comment="修改OpenResty">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/inventory-service.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/inventory-service.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/order-service.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/order-service.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -283,7 +283,7 @@
       <workItem from="1713229069998" duration="1601000" />
       <workItem from="1713235510691" duration="143000" />
       <workItem from="1713235664936" duration="17000" />
-      <workItem from="1713235689304" duration="29992000" />
+      <workItem from="1713235689304" duration="31179000" />
     </task>
     <task id="LOCAL-00001" summary="first">
       <created>1709512318474</created>
@@ -397,7 +397,35 @@
       <option name="project" value="LOCAL" />
       <updated>1713322257426</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="修改README.md">
+      <created>1713324429441</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1713324429441</updated>
+    </task>
+    <task id="LOCAL-00018" summary="修改README.md">
+      <created>1713324451556</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1713324451556</updated>
+    </task>
+    <task id="LOCAL-00019" summary="修改OpenResty">
+      <created>1713324554476</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1713324554476</updated>
+    </task>
+    <task id="LOCAL-00020" summary="修改OpenResty">
+      <created>1713324567256</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1713324567256</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -422,7 +450,8 @@
     <MESSAGE value="高并发秒杀" />
     <MESSAGE value="修改部分k8s文件" />
     <MESSAGE value="修改README.md" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改README.md" />
+    <MESSAGE value="修改OpenResty" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改OpenResty" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
