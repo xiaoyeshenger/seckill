@@ -190,9 +190,13 @@ sh doc/canal/1_run_compose.sh.sh 通过docker-compose一键部署cannal
 #### 使用说明
 
 1.运行gateway、inventory、order、sys、ask_center5个微服务
+
 2.使用postman测试接口是否通畅
+
 3.使用jmeter或ab对秒杀接口进行并发测试
+
 4.结果显示并发能力可达**w/s
+
 
 #### 参与贡献
 
