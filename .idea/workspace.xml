@@ -299,6 +299,7 @@
       <workItem from="1713335186335" duration="100000" />
       <workItem from="1713335390282" duration="1722000" />
       <workItem from="1713337234229" duration="63000" />
+      <workItem from="1713345481633" duration="151000" />
     </task>
     <task id="LOCAL-00001" summary="first">
       <created>1709512318474</created>
@@ -552,7 +553,28 @@
       <option name="project" value="LOCAL" />
       <updated>1713337265587</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="修改README.md">
+      <created>1713345528294</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1713345528294</updated>
+    </task>
+    <task id="LOCAL-00038" summary="修改README.md">
+      <created>1713345565270</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1713345565270</updated>
+    </task>
+    <task id="LOCAL-00039" summary="修改README.md">
+      <created>1713345610389</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1713345610389</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
