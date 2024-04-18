@@ -189,7 +189,7 @@ sh doc/canal/1_run_compose.sh.sh 通过docker-compose一键部署cannal
 
 #### 使用说明
 
-1.运行gateway、inventory、order、sys、ask_center5个微服务
+1.运行gateway、inventory、order、sys、task_center5个微服务
 
 2.使用postman测试接口是否通畅
 
