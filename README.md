@@ -126,54 +126,56 @@ Orm框架：MyBatis3 Dynamic Sql
 
 一.环境部署
 
+
 1.安装docker
 
 sh doc/docker/0_onekey_deploy.sh 一键部署docker环境
 
 
-2.安装Mysql MGR集群
+2.安装k8s
 
-sh doc/mysql/0_onekey_deploy.sh 通过docker-compose一键部署Mysql MGR集群实现主从复制
-
-
-3.安装Proxysql中间件
-
-sh doc/proxysql/0_onekey_deploy.sh 通过docker-compose一键部署proxysql中间件实现读写分离
+sh doc/k8s/0_onekey_deploy.sh 一键部署k8s实现docker容器的集群管理
 
 
-4.安装redis
-
-sh doc/rocketmq/1_run_compose.sh.sh 通过docker-compose一键部署redis
-
-
-5.安装mongodb
-
-sh doc/rocketmq/1_run_compose.sh.sh 通过docker-compose一键部署mongodb
-
-
-6.安装rocketmq
-
-sh doc/rocketmq/1_run_compose.sh.sh 通过docker-compose一键部署rocketmq
-
-
-7.安装canal
-
-sh doc/canal/1_run_compose.sh.sh 通过docker-compose一键部署cannal
-
-
-8.安装nacos
-
-sh doc/nacos/1_run_compose.sh.sh 通过docker-compose一键部署nacos，安装按完成后，将配置文件doc/nacos/nacos_config_export.zip导入到nacos
-
-
-9.安装openresty(nginx)
+3.安装openresty(nginx)
 
 sh doc/openresty/1_run_compose.sh.sh.sh 通过docker-compose一键部署openresty
 
 
-10.安装k8s
+4.安装nacos
 
-sh doc/k8s/0_onekey_deploy.sh 一键部署k8s实现docker容器的集群管理
+sh doc/nacos/1_run_compose.sh.sh 通过docker-compose一键部署nacos，安装按完成后，将配置文件doc/nacos/nacos_config_export.zip导入到nacos
+
+
+5.安装mysql mgr集群
+
+sh doc/mysql/0_onekey_deploy.sh 通过docker-compose一键部署Mysql MGR集群实现主从复制
+
+
+6.安装proxysql中间件
+
+sh doc/proxysql/0_onekey_deploy.sh 通过docker-compose一键部署proxysql中间件实现读写分离
+
+
+7.安装redis
+
+sh doc/redis/1_run_compose.sh.sh 通过docker-compose一键部署redis
+
+
+8.安装mongodb
+
+sh doc/mongodb/1_run_compose.sh.sh 通过docker-compose一键部署mongodb
+
+
+9.安装rocketmq
+
+sh doc/rocketmq/1_run_compose.sh.sh 通过docker-compose一键部署rocketmq
+
+
+10.安装canal
+
+sh doc/canal/1_run_compose.sh.sh 通过docker-compose一键部署cannal
+
 
 
 二.导入数据库
